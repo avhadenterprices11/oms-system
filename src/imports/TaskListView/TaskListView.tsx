@@ -1460,6 +1460,24 @@ function Data8() {
   );
 }
 
+function Data() {
+  return (
+    <div className="relative shrink-0 w-[173.67px]" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[16px] items-center relative size-full">
+        <div className="bg-[#5048e5] size-11 rounded-xl flex items-center justify-center shrink-0">
+          <svg className="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <div className="flex flex-col">
+          <span className="font-bold text-[#0f172a] text-[14px]">Authentication Bug</span>
+          <span className="text-[#64748b] text-[11px]">Core Engine</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Row() {
   return (
     <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row 1">

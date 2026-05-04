@@ -6,6 +6,8 @@ interface Department {
   head: string;
   structure: string;
   location: string;
+  businessUnit: string;
+  costCenter: string;
 }
 
 export function SetupDepartmentsForm() {
