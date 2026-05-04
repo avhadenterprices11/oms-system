@@ -1173,7 +1173,7 @@ function Body1() {
         owner="Alex Rivera"
         contacts={12}
         deals={3}
-        icon={<svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p9ca94895} fill="#5048E5"/></svg>}
+        icon={<svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M3 7v14M21 7v14M12 3v18" /></svg>}
         iconBg="bg-[rgba(80,72,229,0.1)]"
       />
       <Row 
@@ -1183,7 +1183,7 @@ function Body1() {
         owner="Sarah Chen"
         contacts={45}
         deals={8}
-        icon={<svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p91a50a31} fill="#D97706"/></svg>}
+        icon={<svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" /></svg>}
         iconBg="bg-[#fef3c7]"
       />
       <Row 
@@ -1193,7 +1193,7 @@ function Body1() {
         owner="Marcus Thorne"
         contacts={8}
         deals={1}
-        icon={<svg className="size-5" viewBox="0 0 16 20" fill="none"><path d={svgPaths.p53676839} fill="#E11D48"/></svg>}
+        icon={<svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.272 1.272L3 12l5.813 1.912a2 2 0 0 1 1.272 1.272L12 21l1.912-5.813a2 2 0 0 1 1.272-1.272L21 12l-5.813-1.912a2 2 0 0 1-1.272-1.272L12 3z" /></svg>}
         iconBg="bg-[#ffe4e6]"
       />
       <Row 
@@ -1203,7 +1203,7 @@ function Body1() {
         owner="Ashwini Kumar"
         contacts={150}
         deals={12}
-        icon={<svg className="size-5" viewBox="0 0 16 16" fill="none"><path d={svgPaths.p9ca94895} fill="#059669"/></svg>}
+        icon={<svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
         iconBg="bg-[#d1fae5]"
       />
       <Row 
@@ -1213,7 +1213,7 @@ function Body1() {
         owner="Bruce Wayne"
         contacts={32}
         deals={5}
-        icon={<svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p9ca94895} fill="#6366f1"/></svg>}
+        icon={<svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M3 7v14M21 7v14M12 3v18" /></svg>}
         iconBg="bg-[#e0e7ff]"
       />
     </div>

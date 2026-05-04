@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Dashboard from "@/imports/Dashboard-1/Dashboard-2-1982";
-import DashboardWidgetManager from "@/imports/DashboardWidgetManager-1/DashboardWidgetManager-2-2639";
+import DashboardWidgetManager from "@/imports/DashboardWidgetManager/DashboardWidgetManager";
 
 export function InteractiveDashboardMain() {
   const [showWidgetManager, setShowWidgetManager] = useState(false);

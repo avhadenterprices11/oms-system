@@ -2,7 +2,12 @@
 import React, { useState, useMemo, useEffect } from "react";
 import svgPaths from "./svg-esue4drt62";
 import imgProfilePic from "./8903f064e14b604493b2a186385c8300714f69a3.png";
-import Link from "next/link";
+import NextLink from "next/link";
+
+const imgAb6AXuAc6HCxsmC2Xg3JGbDvbesnuVahv5QzILlvpxDoU2XJlp6V6PuzpfKsrucTvDfS7Sty7AS9DD66YvkInNpVdzCrkCLgh4TkNRfWgHaoVgmOigeZkGw8IjWfZgq2DJofIlZDhFeimYbvx18UIBfR7Ba9QLoyK4JSsL1U4CeI0XHg5A2EvyRmTmzHOdrHbXYjHi7ZLPtJlMralIhwhCaPtpc16FbSDrXgKxqrLucMWlfynFErLjxBs2Tx1Zw4RRigAlFiXpfj4C3 = imgProfilePic;
+const imgAb6AXuAcF6FMvnMQFdGR2NiQnUpHnxZxI9VAerPn2QGGlxyw268BYUbAcCjTQzoCmVksxqvCttFwggQ729B5QWniUaSHuWCa4RYYf7Pn5E2FNVtj9Z6FEaeI0HFvJhfkXa7IqmKk2OJlpWr7SgsyGxztmSrWnUnnVqpyFLtm6BCLpBuzSiIe9K6EggCeMhDcBw0Jaw0AIxTc6YgvLm9Tu7V5B085P4YB2KzRwDdyV004DU6G5HLaaF0Wbap6T7KTmTa55U2Wj = imgProfilePic;
+const imgAb6AXuBEbk2US7Bl4ICkNx12N3JcFuar4KXeLqIBxkCNqEx2Y1TZcsIsxYgyWp39OxGqxOkPlCwf8PRztCzqaWv0SkUqttUznp6W11XwqTy2Bv0DFOc16UyufZzIfx29X0My9KHsYXhSkmtilrcxUFqbfA7ZtGjxYXursfdqEcwZf9Vr61DhLEQyrfzQvoC0DhEgZgH9T3Qiy5UgEDnznEvFuKoXbN10Kk2G84ZMm3NSaXk6Y2Dg2Hl9JnTRkctDa1JdGrGwKwfQzz = imgProfilePic;
+const imgAb6AXuAEavDDmVioj5WNkkOQDr8L8UeB7Gp5Cb73RjGmzrNLs12FhrfVi8BmvtJr3UiH11RStqtOzPcwp1Xc6NvtEhZEmeUKzpNPp2TgEqCnDWbsf5WBzk3LIrVw6Zl3VNrOmJxaEe3ByG5DGRgkwaWpNqWd1Sr1V8HrZauAjl5PxNwAv6CjSlRrCoBmjc5NY1Ebgg1Pta94UARuBvnvBXzFspy7A1Gj0M3Iflas6DVXetPuIz8PwLhAbVMw7XPbyxdnXxqd90Y2PA = imgProfilePic;
 
 const DashboardContext = React.createContext<any>(null);
 
@@ -738,7 +743,7 @@ function Container21() {
   );
 }
 
-function GreetingQuickActions1() {
+function GreetingQuickActions1_Original() {
   const [greeting, setGreeting] = useState("Good Morning");
   
   useEffect(() => {
@@ -793,7 +798,7 @@ function Container24() {
   );
 }
 
-function Button2() {
+function Button2_Old() {
   return (
     <div className="min-w-[90px] relative rounded-[12px] shrink-0" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-center justify-center min-w-[inherit] p-[12px] relative size-full">
@@ -834,7 +839,7 @@ function Container26() {
   );
 }
 
-function Button3() {
+function Button3_Old() {
   return (
     <div className="min-w-[90px] relative rounded-[12px] shrink-0" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-center justify-center min-w-[inherit] pl-[17.84px] pr-[17.85px] py-[12px] relative size-full">
@@ -875,7 +880,7 @@ function Container28() {
   );
 }
 
-function Button4() {
+function Button4_Old() {
   return (
     <div className="min-w-[90px] relative rounded-[12px] shrink-0" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-center justify-center min-w-[inherit] pl-[24.36px] pr-[24.37px] py-[12px] relative size-full">
@@ -1097,7 +1102,19 @@ function Container41() {
   );
 }
 
-
+function TaskItem() {
+  return (
+    <div className="relative shrink-0 w-full" data-name="Task Item">
+      <div className="flex flex-row items-center size-full">
+        <div className="content-stretch flex gap-[24px] items-center pb-[24px] pt-[25px] px-[24px] relative size-full">
+          <Container32 />
+          <Container33 />
+          <Container41 />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Container42() {
   return (
@@ -1716,7 +1733,7 @@ function Container74() {
   );
 }
 
-function ProjectCard() {
+function ProjectCard_Old() {
   return (
     <div className="bg-white col-1 h-[264.5px] justify-self-stretch relative rounded-[24px] row-1 shrink-0" data-name="Project Card">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" />
@@ -2312,7 +2329,7 @@ function Button7() {
   );
 }
 
-function LeaveSummary() {
+function LeaveSummary_Old() {
   return (
     <div className="relative group rounded-[32px] overflow-hidden shrink-0 w-full transition-all duration-500 hover:scale-[1.02]" data-name="Leave Summary">
       <div className="absolute inset-0 bg-gradient-to-br from-[#5048e5] to-[#7c3aed]" />
@@ -2419,7 +2436,7 @@ function Container29() {
           </div>
           <div className="p-4 space-y-2">
             {tasks.map((task: any) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItemRow key={task.id} task={task} />
             ))}
           </div>
         </div>
@@ -2782,7 +2799,7 @@ function LeaveSummary() {
   );
 }
 
-function TaskItem({ task }: { task: any }) {
+function TaskItemRow({ task }: { task: any }) {
   const { toggleTask } = React.useContext(DashboardContext);
   
   return (

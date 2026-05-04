@@ -826,10 +826,21 @@ function Container64() {
   return <div className="bg-[#10b981] rounded-[4px] shrink-0 size-[8px]" data-name="Container" />;
 }
 
-function Container59() {
+function Container59({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[632px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[632px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container60 />
       <Container61 />
       <Container64 />
