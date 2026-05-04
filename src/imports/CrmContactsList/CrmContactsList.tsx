@@ -1043,6 +1043,7 @@ function EnhancedProjectHeaderSection() {
   );
 }
 
+
 const TABLE_GRID_TEMPLATE = "minmax(300px, 2fr) 180px 180px 220px 120px 120px 100px";
 
 function HeaderCell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
