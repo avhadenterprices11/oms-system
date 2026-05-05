@@ -91,13 +91,9 @@ function Option4() {
 
 function Dropdown() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col h-[34.323px] items-start left-0 pb-[0.556px] pl-[-287.995px] pr-[417.995px] pt-[-167.986px] rounded-[8px] top-0 w-[130px]" data-name="Dropdown">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Option />
-      <Option1 />
-      <Option2 />
-      <Option3 />
-      <Option4 />
+    <div className="absolute bg-white content-stretch flex h-[40px] items-center left-0 px-[16px] rounded-[10px] shadow-sm top-0 w-[140px]" data-name="Dropdown">
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border border-solid inset-0 pointer-events-none rounded-[10px]" />
+      <p className="font-['Inter:Medium',sans-serif] font-medium leading-normal not-italic relative shrink-0 text-[#475569] text-[13px] whitespace-nowrap">Status: All</p>
     </div>
   );
 }
@@ -124,13 +120,9 @@ function Option9() {
 
 function Dropdown1() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col h-[34.323px] items-start left-[142px] pb-[0.556px] pl-[-429.991px] pr-[559.991px] pt-[-167.986px] rounded-[8px] top-0 w-[130px]" data-name="Dropdown">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Option5 />
-      <Option6 />
-      <Option7 />
-      <Option8 />
-      <Option9 />
+    <div className="absolute bg-white content-stretch flex h-[40px] items-center left-[152px] px-[16px] rounded-[10px] shadow-sm top-0 w-[140px]" data-name="Dropdown">
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border border-solid inset-0 pointer-events-none rounded-[10px]" />
+      <p className="font-['Inter:Medium',sans-serif] font-medium leading-normal not-italic relative shrink-0 text-[#475569] text-[13px] whitespace-nowrap">Source: All</p>
     </div>
   );
 }
@@ -153,30 +145,27 @@ function Option13() {
 
 function Dropdown2() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col h-[34.323px] items-start left-[283.99px] pb-[0.556px] pl-[-571.988px] pr-[713.307px] pt-[-167.986px] rounded-[8px] top-0 w-[141.319px]" data-name="Dropdown">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Option10 />
-      <Option11 />
-      <Option12 />
-      <Option13 />
+    <div className="absolute bg-white content-stretch flex h-[40px] items-center left-[304px] px-[16px] rounded-[10px] shadow-sm top-0 w-[150px]" data-name="Dropdown">
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border border-solid inset-0 pointer-events-none rounded-[10px]" />
+      <p className="font-['Inter:Medium',sans-serif] font-medium leading-normal not-italic relative shrink-0 text-[#475569] text-[13px] whitespace-nowrap">Owner: All</p>
     </div>
   );
 }
 
 function TextInput() {
   return (
-    <div className="absolute bg-white h-[33.212px] left-[437.31px] rounded-[8px] top-[0.56px] w-[200px]" data-name="Text Input">
-      <div className="content-stretch flex items-center overflow-clip px-[14px] py-[8px] relative rounded-[inherit] size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[13px] whitespace-nowrap">Search leads...</p>
+    <div className="absolute bg-white h-[40px] left-[466px] rounded-[10px] shadow-sm top-0 w-[240px]" data-name="Text Input">
+      <div className="content-stretch flex items-center overflow-clip px-[16px] relative rounded-[inherit] size-full">
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-normal not-italic relative shrink-0 text-[#94a3b8] text-[13px] whitespace-nowrap">Search leads...</p>
       </div>
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border border-solid inset-0 pointer-events-none rounded-[10px]" />
     </div>
   );
 }
 
 function Container5() {
   return (
-    <div className="absolute h-[34.323px] left-[32px] top-[103.99px] w-[960.009px]" data-name="Container">
+    <div className="absolute h-[40px] left-[32px] top-[103.99px] w-[960.009px]" data-name="Container">
       <Dropdown />
       <Dropdown1 />
       <Dropdown2 />
@@ -1424,7 +1413,7 @@ function Container19() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[790.243px] left-[256px] top-[63.99px] w-[1024.002px]" data-name="Main Content">
+    <div className="absolute h-[790.243px] left-[256px] top-0 w-[1024.002px]" data-name="Main Content">
       <Container />
       <Container5 />
       <Container6 />
@@ -2097,7 +2086,6 @@ export default function CrmLeadsList() {
     <div className="bg-[#f6f6f8] relative size-full" data-name="CRM — Leads List">
       <MainContent />
       <Sidebar />
-      <Header />
     </div>
   );
 }

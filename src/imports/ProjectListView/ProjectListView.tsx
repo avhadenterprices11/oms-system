@@ -962,11 +962,11 @@ function Container20() {
 
 function Button1() {
   return (
-    <div className="bg-white content-stretch drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center px-[21px] py-[11px] relative rounded-[8px] shrink-0" data-name="Button">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-auto justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center w-auto px-1">
-        <p className="leading-[20px] whitespace-nowrap">Edit Details</p>
-      </div>
+    <div className="bg-white border border-[#e2e8f0] flex items-center gap-2 px-[16px] py-[10px] rounded-[8px] cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button:Export">
+      <svg className="size-4 text-[#475569]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4 4m0 0l-4-4m4 4V4" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      <span className="text-[14px] font-bold text-[#0f172a]">Export</span>
     </div>
   );
 }
@@ -985,12 +985,11 @@ function Container39() {
 
 function Button2() {
   return (
-    <div className="bg-[#5048e5] content-stretch flex gap-[7.99px] items-center pb-[11px] pt-[10.5px] px-[20px] relative rounded-[8px] shrink-0" data-name="Button">
-      <div className="absolute bg-[rgba(255,255,255,0)] inset-[0_0.48px_-0.5px_0] rounded-[8px] shadow-[0px_4px_6px_-1px_rgba(80,72,229,0.2),0px_2px_4px_-2px_rgba(80,72,229,0.2)]" data-name="Button:shadow" />
-      <Container39 />
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-center text-white">
-        <p className="leading-[20px] whitespace-nowrap">Share</p>
-      </div>
+    <div className="bg-white border border-[#e2e8f0] flex items-center gap-2 px-[16px] py-[10px] rounded-[8px] cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button:Views">
+      <svg className="size-4 text-[#475569]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+        <path d="M3 6h18M6 12h12M10 18h4" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      <span className="text-[14px] font-bold text-[#0f172a]">Views</span>
     </div>
   );
 }
@@ -1137,9 +1136,9 @@ function EnhancedProjectHeaderSection() {
 function Heading1() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Heading 1">
-      <div className="flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold h-auto justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[30px] tracking-[-0.75px] w-auto">
-        <p className="leading-[37.5px] whitespace-nowrap">Active Tasks</p>
-      </div>
+      <h1 className="text-[30px] font-extrabold text-[#0f172a] tracking-tight leading-tight">
+        Global Projects
+      </h1>
     </div>
   );
 }
@@ -1147,9 +1146,9 @@ function Heading1() {
 function Container41() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[16px]">
-        <p className="leading-[24px]">Track and manage your workspace progress across 12 active initiatives.</p>
-      </div>
+      <p className="text-[#64748b] text-[16px] leading-relaxed max-w-[600px]">
+        Centralized view for all cross-departmental tasks and milestones.
+      </p>
     </div>
   );
 }
@@ -1177,11 +1176,10 @@ function Container43() {
 
 function Button12() {
   return (
-    <div className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[20px] py-[12px] relative rounded-[8px] shrink-0" data-name="Button">
-      <div className="absolute bg-[rgba(255,255,255,0)] inset-[0_0.67px_0_0] rounded-[8px] shadow-[0px_20px_25px_-5px_rgba(80,72,229,0.25),0px_8px_10px_-6px_rgba(80,72,229,0.25)]" data-name="Button:shadow" />
-      <Container43 />
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-auto justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-center text-white w-auto px-1">
-        <p className="leading-[20px] whitespace-nowrap">New Project</p>
+    <div className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[20px] py-[10px] relative rounded-[8px] shrink-0 hover:bg-[#4338ca] transition-colors" data-name="Button">
+      <div className="flex items-center gap-2">
+        <span className="text-white text-lg font-bold">+</span>
+        <span className="font-bold text-[14px] text-center text-white whitespace-nowrap">Add Projects</span>
       </div>
     </div>
   );
@@ -1197,9 +1195,13 @@ function Container42() {
 
 function PageHeaderMainAction() {
   return (
-    <div className="content-stretch flex h-[65.5px] items-end justify-between relative shrink-0 w-full" data-name="Page Header & Main Action">
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-name="Page Header & Main Action">
       <Container40 />
-      <Container42 />
+      <div className="flex items-center gap-3">
+        <Button1 />
+        <Button2 />
+        <Button12 />
+      </div>
     </div>
   );
 }
@@ -1417,12 +1419,19 @@ function Container44() {
       <BackgroundBorder1 />
       <BackgroundBorder2 />
       <BackgroundBorder3 />
+      <div className="bg-[#f8fafc] border border-[#e2e8f0] flex gap-[8px] items-center px-[16px] py-[8px] rounded-[8px] cursor-pointer">
+        <span className="text-[11px] font-bold text-[#64748b] uppercase tracking-wider">Project:</span>
+        <span className="text-[14px] font-bold text-[#0f172a]">All Projects</span>
+        <svg className="size-3.5 text-[#64748b]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
       <ButtonMargin />
     </div>
   );
 }
 
-const TABLE_GRID_TEMPLATE = "minmax(350px, 3fr) 180px 150px 130px 130px 150px 150px 180px";
+const TABLE_GRID_TEMPLATE = "minmax(250px, 1.5fr) 150px 140px 110px 110px 120px 120px 160px";
 
 function HeaderCell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
@@ -1442,8 +1451,8 @@ function HeaderRow() {
       data-name="Header Row"
     >
       <HeaderCell className="pl-8 pr-4">Title</HeaderCell>
-      <HeaderCell className="px-4">Owner</HeaderCell>
-      <HeaderCell className="px-4">Team</HeaderCell>
+      <HeaderCell className="px-4">Assignee</HeaderCell>
+      <HeaderCell className="px-4">Project</HeaderCell>
       <HeaderCell className="px-4">Status</HeaderCell>
       <HeaderCell className="px-4">Priority</HeaderCell>
       <HeaderCell className="px-4">Start Date</HeaderCell>
@@ -1712,8 +1721,8 @@ function Data8() {
 function Row({ 
   title, 
   subtitle, 
-  owner, 
-  teamCount, 
+  assignee, 
+  project, 
   status, 
   priority, 
   startDate, 
@@ -1724,8 +1733,8 @@ function Row({
 }: {
   title: string;
   subtitle: string;
-  owner: string;
-  teamCount: number;
+  assignee: string;
+  project: string;
   status: string;
   priority: string;
   startDate: string;
@@ -1750,27 +1759,18 @@ function Row({
         </div>
       </div>
 
-      {/* Owner */}
+      {/* Assignee */}
       <div className="px-4 py-4 flex items-center gap-2 overflow-hidden">
         <div className="size-7 rounded-full bg-[#e2e8f0] overflow-hidden shrink-0">
           <img src={imgProfilePic.src} alt="" className="size-full object-cover" />
         </div>
-        <span className="font-semibold text-[#0f172a] text-sm !whitespace-nowrap truncate">{owner}</span>
+        <span className="font-semibold text-[#0f172a] text-sm !whitespace-nowrap truncate">{assignee}</span>
       </div>
-
-      {/* Team */}
+ 
+      {/* Project */}
       <div className="px-4 py-4 overflow-hidden">
-        <div className="flex -space-x-2 overflow-hidden">
-          {[...Array(Math.min(teamCount, 3))].map((_, i) => (
-            <div key={i} className="inline-block size-7 rounded-full ring-2 ring-white bg-[#e2e8f0] overflow-hidden">
-              <img src={imgProfilePic.src} alt="" className="size-full object-cover" />
-            </div>
-          ))}
-          {teamCount > 3 && (
-            <div className="flex items-center justify-center size-7 rounded-full ring-2 ring-white bg-[#f1f5f9] text-[10px] font-bold text-[#64748b]">
-              +{teamCount - 3}
-            </div>
-          )}
+        <div className="bg-[#f0f0ff] px-2 py-1 rounded text-[#5048e5] text-[10px] font-bold uppercase whitespace-nowrap inline-block">
+          {project}
         </div>
       </div>
 
@@ -2624,8 +2624,8 @@ function Body1() {
       <Row 
         title="Cloud Migration"
         subtitle="Infrastructure Upgrade"
-        owner="Alex Rivera"
-        teamCount={7}
+        assignee="xyz"
+        project="Core Engine"
         status="Active"
         priority="High"
         startDate="Oct 12, 2023"
@@ -2637,8 +2637,8 @@ function Body1() {
       <Row 
         title="Q4 Marketing Campaign"
         subtitle="Digital Strategy"
-        owner="Sarah Chen"
-        teamCount={2}
+        assignee="xyz"
+        project="Core Engine"
         status="Planning"
         priority="Medium"
         startDate="Nov 01, 2023"
@@ -2650,8 +2650,8 @@ function Body1() {
       <Row 
         title="Security Audit"
         subtitle="Compliance Review"
-        owner="Marcus Thorne"
-        teamCount={3}
+        assignee="xyz"
+        project="Core Engine"
         status="On Hold"
         priority="Critical"
         startDate="Sep 15, 2023"
@@ -2663,8 +2663,8 @@ function Body1() {
       <Row 
         title="Mobile App Redesign"
         subtitle="UX/UI Optimization"
-        owner="Ashwini Kumar"
-        teamCount={5}
+        assignee="xyz"
+        project="Core Engine"
         status="Completed"
         priority="Low"
         startDate="Aug 20, 2023"
@@ -2679,8 +2679,8 @@ function Body1() {
 
 function Table() {
   return (
-    <div className="min-w-[1112px] relative shrink-0 w-full" data-name="Table">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start min-w-[inherit] pb-px relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Table">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-px relative size-full">
         <HeaderRow />
         <Body1 />
       </div>
@@ -2691,7 +2691,7 @@ function Table() {
 function BackgroundBorderShadow1() {
   return (
     <div className="bg-white relative rounded-[24px] shrink-0 w-full" data-name="Background+Border+Shadow">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start overflow-x-auto p-px relative rounded-[inherit] size-full">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start overflow-hidden p-px relative rounded-[inherit] size-full">
         <Table />
       </div>
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" />
@@ -2702,7 +2702,7 @@ function BackgroundBorderShadow1() {
 function BackgroundBorderShadow() {
   return (
     <div className="bg-white relative rounded-[24px] shrink-0 w-full" data-name="Background+Border+Shadow">
-      <div className="content-stretch flex flex-col items-start overflow-clip p-px relative rounded-[inherit] size-full">
+      <div className="content-stretch flex flex-col items-start overflow-hidden p-px relative rounded-[inherit] size-full">
         <BackgroundBorderShadow1 />
       </div>
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" />
@@ -2719,7 +2719,7 @@ function Container83() {
           <span className="font-['Inter:Bold',sans-serif] font-bold leading-[20px] not-italic text-[#0f172a]">4</span>
           <span className="leading-[20px]">{` of `}</span>
           <span className="font-['Inter:Bold',sans-serif] font-bold leading-[20px] not-italic text-[#0f172a]">12</span>
-          <span className="leading-[20px]">{` tasks`}</span>
+          <span className="leading-[20px]">{` projects`}</span>
         </p>
       </div>
     </div>
@@ -2781,9 +2781,10 @@ function ProjectsListContainer() {
 
 function Main() {
   return (
-    <div className="content-stretch flex flex-col gap-[38px] items-start px-[24px] py-[32px] w-full" data-name="Main">
+    <div className="content-stretch flex flex-col gap-[32px] items-start px-[32px] py-[32px] w-full" data-name="Main">
       <PageHeaderMainAction />
       <Container44 />
+      <TabNavigation />
       <ProjectsListContainer />
     </div>
   );
@@ -2791,8 +2792,7 @@ function Main() {
 
 function WorkspaceContent() {
   return (
-    <div className="bg-white relative flex flex-col w-full" data-name="Workspace Content">
-      <EnhancedProjectHeaderSection />
+    <div className="bg-white relative flex flex-col w-full h-full" data-name="Workspace Content">
       <Main />
     </div>
   );

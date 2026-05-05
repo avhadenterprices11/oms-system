@@ -403,8 +403,8 @@ function Settings() {
 
 function Nav() {
   return (
-    <div className="flex-[1_0_0] min-h-px relative w-full" data-name="Nav">
-      <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
+    <div className="flex-[1_0_0] min-h-px relative w-full overflow-y-auto" data-name="Nav">
+      <div className="flex flex-col items-center rounded-[inherit] size-full">
         <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-center px-[16px] py-[8px] relative size-full">
           <Dashboard />
           <Link />
@@ -1013,7 +1013,7 @@ function HorizontalBorder() {
 
 function Container33() {
   return (
-    <div className="absolute content-stretch flex flex-col items-center left-[16px] right-[16.01px] top-[16px]" data-name="Container">
+    <div className="content-stretch flex flex-col items-center relative w-full" data-name="Container">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center w-[94.91px]">
         <p className="leading-[20px]">October 2023</p>
       </div>
@@ -1093,7 +1093,7 @@ function Container41() {
 
 function Container34() {
   return (
-    <div className="absolute grid grid-cols-[repeat(7,minmax(0,1fr))] grid-rows-[_15px] left-[16px] right-[16.01px] top-[52px]" data-name="Container">
+    <div className="grid grid-cols-[repeat(7,minmax(0,1fr))] grid-rows-[_15px] relative w-full" data-name="Container">
       <Container35 />
       <Container36 />
       <Container37 />
@@ -1377,7 +1377,7 @@ function Container63() {
 
 function Container42() {
   return (
-    <div className="absolute gap-y-[4px] grid grid-cols-[repeat(7,minmax(0,1fr))] grid-rows-[____32px_32px_32px_32px] left-[16px] right-[16.01px] top-[75px]" data-name="Container">
+    <div className="gap-y-[4px] grid grid-cols-[repeat(7,minmax(0,1fr))] auto-rows-[32px] relative w-full" data-name="Container">
       <Container43 />
       <Container44 />
       <Container45 />
@@ -1510,7 +1510,7 @@ function Container70() {
 
 function Container64() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[12px] items-start left-[16px] right-[16.01px] top-[239px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative w-full pt-[8px]" data-name="Container">
       <Container65 />
       <Container66 />
       <Container70 />
@@ -1520,8 +1520,8 @@ function Container64() {
 
 function Container32() {
   return (
-    <div className="h-[358px] relative shrink-0 w-full" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
+    <div className="relative w-full" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid flex flex-col gap-[16px] p-[16px] relative w-full">
         <Container33 />
         <Container34 />
         <Container42 />
@@ -1533,8 +1533,8 @@ function Container32() {
 
 function BackgroundBorderShadow3() {
   return (
-    <div className="bg-white relative rounded-[24px] shrink-0 w-full" data-name="Background+Border+Shadow">
-      <div className="content-stretch flex flex-col items-start overflow-clip pb-[55px] pt-px px-px relative rounded-[inherit] size-full">
+    <div className="bg-white relative rounded-[24px] w-full min-h-full" data-name="Background+Border+Shadow">
+      <div className="content-stretch flex flex-col items-stretch pt-px px-px pb-[32px] relative rounded-[inherit] w-full">
         <HorizontalBorder />
         <Container32 />
       </div>
@@ -1545,7 +1545,7 @@ function BackgroundBorderShadow3() {
 
 function SectionCalendarView() {
   return (
-    <div className="col-1 content-stretch flex flex-col items-start justify-center justify-self-stretch relative row-1 self-start shrink-0" data-name="Section - Calendar View">
+    <div className="col-1 content-stretch flex flex-col items-start justify-start justify-self-stretch relative row-1 min-h-full" data-name="Section - Calendar View">
       <BackgroundBorderShadow3 />
     </div>
   );
@@ -1555,7 +1555,7 @@ function Heading2() {
   return (
     <div className="relative shrink-0" data-name="Heading 3">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[24px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[16px] w-[107.55px]">
+        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[24px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[16px] whitespace-nowrap">
           <p className="leading-[24px]">Leave History</p>
         </div>
       </div>
@@ -1567,7 +1567,7 @@ function Button4() {
   return (
     <div className="relative shrink-0" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center justify-center relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#5048e5] text-[14px] text-center w-[54.72px]">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#5048e5] text-[14px] text-center whitespace-nowrap">
           <p className="leading-[20px]">View All</p>
         </div>
       </div>
@@ -1591,7 +1591,7 @@ function HorizontalBorder1() {
 
 function Cell() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[158.27px]" data-name="Cell">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Cell">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[12px] uppercase w-[31.97px]">
         <p className="leading-[16px]">Type</p>
       </div>
@@ -1601,7 +1601,7 @@ function Cell() {
 
 function Cell1() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[131.17px]" data-name="Cell">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Cell">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[12px] uppercase w-[44.23px]">
         <p className="leading-[16px]">Period</p>
       </div>
@@ -1611,7 +1611,7 @@ function Cell1() {
 
 function Cell2() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[111px]" data-name="Cell">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[100px]" data-name="Cell">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[12px] uppercase w-[63px]">
         <p className="leading-[16px]">Duration</p>
       </div>
@@ -1621,7 +1621,7 @@ function Cell2() {
 
 function Cell3() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[123.92px]" data-name="Cell">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[120px]" data-name="Cell">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[12px] uppercase w-[47.27px]">
         <p className="leading-[16px]">Status</p>
       </div>
@@ -1631,7 +1631,7 @@ function Cell3() {
 
 function Cell4() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[102.98px]" data-name="Cell">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[80px]" data-name="Cell">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[12px] uppercase w-[54.97px]">
         <p className="leading-[16px]">Actions</p>
       </div>
@@ -1641,7 +1641,7 @@ function Cell4() {
 
 function HeaderRow() {
   return (
-    <div className="bg-[#f8fafc] content-stretch flex items-start justify-center relative shrink-0 w-full" data-name="Header → Row">
+    <div className="bg-[#f8fafc] flex flex-row items-center gap-[24px] px-[24px] relative shrink-0 w-full" data-name="Header → Row">
       <Cell />
       <Cell1 />
       <Cell2 />
@@ -1665,10 +1665,9 @@ function Container74() {
 
 function Container75() {
   return (
-    <div className="content-stretch flex flex-col items-start pr-[27.58px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[46.67px]">
-        <p className="leading-[20px] mb-0">Annual</p>
-        <p className="leading-[20px]">Leave</p>
+    <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Annual Leave</p>
       </div>
     </div>
   );
@@ -1676,7 +1675,7 @@ function Container75() {
 
 function Data() {
   return (
-    <div className="content-stretch flex gap-[11.99px] items-center relative shrink-0 w-[110.27px]" data-name="Data">
+    <div className="flex gap-[12px] items-center shrink-0 w-[180px] px-[24px]" data-name="Data">
       <Container74 />
       <Container75 />
     </div>
@@ -1685,10 +1684,9 @@ function Data() {
 
 function Data1() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[24px] py-[16px] relative shrink-0 w-[131.17px]" data-name="Data">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[82.21px]">
-        <p className="leading-[20px] mb-0">Oct 20 - Oct</p>
-        <p className="leading-[20px]">25, 2023</p>
+    <div className="flex flex-col items-start px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Oct 20 - Oct 25, 2023</p>
       </div>
     </div>
   );
@@ -1696,8 +1694,8 @@ function Data1() {
 
 function Data2() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[27px] pr-[24px] pt-[25.5px] relative shrink-0 w-[87px]" data-name="Data">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[45.27px]">
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[100px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
         <p className="leading-[20px]">5 Days</p>
       </div>
     </div>
@@ -1716,7 +1714,7 @@ function Background9() {
 
 function Data3() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[26.5px] pr-[24px] pt-[26px] relative shrink-0 w-[99.92px]" data-name="Data">
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[120px]" data-name="Data">
       <Background9 />
     </div>
   );
@@ -1744,7 +1742,7 @@ function Button5() {
 
 function Data4() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[24.5px] pl-[0.01px] pr-[24px] pt-[24px] relative shrink-0 w-[78.99px]" data-name="Data">
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[80px]" data-name="Data">
       <Button5 />
     </div>
   );
@@ -1752,15 +1750,13 @@ function Data4() {
 
 function Row() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[24px] items-center justify-center pl-[24px] relative size-full">
-          <Data />
-          <Data1 />
-          <Data2 />
-          <Data3 />
-          <Data4 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row">
+      <div className="flex flex-row items-center gap-[24px] px-[24px] relative size-full">
+        <Data />
+        <Data1 />
+        <Data2 />
+        <Data3 />
+        <Data4 />
       </div>
     </div>
   );
@@ -1790,23 +1786,18 @@ function Container78() {
 
 function Data5() {
   return (
-    <div className="relative shrink-0 w-[110.27px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[11.99px] items-center relative size-full">
-        <Container77 />
-        <Container78 />
-      </div>
+    <div className="flex gap-[12px] items-center shrink-0 w-[180px] px-[24px]" data-name="Data">
+      <Container77 />
+      <Container78 />
     </div>
   );
 }
 
 function Data6() {
   return (
-    <div className="relative shrink-0 w-[131.17px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[17px] pt-[16px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[47.92px]">
-          <p className="leading-[20px] mb-0">Sep 12,</p>
-          <p className="leading-[20px]">2023</p>
-        </div>
+    <div className="flex flex-col items-start px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Sep 12, 2023</p>
       </div>
     </div>
   );
@@ -1814,11 +1805,9 @@ function Data6() {
 
 function Data7() {
   return (
-    <div className="relative shrink-0 w-[87px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[27px] pr-[24px] pt-[26px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[35.27px]">
-          <p className="leading-[20px]">1 Day</p>
-        </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[100px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
+        <p className="leading-[20px]">1 Day</p>
       </div>
     </div>
   );
@@ -1836,10 +1825,8 @@ function Background10() {
 
 function Data8() {
   return (
-    <div className="relative shrink-0 w-[99.92px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[24px] py-[26.5px] relative size-full">
-        <Background10 />
-      </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[120px]" data-name="Data">
+      <Background10 />
     </div>
   );
 }
@@ -1866,26 +1853,21 @@ function Button6() {
 
 function Data9() {
   return (
-    <div className="relative shrink-0 w-[78.99px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pl-[0.01px] pr-[24px] py-[24.5px] relative size-full">
-        <Button6 />
-      </div>
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[80px]" data-name="Data">
+      <Button6 />
     </div>
   );
 }
 
 function Row1() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[24px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data5 />
-          <Data6 />
-          <Data7 />
-          <Data8 />
-          <Data9 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row">
+      <div className="flex flex-row items-center gap-[24px] px-[24px] relative size-full">
+        <Data5 />
+        <Data6 />
+        <Data7 />
+        <Data8 />
+        <Data9 />
       </div>
     </div>
   );
@@ -1905,10 +1887,9 @@ function Container80() {
 
 function Container81() {
   return (
-    <div className="content-stretch flex flex-col items-start pr-[15.81px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[58.44px]">
-        <p className="leading-[20px] mb-0">Personal</p>
-        <p className="leading-[20px]">Leave</p>
+    <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Personal Leave</p>
       </div>
     </div>
   );
@@ -1916,24 +1897,18 @@ function Container81() {
 
 function Data10() {
   return (
-    <div className="relative shrink-0 w-[110.27px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[11.99px] items-center relative size-full">
-        <Container80 />
-        <Container81 />
-      </div>
+    <div className="flex gap-[12px] items-center shrink-0 w-[180px] px-[24px]" data-name="Data">
+      <Container80 />
+      <Container81 />
     </div>
   );
 }
 
 function Data11() {
   return (
-    <div className="relative shrink-0 w-[131.17px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[17px] pt-[16px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[60px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[57.99px]">
-          <p className="leading-[20px] mb-0">Aug 05 -</p>
-          <p className="leading-[20px] mb-0">Aug 06,</p>
-          <p className="leading-[20px]">2023</p>
-        </div>
+    <div className="flex flex-col items-start px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Aug 05 - Aug 06, 2023</p>
       </div>
     </div>
   );
@@ -1941,11 +1916,9 @@ function Data11() {
 
 function Data12() {
   return (
-    <div className="relative shrink-0 w-[87px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[37px] pr-[24px] pt-[36px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[45.5px]">
-          <p className="leading-[20px]">2 Days</p>
-        </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[100px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
+        <p className="leading-[20px]">2 Days</p>
       </div>
     </div>
   );
@@ -1963,10 +1936,8 @@ function Background11() {
 
 function Data13() {
   return (
-    <div className="relative shrink-0 w-[99.92px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[24px] py-[36.5px] relative size-full">
-        <Background11 />
-      </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[120px]" data-name="Data">
+      <Background11 />
     </div>
   );
 }
@@ -1993,26 +1964,21 @@ function Button7() {
 
 function Data14() {
   return (
-    <div className="relative shrink-0 w-[78.99px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pl-[0.01px] pr-[24px] py-[34.5px] relative size-full">
-        <Button7 />
-      </div>
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[80px]" data-name="Data">
+      <Button7 />
     </div>
   );
 }
 
 function Row2() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[24px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data10 />
-          <Data11 />
-          <Data12 />
-          <Data13 />
-          <Data14 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row">
+      <div className="flex flex-row items-center gap-[24px] px-[24px] relative size-full">
+        <Data10 />
+        <Data11 />
+        <Data12 />
+        <Data13 />
+        <Data14 />
       </div>
     </div>
   );
@@ -2032,10 +1998,9 @@ function Container83() {
 
 function Container84() {
   return (
-    <div className="content-stretch flex flex-col items-start pr-[27.58px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[46.67px]">
-        <p className="leading-[20px] mb-0">Annual</p>
-        <p className="leading-[20px]">Leave</p>
+    <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Annual Leave</p>
       </div>
     </div>
   );
@@ -2043,23 +2008,18 @@ function Container84() {
 
 function Data15() {
   return (
-    <div className="relative shrink-0 w-[110.27px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[11.99px] items-center relative size-full">
-        <Container83 />
-        <Container84 />
-      </div>
+    <div className="flex gap-[12px] items-center shrink-0 w-[180px] px-[24px]" data-name="Data">
+      <Container83 />
+      <Container84 />
     </div>
   );
 }
 
 function Data16() {
   return (
-    <div className="relative shrink-0 w-[131.17px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start px-[24px] py-[16px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[81.88px]">
-          <p className="leading-[20px] mb-0">Jun 10 - Jun</p>
-          <p className="leading-[20px]">17, 2023</p>
-        </div>
+    <div className="flex flex-col items-start px-[24px] py-[16px] shrink-0 w-[180px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Jun 10 - Jun 17, 2023</p>
       </div>
     </div>
   );
@@ -2067,11 +2027,9 @@ function Data16() {
 
 function Data17() {
   return (
-    <div className="relative shrink-0 w-[87px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[26.5px] pr-[24px] pt-[26px] relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[45.64px]">
-          <p className="leading-[20px]">6 Days</p>
-        </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[100px]" data-name="Data">
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
+        <p className="leading-[20px]">6 Days</p>
       </div>
     </div>
   );
@@ -2089,10 +2047,8 @@ function Background12() {
 
 function Data18() {
   return (
-    <div className="relative shrink-0 w-[99.92px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[26px] pr-[24px] pt-[26.5px] relative size-full">
-        <Background12 />
-      </div>
+    <div className="flex flex-col items-start py-[16px] px-[24px] shrink-0 w-[120px]" data-name="Data">
+      <Background12 />
     </div>
   );
 }
@@ -2119,26 +2075,21 @@ function Button8() {
 
 function Data19() {
   return (
-    <div className="relative shrink-0 w-[78.99px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[24px] pl-[0.01px] pr-[24px] pt-[24.5px] relative size-full">
-        <Button8 />
-      </div>
+    <div className="flex items-center px-[24px] py-[16px] shrink-0 w-[80px]" data-name="Data">
+      <Button8 />
     </div>
   );
 }
 
 function Row3() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[24px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data15 />
-          <Data16 />
-          <Data17 />
-          <Data18 />
-          <Data19 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row">
+      <div className="flex flex-row items-center gap-[24px] px-[24px] relative size-full">
+        <Data15 />
+        <Data16 />
+        <Data17 />
+        <Data18 />
+        <Data19 />
       </div>
     </div>
   );
@@ -2157,8 +2108,8 @@ function Body1() {
 
 function Table() {
   return (
-    <div className="relative shrink-0 w-full" data-name="Table">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
+    <div className="relative w-full" data-name="Table">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-stretch relative rounded-[inherit] w-full">
         <HeaderRow />
         <Body1 />
       </div>
@@ -2170,7 +2121,7 @@ function Button9() {
   return (
     <div className="relative shrink-0" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center justify-center relative size-full">
-        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] text-center w-[103.8px]">
+        <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] text-center whitespace-nowrap">
           <p className="leading-[16px]">Load more history</p>
         </div>
       </div>
@@ -2193,8 +2144,8 @@ function HorizontalBorder2() {
 
 function SectionLeaveHistoryTable() {
   return (
-    <div className="bg-white col-[2/span_2] justify-self-stretch relative rounded-[24px] row-1 self-start shrink-0" data-name="Section - Leave History Table">
-      <div className="content-stretch flex flex-col items-start overflow-clip p-px relative rounded-[inherit] size-full">
+    <div className="bg-white col-[2/span_2] justify-self-stretch relative rounded-[24px] row-1 min-h-full" data-name="Section - Leave History Table">
+      <div className="content-stretch flex flex-col items-stretch p-px relative rounded-[inherit] size-full">
         <HorizontalBorder1 />
         <Table />
         <HorizontalBorder2 />
@@ -2206,7 +2157,7 @@ function SectionLeaveHistoryTable() {
 
 function Container28() {
   return (
-    <div className="gap-x-[32px] gap-y-[32px] grid grid-cols-[repeat(3,minmax(0,1fr))] grid-rows-[_483px] relative shrink-0 w-full" data-name="Container">
+    <div className="gap-x-[32px] gap-y-[32px] grid grid-cols-[repeat(3,minmax(0,1fr))] relative shrink-0 w-full" data-name="Container">
       <SectionCalendarView />
       <SectionLeaveHistoryTable />
     </div>
@@ -2215,9 +2166,9 @@ function Container28() {
 
 function MainScrollableContent() {
   return (
-    <div className="h-[960px] relative shrink-0 w-full" data-name="Main - Scrollable Content">
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[32px] items-start p-[32px] relative size-full">
+    <div className="flex-1 overflow-y-auto relative w-full" data-name="Main - Scrollable Content">
+      <div className="max-w-[1440px] mx-auto min-h-full">
+        <div className="content-stretch flex flex-col gap-[32px] items-start p-[32px] relative w-full">
           <SectionLeaveBalanceCards />
           <Container28 />
         </div>
@@ -2237,7 +2188,7 @@ function MainContentArea() {
 
 function Body() {
   return (
-    <div className="content-stretch flex h-[1024px] items-start overflow-clip relative shrink-0 w-full" data-name="Body">
+    <div className="content-stretch flex h-screen items-start overflow-clip relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
       <MainContentArea />
     </div>

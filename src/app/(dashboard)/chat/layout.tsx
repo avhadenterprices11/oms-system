@@ -3,90 +3,118 @@
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import svgPaths from "@/imports/Dashboard-1/svg-r8n5wq7vya";
-import CreateChannel from "@/imports/CreateChannel/CreateChannel";
 
 export default function ChatModuleLayout({ children }: { children: React.ReactNode }) {
-  const [modalView, setModalView] = useState<null | "create-channel">(null);
-  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const conversations = [
-    { id: "1", name: "general", type: "channel", unread: 3, timestamp: "2:34 PM", isOnline: true },
-    { id: "2", name: "engineering", type: "channel", unread: 12, timestamp: "1:12 PM", isOnline: true },
-    { id: "3", name: "design", type: "channel", unread: 0, timestamp: "Yesterday", isOnline: true },
-    { id: "4", name: "Ashwini Reddy", type: "dm", unread: 2, timestamp: "11:45 AM", isOnline: true },
-    { id: "5", name: "Jordan Lee", type: "dm", unread: 0, timestamp: "Monday", isOnline: false },
-    { id: "6", name: "marketing", type: "channel", unread: 5, timestamp: "3:21 PM", isOnline: true },
+  const channels = [
+    { id: "general", name: "general" },
+    { id: "product-team", name: "product-team" },
+    { id: "announcements", name: "announcements" },
+    { id: "design-critique", name: "design-critique" },
+  ];
+
+  const dms = [
+    { id: "sarah-jenkins", name: "Sarah Jenkins", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150", status: "online" },
+    { id: "michael-scott", name: "Michael Scott", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150", status: "online" },
+    { id: "elena-rodriguez", name: "Elena Rodriguez", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150&h=150", status: "offline" },
   ];
 
   return (
-    <div className="flex h-full bg-white">
-      {/* Chat Sidebar (Module specific) */}
-      <div className="w-[320px] border-r border-[#e2e8f0] flex flex-col shrink-0">
-        <div className="px-6 py-4 flex items-center justify-between border-b border-[#e2e8f0]">
-          <h1 className="font-bold text-[20px] text-[#0f172a]">Messages</h1>
-          <button 
-            onClick={() => setModalView("create-channel")}
-            className="p-2 hover:bg-gray-100 rounded-lg text-[#5048e5]"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 4v8M4 8h8" />
+    <div className="flex h-screen bg-white font-['Inter',sans-serif]">
+      {/* Sidebar Navigation */}
+      <div className="w-[280px] border-r border-[#e5e7eb] flex flex-col bg-[#f9fafb]">
+        {/* Search Bar */}
+        <div className="p-4">
+          <div className="relative">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9ca3af]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-          </button>
-        </div>
-
-        <div className="px-4 py-3">
-          <input
-            type="text"
-            placeholder="Search messages..."
-            className="w-full bg-[#f8fafc] border border-[#e2e8f0] rounded-lg px-4 py-2 text-[14px]"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-
-        <div className="flex-1 overflow-y-auto">
-          {conversations.map((conv) => (
-            <Link
-              key={conv.id}
-              href={conv.type === "channel" ? `/chat/channels/${conv.id}` : `/chat/dm/${conv.id}`}
-              className={`flex items-center gap-3 px-6 py-3 hover:bg-[#f8fafc] transition-colors border-b border-[#f1f5f9] ${
-                pathname.includes(`/${conv.id}`) ? "bg-[#f8fafc]" : ""
-              }`}
-            >
-              <div className={`size-10 rounded-lg flex items-center justify-center shrink-0 ${
-                conv.type === "channel" ? "bg-[#ede9fe] text-[#5048e5]" : "bg-gray-100 text-gray-500"
-              }`}>
-                {conv.type === "channel" ? "#" : conv.name[0]}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold text-[14px] truncate">{conv.name}</div>
-                  <div className="text-[11px] text-gray-400">{conv.timestamp}</div>
-                </div>
-                <div className="text-[12px] text-gray-500 truncate">
-                  {conv.unread > 0 ? `${conv.unread} new messages` : "No new messages"}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Chat Content Area */}
-      <div className="flex-1 overflow-hidden bg-[#f8fafc]">
-        {children}
-      </div>
-
-      {/* Modals */}
-      {modalView === "create-channel" && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]" onClick={() => setModalView(null)}>
-          <div className="bg-white rounded-[16px] p-8 max-w-[500px] w-full" onClick={(e) => e.stopPropagation()}>
-            <CreateChannel />
+            <input
+              type="text"
+              placeholder="Jump to..."
+              className="w-full bg-white border border-[#e5e7eb] rounded-[6px] py-1.5 pl-9 pr-3 text-[14px] outline-none focus:border-[#5048e5] transition-colors"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
         </div>
-      )}
+
+        <div className="flex-1 overflow-y-auto px-2">
+          {/* Channels Section */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between px-2 mb-2 group">
+              <span className="text-[11px] font-bold text-[#6b7280] uppercase tracking-wider">Channels</span>
+              <button className="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 hover:bg-gray-200 rounded">
+                <svg className="w-3.5 h-3.5 text-[#6b7280]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </button>
+            </div>
+            <div className="space-y-[2px]">
+              {channels.map((channel) => {
+                const isActive = pathname.includes(channel.id);
+                return (
+                  <Link
+                    key={channel.id}
+                    href={`/chat/channels/${channel.id}`}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-[6px] text-[14px] transition-colors ${
+                      isActive 
+                        ? "bg-[#e0e1ff] text-[#5048e5] font-semibold" 
+                        : "text-[#4b5563] hover:bg-gray-200"
+                    }`}
+                  >
+                    <span className={`text-[16px] ${isActive ? "text-[#5048e5]" : "text-[#9ca3af]"}`}>#</span>
+                    <span className="truncate">{channel.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Direct Messages Section */}
+          <div>
+            <div className="flex items-center justify-between px-2 mb-2 group">
+              <span className="text-[11px] font-bold text-[#6b7280] uppercase tracking-wider">Direct Messages</span>
+              <button className="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 hover:bg-gray-200 rounded">
+                <svg className="w-3.5 h-3.5 text-[#6b7280]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </button>
+            </div>
+            <div className="space-y-[2px]">
+              {dms.map((dm) => {
+                const isActive = pathname.includes(dm.id);
+                return (
+                  <Link
+                    key={dm.id}
+                    href={`/chat/dm/${dm.id}`}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-[6px] text-[14px] transition-colors ${
+                      isActive 
+                        ? "bg-[#e0e1ff] text-[#5048e5] font-semibold" 
+                        : "text-[#4b5563] hover:bg-gray-200"
+                    }`}
+                  >
+                    <div className="relative shrink-0">
+                      <img src={dm.avatar} alt="" className="w-5 h-5 rounded-full object-cover" />
+                      {dm.status === "online" && (
+                        <div className="absolute -right-0.5 -bottom-0.5 w-2 h-2 bg-[#10b981] border border-white rounded-full" />
+                      )}
+                    </div>
+                    <span className="truncate">{dm.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        {children}
+      </div>
     </div>
   );
 }

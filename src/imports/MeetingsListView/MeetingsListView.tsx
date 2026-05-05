@@ -818,7 +818,7 @@ function Button2() {
     <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[9px] relative rounded-[8px] shrink-0" data-name="Button">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <Container26 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center w-[56.16px]">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center whitespace-nowrap">
         <p className="leading-[20px]">Host: All</p>
       </div>
       <Container27 />
@@ -855,7 +855,7 @@ function Button3() {
     <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[9px] relative rounded-[8px] shrink-0" data-name="Button">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <Container28 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center w-[65.08px]">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center whitespace-nowrap">
         <p className="leading-[20px]">Date: Any</p>
       </div>
       <Container29 />
@@ -892,7 +892,7 @@ function Button4() {
     <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[9px] relative rounded-[8px] shrink-0" data-name="Button">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <Container30 />
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center w-[111.22px]">
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-center whitespace-nowrap">
         <p className="leading-[20px]">Linked Entity: All</p>
       </div>
       <Container31 />
@@ -939,9 +939,8 @@ function Frame() {
 
 function EnhancedProjectHeaderSection() {
   return (
-    <div className="bg-[rgba(248,250,252,0.5)] flex-[1_0_0] min-h-px relative w-full" data-name="Enhanced Project Header Section">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
-      <div className="content-stretch flex flex-col items-start pb-px pt-[32px] px-[32px] relative size-full">
+    <div className="bg-[#f8fafc] border-b border-[#e2e8f0] relative w-full shrink-0" data-name="Enhanced Project Header Section">
+      <div className="content-stretch flex flex-col items-start pb-[32px] pt-[32px] px-[32px] relative w-full">
         <Frame />
       </div>
     </div>
@@ -950,9 +949,9 @@ function EnhancedProjectHeaderSection() {
 
 function Cell() {
   return (
-    <div className="relative shrink-0 w-[210.14px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[25px] pt-[23.5px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[98.98px]">
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
           <p className="leading-[16px]">Meeting Title</p>
         </div>
       </div>
@@ -962,9 +961,9 @@ function Cell() {
 
 function Cell1() {
   return (
-    <div className="relative shrink-0 w-[128.72px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[25px] pt-[23.5px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[36.22px]">
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
           <p className="leading-[16px]">Host</p>
         </div>
       </div>
@@ -974,9 +973,9 @@ function Cell1() {
 
 function Cell2() {
   return (
-    <div className="relative shrink-0 w-[144.33px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[25px] pt-[23.5px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[94.27px]">
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
           <p className="leading-[16px]">Participants</p>
         </div>
       </div>
@@ -986,9 +985,9 @@ function Cell2() {
 
 function Cell3() {
   return (
-    <div className="relative shrink-0 w-[133.72px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[25px] pt-[23.5px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[81.25px]">
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
           <p className="leading-[16px]">{`Date & Time`}</p>
         </div>
       </div>
@@ -998,11 +997,10 @@ function Cell3() {
 
 function Cell4() {
   return (
-    <div className="relative shrink-0 w-[137.66px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start px-[24px] py-[16px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[32px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[47.86px]">
-          <p className="leading-[16px] mb-0">Linked</p>
-          <p className="leading-[16px]">Entity</p>
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
+          <p className="leading-[16px]">Linked Entity</p>
         </div>
       </div>
     </div>
@@ -1011,9 +1009,9 @@ function Cell4() {
 
 function Cell5() {
   return (
-    <div className="relative shrink-0 w-[131.39px]" data-name="Cell">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[25px] pt-[23.5px] px-[24px] relative size-full">
-        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase w-[50.44px]">
+    <div className="relative shrink-0 w-full" data-name="Cell">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start py-[20px] relative size-full">
+        <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[16px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] tracking-[0.6px] uppercase whitespace-nowrap">
           <p className="leading-[16px]">Status</p>
         </div>
       </div>
@@ -1023,16 +1021,15 @@ function Cell5() {
 
 function HeaderRow() {
   return (
-    <div className="bg-[#f8fafc] mb-[-1px] relative shrink-0 w-full" data-name="Header → Row">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
-      <div className="flex flex-row justify-center size-full">
-        <div className="content-stretch flex items-start justify-center pb-px pr-[72.05px] relative size-full">
-          <Cell />
-          <Cell1 />
-          <Cell2 />
-          <Cell3 />
-          <Cell4 />
-          <Cell5 />
+    <div className="bg-[#f8fafc] border-b border-[#e2e8f0] relative shrink-0 w-full" data-name="Header → Row">
+      <div className="flex flex-row justify-center w-full">
+        <div className="content-stretch flex items-start justify-start px-[32px] relative w-full gap-[32px]">
+          <div className="w-[280px] shrink-0"><Cell /></div>
+          <div className="w-[180px] shrink-0"><Cell1 /></div>
+          <div className="w-[180px] shrink-0"><Cell2 /></div>
+          <div className="w-[180px] shrink-0"><Cell3 /></div>
+          <div className="w-[180px] shrink-0"><Cell4 /></div>
+          <div className="w-[140px] shrink-0"><Cell5 /></div>
         </div>
       </div>
     </div>
@@ -1062,9 +1059,8 @@ function Background() {
 function Container34() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[95.19px]">
-        <p className="leading-[20px] mb-0">Product</p>
-        <p className="leading-[20px]">Strategy Sync</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Product Strategy Sync</p>
       </div>
     </div>
   );
@@ -1082,7 +1078,7 @@ function Container35() {
 
 function Container33() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[95.19px]" data-name="Container">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
       <Container34 />
       <Container35 />
     </div>
@@ -1091,7 +1087,7 @@ function Container33() {
 
 function Data() {
   return (
-    <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-[162.14px]" data-name="Data">
+    <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" data-name="Data">
       <Background />
       <Container33 />
     </div>
@@ -1111,9 +1107,8 @@ function Ab6AXuDe2Gm03ZPzl00NW4EUqqQaj8Jj5UzMjXSz3CTlGkyqr0T6HpsrhIvUgUj1VUqXzsA
 function Container36() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[57.78px]">
-        <p className="leading-[20px] mb-0">Sarah</p>
-        <p className="leading-[20px]">Johnson</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Sarah Johnson</p>
       </div>
     </div>
   );
@@ -1121,7 +1116,7 @@ function Container36() {
 
 function Data1() {
   return (
-    <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-[93.78px]" data-name="Data">
+    <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full" data-name="Data">
       <Ab6AXuDe2Gm03ZPzl00NW4EUqqQaj8Jj5UzMjXSz3CTlGkyqr0T6HpsrhIvUgUj1VUqXzsASjVlrDprcMf5UygHqgIRrK0T7FTqWHlB9OwcmNcD4Odf7A8Kic11Hpqmdh61IeCflPnVbKkZsiLh5ZwRd9W9IeNpxIqGuk8TkGgOh0PiHu3Dcchc01U7Va7GJiZ3PexmGpgI6N86WDbiYqSEtoS6RIqN06VnRhNiJnFbIwPh8BSlgJ8TRyqKzcJo2A2Hn48V />
       <Container36 />
     </div>
@@ -1198,7 +1193,7 @@ function Margin1() {
 
 function Data2() {
   return (
-    <div className="content-stretch flex items-start pr-[8px] relative shrink-0 w-[83.27px]" data-name="Data">
+    <div className="content-stretch flex items-start pr-[8px] relative shrink-0 w-full" data-name="Data">
       <Ab6AXuDJwPhOhuZsVpwMXjvphPTb2OsXkAyUo8NpLdSw7EGfl7Oca1YDYeoBuyZm7PZtnyY716K5FgAodF9FteXrfYLcTl0294Gt8Odz3PjIe59GeuSp2Y3DtXfBqMfEm5SktWVngNJfcBlNPmu036DZuOLmxUiCfHLsnavb8EkRvGlCyYa2KbMdSv1I7LaSv7BjTzVakfXmoC0OuYtNdBeUkt1LMEcyasB7XvErWzPu4SgYsVqE2WxUoPgS1MzXe9ODslknx1IdZ />
       <ImgMargin />
       <ImgMargin1 />
@@ -1210,9 +1205,8 @@ function Data2() {
 function Container37() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
-        <p className="leading-[20px] mb-0">Today, 10:30</p>
-        <p className="leading-[20px]">AM</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Today, 10:30 AM</p>
       </div>
     </div>
   );
@@ -1221,9 +1215,8 @@ function Container37() {
 function Container38() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] w-full">
-        <p className="leading-[16px] mb-0">45 mins</p>
-        <p className="leading-[16px]">duration</p>
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">45 mins duration</p>
       </div>
     </div>
   );
@@ -1231,7 +1224,7 @@ function Container38() {
 
 function Data3() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[85.72px]" data-name="Data">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Data">
       <Container37 />
       <Container38 />
     </div>
@@ -1241,9 +1234,8 @@ function Data3() {
 function Overlay1() {
   return (
     <div className="bg-[rgba(80,72,229,0.1)] content-stretch flex items-center pl-[10px] pr-[32.85px] py-[4px] relative rounded-[9999px] shrink-0" data-name="Overlay">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[32px] justify-center leading-[0] not-italic relative shrink-0 text-[#5048e5] text-[12px] w-[46.81px]">
-        <p className="leading-[16px] mb-0">Project</p>
-        <p className="leading-[16px]">Phoenix</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#5048e5] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">Project Phoenix</p>
       </div>
     </div>
   );
@@ -1251,7 +1243,7 @@ function Overlay1() {
 
 function Data4() {
   return (
-    <div className="content-stretch flex flex-col items-start pr-[24px] py-[36.5px] relative shrink-0 w-[113.66px]" data-name="Data">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Data">
       <Overlay1 />
     </div>
   );
@@ -1270,7 +1262,7 @@ function Background1() {
 
 function Data5() {
   return (
-    <div className="content-stretch flex flex-col items-start pr-[48.01px] py-[44.5px] relative shrink-0 w-[83.38px]" data-name="Data">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Data">
       <Background1 />
     </div>
   );
@@ -1298,9 +1290,9 @@ function Button5() {
 
 function Data6() {
   return (
-    <div className="relative shrink-0 w-[24.05px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="flex flex-col items-end size-full">
-        <div className="content-stretch flex flex-col items-end pr-[48px] py-[44.5px] relative size-full">
+        <div className="content-stretch flex flex-col items-end relative size-full">
           <Button5 />
         </div>
       </div>
@@ -1310,17 +1302,15 @@ function Data6() {
 
 function Row1Ongoing() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row 1: Ongoing">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[48px] items-center justify-center pl-[24px] relative size-full">
-          <Data />
-          <Data1 />
-          <Data2 />
-          <Data3 />
-          <Data4 />
-          <Data5 />
-          <Data6 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 1: Ongoing">
+      <div className="flex flex-row items-center justify-start w-full px-[32px] gap-[32px] py-[16px]">
+        <div className="w-[280px] shrink-0"><Data /></div>
+        <div className="w-[180px] shrink-0"><Data1 /></div>
+        <div className="w-[180px] shrink-0"><Data2 /></div>
+        <div className="w-[180px] shrink-0"><Data3 /></div>
+        <div className="w-[180px] shrink-0"><Data4 /></div>
+        <div className="w-[140px] shrink-0"><Data5 /></div>
+        <div className="flex-1 flex justify-end"><Data6 /></div>
       </div>
     </div>
   );
@@ -1349,9 +1339,8 @@ function Background2() {
 function Container42() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[103.73px]">
-        <p className="leading-[20px] mb-0">Design Review:</p>
-        <p className="leading-[20px]">Phase 2</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Design Review: Phase 2</p>
       </div>
     </div>
   );
@@ -1369,7 +1358,7 @@ function Container43() {
 
 function Container41() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[103.73px]" data-name="Container">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
       <Container42 />
       <Container43 />
     </div>
@@ -1378,7 +1367,7 @@ function Container41() {
 
 function Data7() {
   return (
-    <div className="relative shrink-0 w-[162.14px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
         <Background2 />
         <Container41 />
@@ -1400,9 +1389,8 @@ function Ab6AXuCc8MlJx1ZhrrbIYsBb8JSlfmnOIsjSdhmYs0GQ97F86ZUeMrNTogQyu8IVPt2Tunt
 function Container44() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[7.77px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[36.95px]">
-        <p className="leading-[20px] mb-0">Emily</p>
-        <p className="leading-[20px]">Davis</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Emily Davis</p>
       </div>
     </div>
   );
@@ -1410,7 +1398,7 @@ function Container44() {
 
 function Data8() {
   return (
-    <div className="relative shrink-0 w-[80.72px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[8px] items-center relative size-full">
         <Ab6AXuCc8MlJx1ZhrrbIYsBb8JSlfmnOIsjSdhmYs0GQ97F86ZUeMrNTogQyu8IVPt2TuntWsdahu8SqiicuOzKAcrgjCjukWlx0UEqQxes8MkGjtj29Q8U4BuQg4Qyah8TifXazYsMqt6AlFHcFiUNeH6EDs7PoGzxoa1AyOiCVRQarvUdDrDmnmCqfGcuS5Vo2OibOAyQvbAz4XHc9Yxib3OJla6UtdSu0Xer8ZMje4KxPnA03ZhT7VQTz9JYJrSzAw65D5X />
         <Container44 />
@@ -1470,7 +1458,7 @@ function Margin2() {
 
 function Data9() {
   return (
-    <div className="relative shrink-0 w-[96.33px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start pr-[8px] relative size-full">
         <Ab6AXuDaHffNb4TUddFUlig2K4DuuiHNapgn2XO7WKYfEMol6PKdAcVsOgykkPbRAhQRbRzebRrXdAAnyy1UT3QxYlZiSYoybPWdxaEsCkP0FgLvshusblE2EoIw8KNwsV0BVw1MxiR2LnCocPw9Osc8JvDv3QAaKawbiJVk4WikUx0Ly5C3OqPbowHiS8Ig3JspOsFzVaEMrvvxSrMt9BgxLbg7FhMnJ914RwBu9YUjmz95Hcd1FlnQyOhRnSmOyVWvM7K6MNlIzeiv />
         <ImgMargin2 />
@@ -1483,9 +1471,8 @@ function Data9() {
 function Container45() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
-        <p className="leading-[20px] mb-0">Tomorrow,</p>
-        <p className="leading-[20px]">02:00 PM</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Tomorrow, 02:00 PM</p>
       </div>
     </div>
   );
@@ -1494,9 +1481,8 @@ function Container45() {
 function Container46() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] w-full">
-        <p className="leading-[16px] mb-0">60 mins</p>
-        <p className="leading-[16px]">duration</p>
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">60 mins duration</p>
       </div>
     </div>
   );
@@ -1504,7 +1490,7 @@ function Container46() {
 
 function Data10() {
   return (
-    <div className="relative shrink-0 w-[85.72px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Container45 />
         <Container46 />
@@ -1516,9 +1502,8 @@ function Data10() {
 function Background3() {
   return (
     <div className="bg-[#e0e7ff] content-stretch flex items-center pl-[10px] pr-[36.96px] py-[4px] relative rounded-[9999px] shrink-0" data-name="Background">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[32px] justify-center leading-[0] not-italic relative shrink-0 text-[#4338ca] text-[12px] w-[42.7px]">
-        <p className="leading-[16px] mb-0">Global</p>
-        <p className="leading-[16px]">Launch</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#4338ca] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">Global Launch</p>
       </div>
     </div>
   );
@@ -1526,8 +1511,8 @@ function Background3() {
 
 function Data11() {
   return (
-    <div className="relative shrink-0 w-[113.66px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[24px] py-[36.5px] relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background3 />
       </div>
     </div>
@@ -1546,8 +1531,8 @@ function Background4() {
 
 function Data12() {
   return (
-    <div className="relative shrink-0 w-[83.38px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[48.01px] py-[44.5px] relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background4 />
       </div>
     </div>
@@ -1576,9 +1561,9 @@ function Button6() {
 
 function Data13() {
   return (
-    <div className="relative shrink-0 w-[24.05px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="flex flex-col items-end size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end pr-[48px] py-[44.5px] relative size-full">
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end relative size-full">
           <Button6 />
         </div>
       </div>
@@ -1588,18 +1573,15 @@ function Data13() {
 
 function Row2Upcoming() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row 2: Upcoming">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[48px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data7 />
-          <Data8 />
-          <Data9 />
-          <Data10 />
-          <Data11 />
-          <Data12 />
-          <Data13 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 2: Upcoming">
+      <div className="flex flex-row items-center justify-start w-full px-[32px] gap-[32px] py-[16px]">
+        <div className="w-[280px] shrink-0"><Data7 /></div>
+        <div className="w-[180px] shrink-0"><Data8 /></div>
+        <div className="w-[180px] shrink-0"><Data9 /></div>
+        <div className="w-[180px] shrink-0"><Data10 /></div>
+        <div className="w-[180px] shrink-0"><Data11 /></div>
+        <div className="w-[140px] shrink-0"><Data12 /></div>
+        <div className="flex-1 flex justify-end"><Data13 /></div>
       </div>
     </div>
   );
@@ -1628,10 +1610,8 @@ function Background5() {
 function Container50() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[60px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[84.2px]">
-        <p className="leading-[20px] mb-0">Client</p>
-        <p className="leading-[20px] mb-0">Onboarding:</p>
-        <p className="leading-[20px]">Acme Corp</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Client Onboarding: Acme Corp</p>
       </div>
     </div>
   );
@@ -1649,7 +1629,7 @@ function Container51() {
 
 function Container49() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[84.2px]" data-name="Container">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
       <Container50 />
       <Container51 />
     </div>
@@ -1658,7 +1638,7 @@ function Container49() {
 
 function Data14() {
   return (
-    <div className="relative shrink-0 w-[162.14px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
         <Background5 />
         <Container49 />
@@ -1680,9 +1660,8 @@ function Ab6AXuDc7I4FpwtEz5NrHwr5QmUNiLv4PIyu0OlJxCpnHifUkqHgvSaEzLtRQm0UnZJmpWx
 function Container52() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[52.52px]">
-        <p className="leading-[20px] mb-0">Michael</p>
-        <p className="leading-[20px]">Chen</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Michael Chen</p>
       </div>
     </div>
   );
@@ -1690,7 +1669,7 @@ function Container52() {
 
 function Data15() {
   return (
-    <div className="relative shrink-0 w-[88.52px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[8px] items-center relative size-full">
         <Ab6AXuDc7I4FpwtEz5NrHwr5QmUNiLv4PIyu0OlJxCpnHifUkqHgvSaEzLtRQm0UnZJmpWxugAhVrUx4FPnKHcfVlYDsXcUjTfM1ZYvpzZoq7Mz8Jalx6F4JvdFmAJeN3WvnHzxQ0BK8R3Gpo68VfG8HKqLfMNghnpx36PgqI6ZqrN2DKWumowpc43YtGy6CPosEc3F9JUbrflYuf5ZOpTIof1Gj8OfBjwEdwKeSIdte6PbpnPoRdU01DlBaX5HKeT2O590K />
         <Container52 />
@@ -1731,7 +1710,7 @@ function Margin3() {
 
 function Data16() {
   return (
-    <div className="relative shrink-0 w-[88.53px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <Ab6AXuAjma1QOQ46PeWhpmNLtsYpCzJftu0ZQsXnpUhWXUdXn2RiKedmdfB3Rs07YEOhepV3ZjgaTwJxMlOfdz8JtXaAnIom6LTu78ZyAoFo9VRmtMeCrHVepaA69LxiL1KYjiOHgcyW2YWgO35BITXqJspRdgCu1BYizKayiFnR3SpufooiPh4Eo7JgGLg00PKiDSn17Vp1PjKod6PDsiaIJcj2Qnmr0PReckTuOjxjX6QPwXslZnqCk91EsbhiNesmBxeHxAEu />
         <Margin3 />
@@ -1743,9 +1722,8 @@ function Data16() {
 function Container53() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
-        <p className="leading-[20px] mb-0">Oct 24,</p>
-        <p className="leading-[20px]">09:00 AM</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Oct 24, 09:00 AM</p>
       </div>
     </div>
   );
@@ -1754,9 +1732,8 @@ function Container53() {
 function Container54() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] w-full">
-        <p className="leading-[16px] mb-0">30 mins</p>
-        <p className="leading-[16px]">duration</p>
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">30 mins duration</p>
       </div>
     </div>
   );
@@ -1764,7 +1741,7 @@ function Container54() {
 
 function Data17() {
   return (
-    <div className="relative shrink-0 w-[85.72px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Container53 />
         <Container54 />
@@ -1785,8 +1762,8 @@ function Background6() {
 
 function Data18() {
   return (
-    <div className="relative shrink-0 w-[113.66px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[24px] py-[46.5px] relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background6 />
       </div>
     </div>
@@ -1805,8 +1782,8 @@ function Background7() {
 
 function Data19() {
   return (
-    <div className="relative shrink-0 w-[83.38px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pr-[48.01px] py-[46.5px] relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background7 />
       </div>
     </div>
@@ -1835,9 +1812,9 @@ function Button7() {
 
 function Data20() {
   return (
-    <div className="relative shrink-0 w-[24.05px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="flex flex-col items-end size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end pr-[48px] py-[46.5px] relative size-full">
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end relative size-full">
           <Button7 />
         </div>
       </div>
@@ -1847,18 +1824,15 @@ function Data20() {
 
 function Row3Upcoming() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row 3: Upcoming">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[48px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data14 />
-          <Data15 />
-          <Data16 />
-          <Data17 />
-          <Data18 />
-          <Data19 />
-          <Data20 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 3: Upcoming">
+      <div className="flex flex-row items-center justify-start w-full px-[32px] gap-[32px] py-[16px]">
+        <div className="w-[280px] shrink-0"><Data14 /></div>
+        <div className="w-[180px] shrink-0"><Data15 /></div>
+        <div className="w-[180px] shrink-0"><Data16 /></div>
+        <div className="w-[180px] shrink-0"><Data17 /></div>
+        <div className="w-[180px] shrink-0"><Data18 /></div>
+        <div className="w-[140px] shrink-0"><Data19 /></div>
+        <div className="flex-1 flex justify-end"><Data20 /></div>
       </div>
     </div>
   );
@@ -1887,9 +1861,8 @@ function Background8() {
 function Container58() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[100.72px]">
-        <p className="leading-[20px] mb-0">Budget Review</p>
-        <p className="leading-[20px]">Q3</p>
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Budget Review Q3</p>
       </div>
     </div>
   );
@@ -1907,7 +1880,7 @@ function Container59() {
 
 function Container57() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[100.72px]" data-name="Container">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
       <Container58 />
       <Container59 />
     </div>
@@ -1916,7 +1889,7 @@ function Container57() {
 
 function Data21() {
   return (
-    <div className="opacity-70 relative shrink-0 w-[162.14px]" data-name="Data">
+    <div className="opacity-70 relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
         <Background8 />
         <Container57 />
@@ -1938,9 +1911,8 @@ function Ab6AXuDb4KjtRmpnjlHpOmJMvXv6OigJsdGhe48Xe5KchamtciRAfZjarEmTithD85RxZb7
 function Container60() {
   return (
     <div className="content-stretch flex flex-col items-start pr-[2.81px] relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-[41.91px]">
-        <p className="leading-[20px] mb-0">Alex</p>
-        <p className="leading-[20px]">Rivera</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Alex Rivera</p>
       </div>
     </div>
   );
@@ -1948,7 +1920,7 @@ function Container60() {
 
 function Data22() {
   return (
-    <div className="opacity-70 relative shrink-0 w-[80.72px]" data-name="Data">
+    <div className="opacity-70 relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[8px] items-center relative size-full">
         <Ab6AXuDb4KjtRmpnjlHpOmJMvXv6OigJsdGhe48Xe5KchamtciRAfZjarEmTithD85RxZb76Jk6AmqUhWgDeTTygxejFcMjHK4TjFb8Sil6Vb89Uj63HloBrD7CnJq2RLsw8MZftnwbgWrmYNa4FuDj3DkwNm1ZL1X2IcPw4AnPqa9BdUuJdBrgazTdWLsekrOYh40CKx4ESzCx3Rj3AIxmpa0SHcKmBrKKyVahvNxfuUrCPyIrgq64NMr0VglsunQ10DlWd9Dme7L />
         <Container60 />
@@ -1989,7 +1961,7 @@ function ImgMargin3() {
 
 function Data23() {
   return (
-    <div className="opacity-70 relative shrink-0 w-[96.33px]" data-name="Data">
+    <div className="opacity-70 relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <Ab6AXuBHk1Rnum3AY7B7T9Xj9RXb1Dq8E4KRmpXks5R4Lfvzf3Nve4JdgEe912UWyJpJsLMjvkK1Kc8Kge2Ltz5SynEdnTwfDu8YYg77U3Z0MvKc5ZeCxQwHo4FRakVMwq85T5IQqa0AtQzalBsaHpvmVhYg8JVcpGrsOBm0O1X6AxZBmqLwh3Zirmf23Ef6Wd9ZExLwuAf6S159EmJtd1M7DWwgPokXfSdIcJciPo0DrGtmXa8Zko01MxDIzGbk8GLhg7MjgKhS />
         <ImgMargin3 />
@@ -2001,9 +1973,8 @@ function Data23() {
 function Container61() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] w-full">
-        <p className="leading-[20px] mb-0">Oct 20,</p>
-        <p className="leading-[20px]">11:00 AM</p>
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">
+        <p className="leading-[20px]">Oct 20, 11:00 AM</p>
       </div>
     </div>
   );
@@ -2012,9 +1983,8 @@ function Container61() {
 function Container62() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] w-full">
-        <p className="leading-[16px] mb-0">Ended at 11:45</p>
-        <p className="leading-[16px]">AM</p>
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">
+        <p className="leading-[16px]">Ended at 11:45 AM</p>
       </div>
     </div>
   );
@@ -2022,7 +1992,7 @@ function Container62() {
 
 function Data24() {
   return (
-    <div className="opacity-70 relative shrink-0 w-[85.72px]" data-name="Data">
+    <div className="opacity-70 relative shrink-0 w-full" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Container61 />
         <Container62 />
@@ -2043,8 +2013,8 @@ function Background9() {
 
 function Data25() {
   return (
-    <div className="opacity-70 relative shrink-0 w-[113.66px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[44px] pr-[24px] pt-[44.5px] relative size-full">
+    <div className="opacity-70 relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background9 />
       </div>
     </div>
@@ -2063,8 +2033,8 @@ function Background10() {
 
 function Data26() {
   return (
-    <div className="relative shrink-0 w-[83.38px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[44px] pr-[48.01px] pt-[44.5px] relative size-full">
+    <div className="relative shrink-0 w-full" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
         <Background10 />
       </div>
     </div>
@@ -2093,9 +2063,9 @@ function Button8() {
 
 function Data27() {
   return (
-    <div className="relative shrink-0 w-[24.05px]" data-name="Data">
+    <div className="relative shrink-0 w-full" data-name="Data">
       <div className="flex flex-col items-end size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end pb-[44px] pr-[48px] pt-[44.5px] relative size-full">
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end relative size-full">
           <Button8 />
         </div>
       </div>
@@ -2105,18 +2075,15 @@ function Data27() {
 
 function Row4Completed() {
   return (
-    <div className="mb-[-1px] relative shrink-0 w-full" data-name="Row 4: Completed">
-      <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex gap-[48px] items-center justify-center pl-[24px] pt-px relative size-full">
-          <Data21 />
-          <Data22 />
-          <Data23 />
-          <Data24 />
-          <Data25 />
-          <Data26 />
-          <Data27 />
-        </div>
+    <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 4: Completed">
+      <div className="flex flex-row items-center justify-start w-full px-[32px] gap-[32px] py-[16px]">
+        <div className="w-[280px] shrink-0"><Data21 /></div>
+        <div className="w-[180px] shrink-0"><Data22 /></div>
+        <div className="w-[180px] shrink-0"><Data23 /></div>
+        <div className="w-[180px] shrink-0"><Data24 /></div>
+        <div className="w-[180px] shrink-0"><Data25 /></div>
+        <div className="w-[140px] shrink-0"><Data26 /></div>
+        <div className="flex-1 flex justify-end"><Data27 /></div>
       </div>
     </div>
   );
@@ -2280,7 +2247,7 @@ function OverviewTabContent() {
 
 function WorkspaceContent() {
   return (
-    <div className="bg-white content-stretch flex flex-col h-[1206px] items-start relative shrink-0 w-full" data-name="Workspace Content">
+    <div className="bg-[#f6f6f8] flex flex-col items-start relative w-full" data-name="Workspace Content">
       <EnhancedProjectHeaderSection />
       <OverviewTabContent />
     </div>
@@ -2298,7 +2265,7 @@ function MainContentArea() {
 
 function Body() {
   return (
-    <div className="content-stretch flex h-[1024px] items-start mb-[-1024px] overflow-clip relative shrink-0 w-full" data-name="Body">
+    <div className="content-stretch flex items-start relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
       <MainContentArea />
     </div>
@@ -2307,7 +2274,7 @@ function Body() {
 
 function Frame1() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[1024px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Body />
     </div>
   );

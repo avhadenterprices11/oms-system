@@ -70,10 +70,10 @@ function Container2() {
 
 function Button({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-white h-[39px] relative rounded-[8px] shrink-0 w-[83.023px] cursor-pointer hover:bg-slate-50 transition-colors" data-name="Button" onClick={onClick}>
+    <div className="bg-white relative rounded-[8px] shrink-0 cursor-pointer hover:bg-slate-50 transition-colors" data-name="Button" onClick={onClick}>
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[18px] py-[11px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Cancel</p>
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[20px] py-[10px] relative size-full">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-normal not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Cancel</p>
       </div>
     </div>
   );
@@ -81,11 +81,9 @@ function Button({ onClick }: { onClick?: () => void }) {
 
 function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] flex-[1_0_0] h-[37px] min-w-px relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] cursor-pointer hover:bg-[#4338ca] transition-colors" data-name="Button" onClick={onClick}>
-      <div className="flex flex-row items-center size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17px] py-[10px] relative size-full">
-          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Save Layout</p>
-        </div>
+    <div className="bg-[#5048e5] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] cursor-pointer hover:bg-[#4338ca] transition-colors shrink-0" data-name="Button" onClick={onClick}>
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[20px] py-[10px] relative size-full">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-normal not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Save Layout</p>
       </div>
     </div>
   );
@@ -93,7 +91,7 @@ function Button1({ onClick }: { onClick?: () => void }) {
 
 function Container5({ onClose, onSave }: { onClose?: () => void; onSave?: () => void }) {
   return (
-    <div className="h-[39px] relative shrink-0 w-[211.453px]" data-name="Container">
+    <div className="relative shrink-0" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
         <Button onClick={onClose} />
         <Button1 onClick={onSave} />
@@ -898,10 +896,21 @@ function Container67() {
   );
 }
 
-function Container65() {
+function Container65({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[701px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[701px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container66 />
       <Container67 />
     </div>
@@ -958,10 +967,21 @@ function Container72() {
   );
 }
 
-function Container70() {
+function Container70({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[770px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[770px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container71 />
       <Container72 />
     </div>
@@ -1025,10 +1045,21 @@ function Container78() {
   );
 }
 
-function Container76() {
+function Container76({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[869px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[869px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container77 />
       <Container78 />
     </div>
@@ -1085,10 +1116,21 @@ function Container83() {
   );
 }
 
-function Container81() {
+function Container81({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[938px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[938px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container82 />
       <Container83 />
     </div>
@@ -1145,10 +1187,21 @@ function Container88() {
   );
 }
 
-function Container86() {
+function Container86({ active, onClick }: { active?: boolean; onClick?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[1007px] w-[290px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(0,0,0,0)] border-solid inset-0 pointer-events-none rounded-[12px]" />
+    <div
+      className={`absolute content-stretch flex gap-[12px] h-[63px] items-center left-[8px] px-[13.5px] py-[1.5px] rounded-[12px] top-[1007px] w-[290px] cursor-pointer transition-all ${
+        active ? "bg-[rgba(80,72,229,0.06)]" : "hover:bg-slate-50"
+      }`}
+      data-name="Container"
+      onClick={onClick}
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute border-[1.5px] border-solid inset-0 pointer-events-none rounded-[12px] transition-all ${
+          active ? "border-[rgba(80,72,229,0.25)]" : "border-transparent"
+        }`}
+      />
       <Container87 />
       <Container88 />
     </div>
@@ -1402,7 +1455,12 @@ function Container10({ activeWidgets, toggleWidget, filteredWidgets }: { activeW
       {isWidgetVisible("meeting-hours") && <Container53 active={activeWidgets.includes("meeting-hours")} onClick={() => toggleWidget("meeting-hours")} />}
       <Container58 />
       {isWidgetVisible("leave-balance") && <Container59 active={activeWidgets.includes("leave-balance")} onClick={() => toggleWidget("leave-balance")} />}
-      {/* ... other widgets ... */}
+      {isWidgetVisible("team-availability") && <Container65 active={activeWidgets.includes("team-availability")} onClick={() => toggleWidget("team-availability")} />}
+      {isWidgetVisible("onboarding-progress") && <Container70 active={activeWidgets.includes("onboarding-progress")} onClick={() => toggleWidget("onboarding-progress")} />}
+      <Container75 />
+      {isWidgetVisible("pipeline-summary") && <Container76 active={activeWidgets.includes("pipeline-summary")} onClick={() => toggleWidget("pipeline-summary")} />}
+      {isWidgetVisible("active-deals") && <Container81 active={activeWidgets.includes("active-deals")} onClick={() => toggleWidget("active-deals")} />}
+      {isWidgetVisible("recent-crm-activity") && <Container86 active={activeWidgets.includes("recent-crm-activity")} onClick={() => toggleWidget("recent-crm-activity")} />}
       <Container91 />
       {isWidgetVisible("announcements") && <Container92 active={activeWidgets.includes("announcements")} onClick={() => toggleWidget("announcements")} />}
       {isWidgetVisible("system-health") && <Container98 active={activeWidgets.includes("system-health")} onClick={() => toggleWidget("system-health")} />}
@@ -1488,17 +1546,17 @@ function Container113() {
 
 function Container115() {
   return (
-    <div className="content-stretch flex h-[24.5px] items-start relative shrink-0 w-full" data-name="Container">
-      <p className="flex-[1_0_0] font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] min-w-px not-italic relative text-[#0f172a] text-[20px] tracking-[-0.3px]">My Tasks</p>
+    <div className="content-stretch flex items-start relative shrink-0 w-full" data-name="Container">
+      <p className="flex-[1_0_0] font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-normal min-w-px not-italic relative text-[#0f172a] text-[20px] tracking-[-0.3px]">My Tasks</p>
     </div>
   );
 }
 
 function Text3() {
   return (
-    <div className="bg-[#f1f5f9] h-[18.5px] relative rounded-[9999px] shrink-0 w-[48.734px]" data-name="Text">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start px-[9px] py-[2px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#475569] text-[12px] whitespace-nowrap">Work</p>
+    <div className="bg-[#f1f5f9] relative rounded-[9999px] shrink-0" data-name="Text">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start px-[12px] py-[4px] relative size-full">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-normal not-italic relative shrink-0 text-[#475569] text-[12px] whitespace-nowrap">Work</p>
       </div>
     </div>
   );
@@ -1506,9 +1564,9 @@ function Text3() {
 
 function Text4() {
   return (
-    <div className="flex-[1_0_0] h-[14.5px] min-w-px relative" data-name="Text">
+    <div className="relative shrink-0" data-name="Text">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">Real-time updates</p>
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-normal not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">Real-time updates</p>
       </div>
     </div>
   );
@@ -1516,9 +1574,9 @@ function Text4() {
 
 function Text5() {
   return (
-    <div className="h-[14.5px] relative shrink-0 w-[3.461px]" data-name="Text">
+    <div className="relative shrink-0" data-name="Text">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">·</p>
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-normal not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">·</p>
       </div>
     </div>
   );
@@ -1526,9 +1584,9 @@ function Text5() {
 
 function Text6() {
   return (
-    <div className="h-[14.5px] relative shrink-0 w-[48.75px]" data-name="Text">
+    <div className="relative shrink-0" data-name="Text">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">All users</p>
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-normal not-italic relative shrink-0 text-[#64748b] text-[12px] whitespace-nowrap">All users</p>
       </div>
     </div>
   );
@@ -1536,7 +1594,7 @@ function Text6() {
 
 function Container116() {
   return (
-    <div className="content-stretch flex gap-[10px] h-[18.5px] items-center relative shrink-0 w-full" data-name="Container">
+    <div className="content-stretch flex gap-[12px] items-center relative shrink-0" data-name="Container">
       <Text3 />
       <Text4 />
       <Text5 />
@@ -1547,8 +1605,8 @@ function Container116() {
 
 function Container114() {
   return (
-    <div className="flex-[1_0_0] h-[47px] min-w-px relative" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-start relative size-full">
+    <div className="flex-[1_0_0] min-w-px relative" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[8px] items-start relative size-full">
         <Container115 />
         <Container116 />
       </div>
@@ -1558,8 +1616,8 @@ function Container114() {
 
 function Container112() {
   return (
-    <div className="h-[48px] relative shrink-0 w-[296.156px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[14px] items-center relative size-full">
+    <div className="relative shrink-0" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[16px] items-center relative size-full">
         <Container113 />
         <Container114 />
       </div>
@@ -1569,11 +1627,11 @@ function Container112() {
 
 function Button2() {
   return (
-    <div className="bg-white flex-[1_0_0] h-[39px] min-w-px relative rounded-[8px]" data-name="Button">
+    <div className="bg-white relative rounded-[8px] shrink-0" data-name="Button">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <div className="flex flex-row items-center size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[18px] py-[11px] relative size-full">
-          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Remove from Dashboard</p>
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[20px] py-[10px] relative size-full">
+          <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-normal not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Remove from Dashboard</p>
         </div>
       </div>
     </div>
@@ -1582,9 +1640,9 @@ function Button2() {
 
 function Button3() {
   return (
-    <div className="bg-[#5048e5] h-[39px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[142.289px]" data-name="Button">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17px] py-[10px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Update Settings</p>
+    <div className="bg-[#5048e5] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0" data-name="Button">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[20px] py-[10px] relative size-full">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-normal not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Update Settings</p>
       </div>
     </div>
   );
@@ -1592,8 +1650,8 @@ function Button3() {
 
 function Container117() {
   return (
-    <div className="h-[39px] relative shrink-0 w-[355.344px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-start relative size-full">
+    <div className="relative shrink-0" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-center relative size-full">
         <Button2 />
         <Button3 />
       </div>
@@ -1603,7 +1661,7 @@ function Container117() {
 
 function Container111() {
   return (
-    <div className="absolute content-stretch flex h-[69px] items-start justify-between left-[29px] pb-px top-[29px] w-[699.914px]" data-name="Container">
+    <div className="absolute content-stretch flex items-center justify-between left-[24px] pb-[16px] top-[24px] right-[24px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-b border-solid inset-0 pointer-events-none" />
       <Container112 />
       <Container117 />
@@ -3568,6 +3626,13 @@ const ALL_WIDGETS = [
   { id: "meeting-hours", name: "Meeting Hours", category: "Communication" },
   { id: "leave-balance", name: "Leave Balance", category: "People" },
   { id: "team-availability", name: "Team Availability", category: "People" },
+  { id: "onboarding-progress", name: "Onboarding Progress", category: "People" },
+  { id: "pipeline-summary", name: "Pipeline Summary", category: "CRM" },
+  { id: "active-deals", name: "Active Deals", category: "CRM" },
+  { id: "recent-crm-activity", name: "Recent CRM Activity", category: "CRM" },
+  { id: "announcements", name: "Announcements", category: "System" },
+  { id: "system-health", name: "System Health", category: "System" },
+  { id: "quick-actions", name: "Quick Actions", category: "System" },
 ];
 
 export default function DashboardWidgetManager({ onClose }: { onClose?: () => void }) {

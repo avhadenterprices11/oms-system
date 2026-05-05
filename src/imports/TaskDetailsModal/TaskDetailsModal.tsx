@@ -674,9 +674,9 @@ function HeaderTopNavigation() {
 function Heading() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 2">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[32px] justify-center leading-normal not-italic relative shrink-0 text-[#0f172a] text-[24px] tracking-[-0.6px] w-[146.75px]">
-        <p className="leading-[32px]">Global Tasks</p>
-      </div>
+      <h1 className="text-[30px] font-extrabold text-[#0f172a] tracking-tight leading-tight">
+        Global Tasks
+      </h1>
     </div>
   );
 }
@@ -684,9 +684,9 @@ function Heading() {
 function Container21() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-normal not-italic relative shrink-0 text-[#64748b] text-[14px] w-[432.28px]">
-        <p className="leading-[20px]">Centralized view for all cross-departmental tasks and milestones.</p>
-      </div>
+      <p className="text-[#64748b] text-[16px] leading-relaxed max-w-[600px]">
+        Centralized view for all cross-departmental tasks and milestones.
+      </p>
     </div>
   );
 }
@@ -1082,8 +1082,7 @@ function TabNavigation() {
 
 function EnhancedProjectHeaderSection() {
   return (
-    <div className="bg-[rgba(248,250,252,0.5)] flex-[1_0_0] min-h-px relative w-full" data-name="Enhanced Project Header Section">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
+    <div className="bg-[rgba(248,250,252,0.5)] shrink-0 relative w-full border-b border-[#e2e8f0]" data-name="Enhanced Project Header Section">
       <div className="content-stretch flex flex-col gap-[32px] items-start pb-px pt-[32px] px-[32px] relative size-full">
         <ViewControlsFilters />
         <TabNavigation />

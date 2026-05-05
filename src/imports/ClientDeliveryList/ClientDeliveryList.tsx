@@ -415,7 +415,6 @@ function Nav() {
           <Link2 />
           <Link3 />
           <Link4 />
-          <Link5 />
           <Link6 />
           <Link7 />
           <Link8 />
@@ -603,8 +602,8 @@ function Name() {
 function Role() {
   return (
     <div className="content-stretch flex flex-col items-end relative shrink-0 w-full" data-name="Role">
-      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[15px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[10px] text-right w-[57.64px]">
-        <p className="leading-[15px]">Role</p>
+      <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[15px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[10px] text-right">
+        <p className="leading-[15px]">Project Manager</p>
       </div>
     </div>
   );
@@ -1143,15 +1142,18 @@ function Container39() {
 
 function Button2() {
   return (
-    <div className="content-stretch flex items-center justify-center p-[4px] relative rounded-[4px] shrink-0" data-name="Button">
+    <div className="bg-[#f8fafc] border border-[#e2e8f0] content-stretch flex gap-[8px] items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0 hover:bg-[#f1f5f9] cursor-pointer transition-colors" data-name="Button">
       <Container39 />
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px]">
+        <p className="leading-[16px]">Actions</p>
+      </div>
     </div>
   );
 }
 
 function Data5() {
   return (
-    <div className="content-stretch flex flex-col items-end px-[24px] py-[18.5px] relative shrink-0 w-[56.53px]" data-name="Data">
+    <div className="content-stretch flex flex-col items-end px-[24px] py-[18.5px] relative shrink-0 w-auto" data-name="Data">
       <Button2 />
     </div>
   );
@@ -1354,15 +1356,18 @@ function Container48() {
 
 function Button3() {
   return (
-    <div className="content-stretch flex items-center justify-center p-[4px] relative rounded-[4px] shrink-0" data-name="Button">
+    <div className="bg-[#f8fafc] border border-[#e2e8f0] content-stretch flex gap-[8px] items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0 hover:bg-[#f1f5f9] cursor-pointer transition-colors" data-name="Button">
       <Container48 />
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px]">
+        <p className="leading-[16px]">Actions</p>
+      </div>
     </div>
   );
 }
 
 function Data11() {
   return (
-    <div className="relative shrink-0 w-[56.53px]" data-name="Data">
+    <div className="relative shrink-0 w-auto" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end px-[24px] py-[18.5px] relative size-full">
         <Button3 />
       </div>
@@ -1568,15 +1573,18 @@ function Container57() {
 
 function Button4() {
   return (
-    <div className="content-stretch flex items-center justify-center p-[4px] relative rounded-[4px] shrink-0" data-name="Button">
+    <div className="bg-[#f8fafc] border border-[#e2e8f0] content-stretch flex gap-[8px] items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0 hover:bg-[#f1f5f9] cursor-pointer transition-colors" data-name="Button">
       <Container57 />
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px]">
+        <p className="leading-[16px]">Actions</p>
+      </div>
     </div>
   );
 }
 
 function Data17() {
   return (
-    <div className="relative shrink-0 w-[56.53px]" data-name="Data">
+    <div className="relative shrink-0 w-auto" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end px-[24px] py-[18.5px] relative size-full">
         <Button4 />
       </div>
@@ -1778,15 +1786,18 @@ function Container66() {
 
 function Button5() {
   return (
-    <div className="content-stretch flex items-center justify-center p-[4px] relative rounded-[4px] shrink-0" data-name="Button">
+    <div className="bg-[#f8fafc] border border-[#e2e8f0] content-stretch flex gap-[8px] items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0 hover:bg-[#f1f5f9] cursor-pointer transition-colors" data-name="Button">
       <Container66 />
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px]">
+        <p className="leading-[16px]">Actions</p>
+      </div>
     </div>
   );
 }
 
 function Data23() {
   return (
-    <div className="relative shrink-0 w-[56.53px]" data-name="Data">
+    <div className="relative shrink-0 w-auto" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end px-[24px] py-[18.5px] relative size-full">
         <Button5 />
       </div>
@@ -1992,15 +2003,18 @@ function Container75() {
 
 function Button6() {
   return (
-    <div className="content-stretch flex items-center justify-center p-[4px] relative rounded-[4px] shrink-0" data-name="Button">
+    <div className="bg-[#f8fafc] border border-[#e2e8f0] content-stretch flex gap-[8px] items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0 hover:bg-[#f1f5f9] cursor-pointer transition-colors" data-name="Button">
       <Container75 />
+      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[12px]">
+        <p className="leading-[16px]">Actions</p>
+      </div>
     </div>
   );
 }
 
 function Data29() {
   return (
-    <div className="relative shrink-0 w-[56.53px]" data-name="Data">
+    <div className="relative shrink-0 w-auto" data-name="Data">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end pb-[18px] pt-[18.5px] px-[24px] relative size-full">
         <Button6 />
       </div>
@@ -2148,7 +2162,6 @@ function WorkspaceContent() {
 function MainContentArea() {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-name="Main Content Area">
-      <HeaderTopNavigation />
       <WorkspaceContent />
     </div>
   );
