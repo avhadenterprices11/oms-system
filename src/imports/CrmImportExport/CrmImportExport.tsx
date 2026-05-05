@@ -910,7 +910,7 @@ function Container40() {
 
 function Body() {
   return (
-    <div className="absolute h-[1037.309px] left-0 top-[63.99px] w-[1280px]" data-name="Body">
+    <div className="absolute h-[1037.309px] left-0 top-0 w-[1280px]" data-name="Body">
       <MainContent />
       <Container39 />
       <Container40 />
@@ -1582,7 +1582,6 @@ export default function CrmImportExport() {
     <div className="bg-[#f6f6f8] relative size-full" data-name="CRM — Import & Export">
       <Body />
       <Sidebar />
-      <Header />
     </div>
   );
 }

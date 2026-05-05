@@ -1288,7 +1288,7 @@ function Container90() {
 
 function Body() {
   return (
-    <div className="absolute h-[1023.993px] left-0 top-[63.99px] w-[1280px]" data-name="Body">
+    <div className="absolute h-[1023.993px] left-0 top-0 w-[1280px]" data-name="Body">
       <MainContent />
       <Container90 />
     </div>
@@ -1800,166 +1800,12 @@ function Sidebar() {
   );
 }
 
-function Icon17() {
-  return (
-    <div className="relative shrink-0 size-[15.998px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15.9983 15.9983">
-        <g clipPath="url(#clip0_1_370)" id="Icon">
-          <path d={svgPaths.p35a8ef0} id="Vector" stroke="var(--stroke-0, #94A3B8)" strokeWidth="1.49984" />
-          <path d={svgPaths.p2e1fb780} id="Vector_2" stroke="var(--stroke-0, #94A3B8)" strokeWidth="1.49984" />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_370">
-            <rect fill="white" height="15.9983" width="15.9983" />
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
-  );
-}
-
-function TextInput() {
-  return (
-    <div className="h-[16.667px] relative shrink-0 w-[320.894px]" data-name="Text Input">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip relative rounded-[inherit] size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">Search resources, tasks, or teammates...</p>
-      </div>
-    </div>
-  );
-}
-
-function Container98() {
-  return (
-    <div className="bg-[#f8fafc] h-[33.767px] relative rounded-[8px] shrink-0 w-[380px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-center pl-[16.554px] pr-[0.556px] py-[0.556px] relative size-full">
-        <Icon17 />
-        <TextInput />
-      </div>
-    </div>
-  );
-}
-
-function Container102() {
-  return (
-    <div className="content-stretch flex h-[16.667px] items-start relative shrink-0 w-full" data-name="Container">
-      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-right whitespace-nowrap">Ashwini</p>
-    </div>
-  );
-}
-
-function Container103() {
-  return (
-    <div className="content-stretch flex h-[14.444px] items-start relative shrink-0 w-full" data-name="Container">
-      <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[12px] text-right">Admin</p>
-    </div>
-  );
-}
-
-function Container101() {
-  return (
-    <div className="h-[31.111px] relative shrink-0 w-[53.993px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <Container102 />
-        <Container103 />
-      </div>
-    </div>
-  );
-}
-
-function Container104() {
-  return (
-    <div className="relative rounded-[17.999px] shrink-0 size-[35.998px]" style={{ backgroundImage: "linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(167, 139, 250) 100%)" }} data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center relative size-full">
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[13px] text-white whitespace-nowrap">A</p>
-      </div>
-    </div>
-  );
-}
-
-function Container100() {
-  return (
-    <div className="absolute content-stretch flex gap-[10px] h-[35.998px] items-center left-[103.99px] top-0 w-[99.991px]" data-name="Container">
-      <Container101 />
-      <Container104 />
-    </div>
-  );
-}
-
-function Icon18() {
-  return (
-    <div className="absolute left-[7.99px] size-[20px] top-[7.99px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
-        <g id="Icon">
-          <path d={svgPaths.p1cf42a00} id="Vector" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-          <path d={svgPaths.p35259c00} id="Vector_2" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container106() {
-  return <div className="absolute bg-[#ef4444] border-[1.111px] border-solid border-white left-[23px] rounded-[3.498px] size-[6.997px] top-[6px]" data-name="Container" />;
-}
-
-function Container105() {
-  return (
-    <div className="absolute left-0 rounded-[8px] size-[35.998px] top-0" data-name="Container">
-      <Icon18 />
-      <Container106 />
-    </div>
-  );
-}
-
-function Icon19() {
-  return (
-    <div className="relative shrink-0 size-[20px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
-        <g id="Icon">
-          <path d="M3 4H17V14H6L3 17V4Z" id="Vector" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container107() {
-  return (
-    <div className="absolute content-stretch flex items-center justify-center left-[52px] pl-[7.995px] pr-[8.003px] rounded-[8px] size-[35.998px] top-0" data-name="Container">
-      <Icon19 />
-    </div>
-  );
-}
-
-function Container99() {
-  return (
-    <div className="h-[35.998px] relative shrink-0 w-[203.984px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Container100 />
-        <Container105 />
-        <Container107 />
-      </div>
-    </div>
-  );
-}
-
-function Header() {
-  return (
-    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0 w-[1377.335px]" data-name="Header">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid inset-0 pointer-events-none" />
-      <Container98 />
-      <Container99 />
-    </div>
-  );
-}
 
 export default function TeamCalendarPeople() {
   return (
     <div className="bg-[#f6f6f8] relative size-full" data-name="Team Calendar — People">
       <Body />
       <Sidebar />
-      <Header />
     </div>
   );
 }

@@ -92,9 +92,92 @@ const EmployeeCard = ({ emp, idx }: { emp: Employee; idx: number }) => (
   </div>
 );
 
+const TABLE_GRID_TEMPLATE = "grid-cols-[1.5fr_1fr_1fr_0.8fr_0.8fr_1fr_auto]";
+
+const EmployeeRow = ({ emp, idx }: { emp: Employee; idx: number }) => (
+  <div className="group flex flex-col border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both" style={{ animationDelay: `${idx * 30}ms` }}>
+    <div className={`grid ${TABLE_GRID_TEMPLATE} items-center gap-6 px-8 py-5`}>
+      {/* Employee */}
+      <div className="flex items-center gap-4">
+        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${emp.gradient} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
+          {emp.initial}
+        </div>
+        <div>
+          <h4 className="font-bold text-[#0f172a] text-[15px]">{emp.name}</h4>
+          <p className="text-slate-400 text-[12px] font-medium">{emp.role}</p>
+        </div>
+      </div>
+
+      {/* Department */}
+      <div className="text-[13px] font-semibold text-slate-600">
+        {emp.dept}
+      </div>
+
+      {/* Status */}
+      <div>
+        <span className={`inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[1px] ${emp.status === 'Active' ? 'bg-emerald-50 text-emerald-600' : 'bg-orange-50 text-orange-600'}`}>
+          {emp.status}
+        </span>
+      </div>
+
+      {/* Projects */}
+      <div className="text-[14px] font-black text-[#0f172a]">
+        {emp.projects}
+      </div>
+
+      {/* Tasks */}
+      <div className="text-[14px] font-black text-[#0f172a]">
+        {emp.tasks}
+      </div>
+
+      {/* Capacity */}
+      <div className="flex items-center gap-3">
+        <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden min-w-[60px]">
+          <div 
+            className={`h-full transition-all duration-1000 ${emp.capacity > 90 ? 'bg-rose-500' : 'bg-emerald-500'}`} 
+            style={{ width: `${emp.capacity}%` }} 
+          />
+        </div>
+        <span className={`text-[13px] font-black min-w-[35px] ${emp.capacity > 90 ? 'text-rose-500' : 'text-emerald-500'}`}>
+          {emp.capacity}%
+        </span>
+      </div>
+
+      {/* Actions */}
+      <div className="flex justify-end">
+        <button className="p-2.5 rounded-xl hover:bg-white hover:shadow-md hover:border-slate-200 border border-transparent transition-all group/btn">
+          <svg className="w-5 h-5 text-slate-400 group-hover/btn:text-[#5048e5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const EmployeeTable = ({ employees }: { employees: Employee[] }) => (
+  <div className="bg-white/60 backdrop-blur-xl border border-slate-200/40 rounded-[32px] overflow-hidden shadow-sm animate-in fade-in duration-700">
+    {/* Table Header */}
+    <div className={`grid ${TABLE_GRID_TEMPLATE} gap-6 px-8 py-6 bg-slate-50/50 border-b border-slate-200/40`}>
+      {['Specialist', 'Department', 'Status', 'Projects', 'Tasks', 'Bandwidth', ''].map((header, i) => (
+        <div key={i} className={`text-[11px] font-black uppercase tracking-[2px] text-slate-400 ${i === 6 ? 'text-right' : ''}`}>
+          {header}
+        </div>
+      ))}
+    </div>
+    
+    {/* Table Body */}
+    <div className="max-h-[800px] overflow-y-auto custom-scrollbar">
+      {employees.map((emp, idx) => (
+        <EmployeeRow key={idx} emp={emp} idx={idx} />
+      ))}
+    </div>
+  </div>
+);
+
 // --- Main Page ---
 
 export default function PeopleEmployeeDirectory() {
+  const [viewType, setViewType] = useState<'grid' | 'list'>('grid');
+
   return (
     <div className="bg-[#f8fafc] flex h-screen overflow-hidden selection:bg-[#5048e5]/10 selection:text-[#5048e5]">
       {/* Cinematic Background */}
@@ -140,16 +223,30 @@ export default function PeopleEmployeeDirectory() {
                     ))}
                  </div>
                  <div className="flex gap-2 p-1.5 bg-slate-100/50 rounded-2xl border border-slate-200/40">
-                    <button className="px-6 py-2.5 rounded-xl bg-white shadow-sm text-[#0f172a] font-bold text-[13px]">Grid View</button>
-                    <button className="px-6 py-2.5 rounded-xl text-slate-500 font-bold text-[13px] hover:text-slate-700">List View</button>
+                    <button 
+                      onClick={() => setViewType('grid')}
+                      className={`px-6 py-2.5 rounded-xl transition-all font-bold text-[13px] ${viewType === 'grid' ? 'bg-white shadow-sm text-[#0f172a]' : 'text-slate-500 hover:text-slate-700'}`}
+                    >
+                      Grid View
+                    </button>
+                    <button 
+                      onClick={() => setViewType('list')}
+                      className={`px-6 py-2.5 rounded-xl transition-all font-bold text-[13px] ${viewType === 'list' ? 'bg-white shadow-sm text-[#0f172a]' : 'text-slate-500 hover:text-slate-700'}`}
+                    >
+                      List View
+                    </button>
                  </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                 {employees.map((emp, idx) => (
-                    <EmployeeCard key={idx} emp={emp} idx={idx} />
-                 ))}
-              </div>
+              {viewType === 'grid' ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                   {employees.map((emp, idx) => (
+                      <EmployeeCard key={idx} emp={emp} idx={idx} />
+                   ))}
+                </div>
+              ) : (
+                <EmployeeTable employees={employees} />
+              )}
            </div>
         </main>
       </div>

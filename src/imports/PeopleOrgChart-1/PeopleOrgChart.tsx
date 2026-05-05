@@ -1050,7 +1050,7 @@ function Container9() {
 function MainContent() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[20px] h-[841.12px] items-start left-[256px] pt-[20px] px-[31.997px] top-0 w-[1024.002px]" data-name="Main Content">
-      <Container />
+      {/* <Container /> */}
       <Container4 />
       <Container9 />
     </div>
@@ -2509,7 +2509,7 @@ export default function PeopleOrgChart() {
     <div className="bg-[#f6f6f8] relative size-full" data-name="People — Org Chart">
       <Group />
       <Sidebar />
-      <Header />
+      {/* <Header /> */}
       <Container110 />
       <div className="absolute flex h-[144.15px] items-center justify-center left-[697.62px] top-[427.58px] w-[154.76px]" style={{ "--transform-inner-width": "1185", "--transform-inner-height": "96" } as React.CSSProperties}>
         <div className="-rotate-2 flex-none">
