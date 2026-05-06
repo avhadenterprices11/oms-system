@@ -156,6 +156,32 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
               isCollapsed={isCollapsed}
             />
           ))}
+
+          {/* System Section */}
+          {!isCollapsed && (
+            <div className="px-3 mt-6 mb-1.5 animate-in fade-in slide-in-from-left-2 duration-500">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-[1.5px]">System</span>
+            </div>
+          )}
+
+          <Link 
+            href="/settings"
+            className={`flex items-center gap-[12px] h-[44px] px-[12px] rounded-[12px] transition-all duration-300 group relative ${
+              pathname === "/settings" 
+                ? "bg-[#5048e5] text-white shadow-lg shadow-[#5048e5]/20" 
+                : "bg-indigo-50/80 text-[#5048e5] hover:bg-indigo-100/80"
+            } ${isCollapsed ? "w-[44px] justify-center mx-auto" : "w-full"}`}
+          >
+            <div className="relative shrink-0 size-[18px]">
+              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            {!isCollapsed && (
+              <span className="font-bold text-[14px] tracking-tight">Settings</span>
+            )}
+          </Link>
         </nav>
 
         <div className="p-4 w-full">
