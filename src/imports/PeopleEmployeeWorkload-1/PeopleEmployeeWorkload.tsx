@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import svgPaths from "./svg-mj6sggzpy7";
 
 // --- Types & Data ---
 
@@ -10,186 +9,264 @@ interface EmployeeWorkload {
   role: string;
   dept: string;
   initial: string;
-  gradient: string;
+  bgClass: string;
   projects: number;
   tasks: number;
+  overdueText?: string;
   capacity: number; // Percentage
-  status: 'Active' | 'On Leave' | 'Onboarding';
-  trend: number[]; // Sparkline data
+  status: 'Overloaded' | 'Balanced' | 'Optimal' | 'Available';
+  deadlineDate: string;
+  deadlineTitle: string;
+  onLeave?: boolean;
 }
 
 const employees: EmployeeWorkload[] = [
-  { id: "1", name: "Ravi Kumar", role: "Full Stack Dev", dept: "Engineering", initial: "R", gradient: "from-indigo-400 to-blue-500", status: "Active", projects: 5, tasks: 28, capacity: 96, trend: [40, 60, 80, 96] },
-  { id: "2", name: "Ashwini Reddy", role: "Senior Developer", dept: "Engineering", initial: "A", gradient: "from-purple-400 to-indigo-500", status: "Active", projects: 4, tasks: 24, capacity: 92, trend: [70, 85, 90, 92] },
-  { id: "3", name: "Marcus Vane", role: "Lead Designer", dept: "Design", initial: "M", gradient: "from-blue-400 to-cyan-500", status: "Active", projects: 3, tasks: 18, capacity: 78, trend: [50, 65, 75, 78] },
-  { id: "4", name: "Sarah Miller", role: "Frontend Engineer", dept: "Engineering", initial: "S", gradient: "from-emerald-400 to-teal-500", status: "Active", projects: 6, tasks: 32, capacity: 98, trend: [80, 90, 95, 98] },
-  { id: "5", name: "David Chen", role: "Backend Architect", dept: "Engineering", initial: "D", gradient: "from-amber-400 to-orange-500", status: "Active", projects: 2, tasks: 14, capacity: 45, trend: [30, 40, 42, 45] },
-  { id: "6", name: "Elena Rodriguez", role: "Product Designer", dept: "Design", initial: "E", gradient: "from-rose-400 to-pink-500", status: "On Leave", projects: 0, tasks: 0, capacity: 0, trend: [20, 10, 5, 0] },
-  { id: "7", name: "Nina Okafor", role: "HR Specialist", dept: "Human Resources", initial: "N", gradient: "from-lime-400 to-green-500", status: "Active", projects: 1, tasks: 6, capacity: 32, trend: [25, 28, 30, 32] },
-  { id: "8", name: "James Wilson", role: "DevOps Engineer", dept: "Engineering", initial: "J", gradient: "from-sky-400 to-blue-500", status: "Active", projects: 4, tasks: 21, capacity: 85, trend: [60, 75, 80, 85] },
+  { id: "1", name: "Ravi Kumar", role: "Full Stack Dev", dept: "Engineering", initial: "R", bgClass: "bg-red-100 text-red-500", projects: 5, tasks: 28, overdueText: "3 overdue", capacity: 96, status: "Overloaded", deadlineDate: "Oct 25", deadlineTitle: "Sprint Delivery" },
+  { id: "2", name: "Ashwini Reddy", role: "Senior Developer", dept: "Engineering", initial: "A", bgClass: "bg-orange-100 text-orange-400", projects: 4, tasks: 24, overdueText: "2 overdue", capacity: 92, status: "Overloaded", deadlineDate: "Oct 26", deadlineTitle: "API Integration" },
+  { id: "3", name: "Marcus Vane", role: "Lead Designer", dept: "Design", initial: "M", bgClass: "bg-blue-100 text-blue-400", projects: 3, tasks: 18, overdueText: "1 blocked", capacity: 78, status: "Balanced", deadlineDate: "Oct 24", deadlineTitle: "Final UI Prototypes", onLeave: true },
+  { id: "4", name: "Lisa Chen", role: "Ops Manager", dept: "Operations", initial: "L", bgClass: "bg-pink-100 text-pink-400", projects: 3, tasks: 15, overdueText: "0 overdue", capacity: 72, status: "Balanced", deadlineDate: "Oct 30", deadlineTitle: "Q3 Report" },
+  { id: "5", name: "Jordan Lee", role: "Backend Engineer", dept: "Engineering", initial: "J", bgClass: "bg-purple-100 text-purple-400", projects: 2, tasks: 12, overdueText: "0 overdue", capacity: 65, status: "Optimal", deadlineDate: "Oct 27", deadlineTitle: "Database Migration" },
+  { id: "6", name: "Tomas Garcia", role: "Account Executive", dept: "Sales", initial: "T", bgClass: "bg-teal-100 text-teal-400", projects: 2, tasks: 10, overdueText: "0 overdue", capacity: 55, status: "Optimal", deadlineDate: "Nov 01", deadlineTitle: "Proposal Review" },
+  { id: "7", name: "Sanya Patel", role: "Content Strategist", dept: "Marketing", initial: "S", bgClass: "bg-green-100 text-green-400", projects: 1, tasks: 8, overdueText: "0 overdue", capacity: 42, status: "Available", deadlineDate: "Nov 05", deadlineTitle: "Campaign Brief" },
+  { id: "8", name: "Nina Okafor", role: "HR Specialist", dept: "HR", initial: "N", bgClass: "bg-lime-100 text-lime-400", projects: 1, tasks: 6, overdueText: "0 overdue", capacity: 32, status: "Available", deadlineDate: "Nov 08", deadlineTitle: "Onboarding Review" },
 ];
 
 // --- Components ---
 
-const StatCard = ({ label, value, sub, color }: any) => (
-  <div className="bg-white/60 backdrop-blur-md border border-slate-200/40 p-6 rounded-[32px] flex flex-col gap-4 group hover:shadow-xl hover:shadow-indigo-100/20 transition-all duration-500">
-    <div className="flex items-center justify-between">
-      <p className="text-[11px] font-black uppercase tracking-[2px] text-slate-400">{label}</p>
-      <div className={`p-2 rounded-xl ${color} bg-opacity-10`}>
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-      </div>
+const StatCard = ({ label, value, badge, badgeColor, icon, iconBg }: any) => (
+  <div className="bg-white rounded-[32px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+    <div className={`absolute top-8 right-8 px-3 py-1 rounded-full text-[10px] font-bold ${badgeColor}`}>
+      {badge}
     </div>
-    <div>
-      <h4 className="text-[32px] font-black text-[#0f172a] leading-none mb-1">{value}</h4>
-      <p className="text-[12px] font-medium text-slate-500">{sub}</p>
+    <div className={`w-12 h-12 rounded-2xl ${iconBg} flex items-center justify-center mb-6`}>
+      {icon}
     </div>
+    <p className="text-sm font-medium text-slate-400 mb-1">{label}</p>
+    <h4 className="text-[32px] font-extrabold text-slate-900 leading-none">{value}</h4>
   </div>
 );
 
-const TABLE_GRID_TEMPLATE = "grid-cols-[1.5fr_1fr_0.8fr_0.8fr_1.5fr_1fr_auto]";
+const FilterDropdown = ({ label, icon }: { label: string; icon?: React.ReactNode }) => (
+  <button className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
+    {icon}
+    {label}
+    <svg className="w-4 h-4 text-slate-400 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+  </button>
+);
 
-const WorkloadRow = ({ emp, idx }: { emp: EmployeeWorkload; idx: number }) => (
-  <div className="group flex flex-col border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both" style={{ animationDelay: `${idx * 40}ms` }}>
-    <div className={`grid ${TABLE_GRID_TEMPLATE} items-center gap-6 px-8 py-5`}>
-      {/* Specialist */}
-      <div className="flex items-center gap-4">
-        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${emp.gradient} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
-          {emp.initial}
+const TABLE_GRID_TEMPLATE = "grid-cols-[2fr_1.2fr_0.8fr_1fr_1.5fr_1.2fr_1.5fr_0.5fr]";
+
+const WorkloadRow = ({ emp }: { emp: EmployeeWorkload }) => {
+  const statusColors = {
+    'Overloaded': 'bg-red-50 text-red-500 border-red-100',
+    'Balanced': 'bg-orange-50 text-orange-500 border-orange-100',
+    'Optimal': 'bg-blue-50 text-blue-500 border-blue-100',
+    'Available': 'bg-green-50 text-green-500 border-green-100'
+  };
+
+  const progressColors = {
+    'Overloaded': 'bg-red-500',
+    'Balanced': 'bg-orange-400',
+    'Optimal': 'bg-blue-500',
+    'Available': 'bg-green-500'
+  };
+
+  return (
+    <div className="group grid items-center border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-all duration-300">
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center gap-4 px-8 py-5`}>
+        {/* Employee */}
+        <div className="flex items-center gap-3">
+          <div className={`w-10 h-10 rounded-xl ${emp.bgClass} flex items-center justify-center font-bold text-sm flex-shrink-0`}>
+            {emp.initial}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+               <h4 className="font-bold text-slate-900 text-[15px]">{emp.name}</h4>
+               {emp.onLeave && <span className="bg-orange-100 text-orange-500 text-[8px] font-black uppercase px-1.5 py-0.5 rounded-md">On Leave</span>}
+            </div>
+            <p className="text-slate-400 text-[12px] font-medium">{emp.dept}</p>
+          </div>
         </div>
+
+        {/* Role */}
+        <div className="text-[13px] font-semibold text-slate-600 leading-tight">
+          {emp.role}
+        </div>
+
+        {/* Projects */}
+        <div className="text-[14px] font-bold text-blue-600">
+          {emp.projects}
+        </div>
+
+        {/* Tasks */}
         <div>
-          <h4 className="font-bold text-[#0f172a] text-[15px]">{emp.name}</h4>
-          <p className="text-slate-400 text-[12px] font-medium">{emp.role}</p>
+          <div className="flex items-baseline gap-1">
+             <span className="text-[14px] font-bold text-slate-900">{emp.tasks}</span>
+             {emp.overdueText && <span className={`text-[10px] font-medium ${emp.overdueText.includes('overdue') || emp.overdueText.includes('blocked') ? 'text-red-400' : 'text-slate-300'}`}>({emp.overdueText})</span>}
+          </div>
         </div>
-      </div>
 
-      {/* Department */}
-      <div className="text-[13px] font-semibold text-slate-600">
-        {emp.dept}
-      </div>
-
-      {/* Projects */}
-      <div className="text-[14px] font-black text-[#0f172a]">
-        {emp.projects}
-      </div>
-
-      {/* Tasks */}
-      <div className="text-[14px] font-black text-[#0f172a]">
-        {emp.tasks}
-      </div>
-
-      {/* Bandwidth Usage */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-          <div 
-            className={`h-full transition-all duration-1000 ${emp.capacity > 90 ? 'bg-rose-500' : emp.capacity > 75 ? 'bg-amber-500' : 'bg-emerald-500'}`} 
-            style={{ width: `${emp.capacity}%` }} 
-          />
+        {/* Capacity */}
+        <div className="flex items-center gap-3">
+          <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+            <div 
+              className={`h-full ${progressColors[emp.status]}`} 
+              style={{ width: `${emp.capacity}%` }} 
+            />
+          </div>
+          <span className={`text-[13px] font-bold min-w-[35px] ${emp.capacity > 90 ? 'text-red-500' : 'text-slate-700'}`}>
+            {emp.capacity}%
+          </span>
         </div>
-        <span className={`text-[13px] font-black min-w-[35px] ${emp.capacity > 90 ? 'text-rose-500' : 'text-slate-700'}`}>
-          {emp.capacity}%
-        </span>
-      </div>
 
-      {/* Status */}
-      <div>
-        <span className={`inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[1px] ${emp.status === 'Active' ? 'bg-emerald-50 text-emerald-600' : 'bg-orange-50 text-orange-600'}`}>
-          {emp.status}
-        </span>
-      </div>
+        {/* Status */}
+        <div>
+          <span className={`inline-flex px-3 py-1 rounded-full text-[10px] font-bold border ${statusColors[emp.status]}`}>
+            {emp.status}
+          </span>
+        </div>
 
-      {/* Actions */}
-      <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button title="Reassign Tasks" className="p-2.5 rounded-xl hover:bg-white hover:shadow-md hover:border-slate-200 border border-transparent transition-all group/btn">
-          <svg className="w-5 h-5 text-slate-400 group-hover/btn:text-[#5048e5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
-        </button>
+        {/* Next Deadline */}
+        <div>
+           <p className="text-[13px] font-bold text-slate-900">{emp.deadlineDate}</p>
+           <p className="text-[11px] font-medium text-slate-400">{emp.deadlineTitle}</p>
+        </div>
+
+        {/* Selection */}
+        <div className="flex justify-end">
+           <div className="w-5 h-5 rounded-md border-2 border-slate-200" />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function PeopleEmployeeWorkload() {
+  const [showOnLeave, setShowOnLeave] = useState(false);
+
   return (
-    <div className="bg-[#f8fafc] size-full overflow-hidden selection:bg-[#5048e5]/10 selection:text-[#5048e5]">
-      {/* Cinematic Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#5048e5]/5 blur-[160px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#7c3aed]/5 blur-[140px] rounded-full" />
-      </div>
-
-      <main className="relative z-10 h-full overflow-y-auto custom-scrollbar p-12 scroll-smooth">
-        <div className="max-w-[1400px] mx-auto pb-32">
-          <header className="mb-16 flex flex-col xl:flex-row xl:items-end justify-between gap-12">
-            <div className="animate-in fade-in slide-in-from-left-8 duration-1000">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 text-[#5048e5] rounded-full text-[11px] font-black uppercase tracking-[2px] mb-6 border border-indigo-100">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5048e5] animate-pulse" />
-                Capacity Intelligence
-              </div>
-              <h1 className="font-['Inter:Black',sans-serif] font-black text-[56px] lg:text-[80px] text-[#0f172a] tracking-tight leading-[0.9] mb-8">
-                Team<br />Workload<span className="text-[#5048e5]">.</span>
-              </h1>
-              <p className="text-[20px] lg:text-[24px] font-medium text-slate-500 max-w-2xl leading-relaxed">
-                Monitor specialist bandwidth and optimize task distribution with real-time architectural insights.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-right-8 duration-1000">
-              <StatCard label="Avg. Capacity" value="78%" sub="+4% from last week" color="text-indigo-600" />
-              <StatCard label="Overloaded" value="03" sub="Requires immediate attention" color="text-rose-600" />
-              <StatCard label="Tasks" value="152" sub="Currently in pipeline" color="text-emerald-600" />
-            </div>
-          </header>
-
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 bg-white/40 backdrop-blur-md p-6 rounded-[32px] border border-slate-200/40">
-            <div className="flex flex-wrap gap-4">
-              {['Department', 'Role', 'Capacity Range'].map(filter => (
-                <button key={filter} className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/60 font-bold text-[13px] text-slate-700 hover:border-[#5048e5] transition-all">
-                  {filter}
-                  <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-              ))}
-            </div>
-            <button className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#5048e5] text-white font-bold text-[13px] hover:shadow-xl hover:shadow-indigo-200 transition-all">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-              Optimize Distribution
+    <div className="bg-[#F9FAFB] min-h-screen font-['Inter',sans-serif]">
+      <main className="max-w-[1400px] mx-auto px-8 py-10">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+          <div>
+            <h1 className="text-[40px] font-extrabold text-slate-900 tracking-tight mb-2">Employee Workload</h1>
+            <p className="text-slate-400 font-medium text-lg">Showing workload for 24 employees across 12 active projects.</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg>
+              Filters
+            </button>
+            <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M16 10l-4 4m0 0l-4-4m4 4V4" /></svg>
+              Export
+            </button>
+            <button className="flex items-center gap-2 px-6 py-2.5 bg-[#5D5FEF] text-white rounded-xl text-sm font-bold hover:bg-[#4D4FCF] transition-all shadow-lg shadow-indigo-200">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+              Add Employee
             </button>
           </div>
+        </div>
 
-          <div className="bg-white/60 backdrop-blur-xl border border-slate-200/40 rounded-[40px] overflow-hidden shadow-sm animate-in fade-in duration-700">
-            {/* Table Header */}
-            <div className={`grid ${TABLE_GRID_TEMPLATE} gap-6 px-8 py-6 bg-slate-50/50 border-b border-slate-200/40`}>
-              {['Specialist', 'Department', 'Projects', 'Tasks', 'Bandwidth Usage', 'Status', ''].map((header, i) => (
-                <div key={i} className={`text-[11px] font-black uppercase tracking-[2px] text-slate-400 ${i === 6 ? 'text-right' : ''}`}>
-                  {header}
-                </div>
-              ))}
-            </div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <StatCard 
+            label="Total Employees" 
+            value="24" 
+            badge="+3" 
+            badgeColor="bg-green-50 text-green-500" 
+            iconBg="bg-indigo-50 text-[#5D5FEF]"
+            icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
+          />
+          <StatCard 
+            label="Total Active Tasks" 
+            value="312" 
+            badge="Stable" 
+            badgeColor="bg-slate-100 text-slate-500" 
+            iconBg="bg-green-50 text-green-500"
+            icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>}
+          />
+          <StatCard 
+            label="Avg Capacity" 
+            value="72%" 
+            badge="+5%" 
+            badgeColor="bg-green-50 text-green-500" 
+            iconBg="bg-blue-50 text-blue-500"
+            icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+          />
+          <StatCard 
+            label="Overloaded" 
+            value="4" 
+            badge="Action Needed" 
+            badgeColor="bg-red-50 text-red-500" 
+            iconBg="bg-red-50 text-red-500"
+            icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>}
+          />
+        </div>
+
+        {/* Filter Bar */}
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <FilterDropdown label="All Departments" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} />
+            <FilterDropdown label="All Statuses" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
+            <FilterDropdown label="All Managers" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} />
             
-            {/* Table Body */}
-            <div className="max-h-[800px] overflow-y-auto custom-scrollbar">
-              {employees.map((emp, idx) => (
-                <WorkloadRow key={emp.id} emp={emp} idx={idx} />
-              ))}
+            <div className="h-6 w-px bg-slate-200 mx-2 hidden md:block" />
+            
+            <div className="flex items-center gap-3">
+               <div 
+                 onClick={() => setShowOnLeave(!showOnLeave)}
+                 className={`w-10 h-5 rounded-full relative cursor-pointer transition-all ${showOnLeave ? 'bg-[#5D5FEF]' : 'bg-slate-200'}`}
+               >
+                 <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${showOnLeave ? 'left-6' : 'left-1'}`} />
+               </div>
+               <span className="text-[13px] font-semibold text-slate-600">Show on leave</span>
             </div>
+          </div>
+
+          <div className="relative flex-1 max-w-md">
+            <input 
+              type="text" 
+              placeholder="Search by name..." 
+              className="w-full bg-white border border-slate-200 rounded-xl px-12 py-2.5 text-sm outline-none focus:border-[#5D5FEF] transition-all"
+            />
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+        </div>
+
+        {/* Table */}
+        <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
+          <div className={`grid ${TABLE_GRID_TEMPLATE} gap-4 px-8 py-6 bg-slate-50/50 border-b border-slate-200`}>
+            {[
+              { label: 'EMPLOYEE', sortable: true },
+              { label: 'ROLE', sortable: false },
+              { label: 'PROJECTS', sortable: true },
+              { label: 'TASKS', sortable: true },
+              { label: 'CAPACITY', sortable: true },
+              { label: 'STATUS', sortable: false },
+              { label: 'NEXT DEADLINE', sortable: false },
+              { label: '', sortable: false }
+            ].map((header, i) => (
+              <div key={i} className="flex items-center gap-1">
+                <span className="text-[11px] font-black uppercase tracking-[2.5px] text-slate-400">{header.label}</span>
+                {header.sortable && (
+                  <svg className="w-3 h-3 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M7 16l5 5m0 0l5-5m-5 5V3" /></svg>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          <div className="overflow-y-auto">
+            {employees.map((emp) => (
+              <WorkloadRow key={emp.id} emp={emp} />
+            ))}
           </div>
         </div>
       </main>
 
       <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e2e8f0;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #cbd5e1;
-        }
       `}} />
     </div>
   );
