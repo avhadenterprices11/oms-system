@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-
 // --- Types & Data ---
 
 interface Employee {
@@ -9,264 +8,168 @@ interface Employee {
   role: string;
   dept: string;
   initial: string;
-  gradient: string;
+  bgClass: string;
   status: 'Active' | 'On Leave' | 'Onboarding';
   projects: number;
   tasks: number;
   capacity: number;
+  capacityColor: string;
 }
 
 const employees: Employee[] = [
-  { name: "Ravi Kumar", role: "Full Stack Dev", dept: "Engineering", initial: "R", gradient: "from-indigo-400 to-blue-500", status: "Active", projects: 5, tasks: 28, capacity: 96 },
-  { name: "Ashwini Reddy", role: "Senior Developer", dept: "Engineering", initial: "A", gradient: "from-purple-400 to-indigo-500", status: "Active", projects: 4, tasks: 24, capacity: 92 },
-  { name: "Marcus Vane", role: "Lead Designer", dept: "Design", initial: "M", gradient: "from-blue-400 to-cyan-500", status: "Active", projects: 3, tasks: 18, capacity: 78 },
-  { name: "Sarah Miller", role: "Frontend Engineer", dept: "Engineering", initial: "S", gradient: "from-emerald-400 to-teal-500", status: "Active", projects: 6, tasks: 32, capacity: 98 },
-  { name: "David Chen", role: "Backend Architect", dept: "Engineering", initial: "D", gradient: "from-amber-400 to-orange-500", status: "Active", projects: 2, tasks: 14, capacity: 45 },
-  { name: "Elena Rodriguez", role: "Product Designer", dept: "Design", initial: "E", gradient: "from-rose-400 to-pink-500", status: "On Leave", projects: 0, tasks: 0, capacity: 0 },
-  { name: "Nina Okafor", role: "HR Specialist", dept: "Human Resources", initial: "N", gradient: "from-lime-400 to-green-500", status: "Active", projects: 1, tasks: 6, capacity: 32 },
-  { name: "James Wilson", role: "DevOps Engineer", dept: "Engineering", initial: "J", gradient: "from-sky-400 to-blue-500", status: "Active", projects: 4, tasks: 21, capacity: 85 },
+  { name: "Ravi Kumar", role: "Full Stack Dev", dept: "Engineering", initial: "R", bgClass: "bg-red-100 text-red-500", status: "Active", projects: 5, tasks: 28, capacity: 96, capacityColor: "text-red-500" },
+  { name: "Ashwini Reddy", role: "Senior Developer", dept: "Engineering", initial: "A", bgClass: "bg-orange-100 text-orange-500", status: "Active", projects: 4, tasks: 24, capacity: 92, capacityColor: "text-red-500" },
+  { name: "Marcus Vane", role: "Lead Designer", dept: "Design", initial: "M", bgClass: "bg-blue-100 text-blue-500", status: "On Leave", projects: 3, tasks: 18, capacity: 78, capacityColor: "text-orange-500" },
+  { name: "Lisa Chen", role: "Ops Manager", dept: "Operations", initial: "L", bgClass: "bg-pink-100 text-pink-500", status: "Active", projects: 3, tasks: 15, capacity: 72, capacityColor: "text-orange-500" },
+  { name: "Jordan Lee", role: "Backend Engineer", dept: "Engineering", initial: "J", bgClass: "bg-purple-100 text-purple-500", status: "Active", projects: 2, tasks: 12, capacity: 65, capacityColor: "text-blue-500" },
+  { name: "Tomas Garcia", role: "Account Executive", dept: "Sales", initial: "T", bgClass: "bg-teal-100 text-teal-500", status: "Active", projects: 2, tasks: 10, capacity: 55, capacityColor: "text-blue-500" },
+  { name: "Sanya Patel", role: "Content Strategist", dept: "Marketing", initial: "S", bgClass: "bg-green-100 text-green-500", status: "Active", projects: 1, tasks: 8, capacity: 42, capacityColor: "text-green-500" },
+  { name: "Nina Okafor", role: "HR Specialist", dept: "HR", initial: "N", bgClass: "bg-lime-100 text-lime-500", status: "Onboarding", projects: 1, tasks: 6, capacity: 32, capacityColor: "text-green-500" },
 ];
 
 // --- Components ---
 
-
-
-
-
-const StatCard = ({ label, value, color }: any) => (
-  <div className="bg-white/60 backdrop-blur-md border border-slate-200/40 p-5 rounded-[28px] flex items-center gap-4 group hover:shadow-xl hover:shadow-indigo-100/20 transition-all duration-500 cursor-default">
-    <div className={`w-12 h-12 rounded-2xl ${color} flex items-center justify-center font-black text-xl shadow-lg`}>
-      {value}
-    </div>
-    <div>
-      <p className="text-[11px] font-black uppercase tracking-[2px] text-slate-400 leading-none mb-1">{label}</p>
-      <div className="h-1 w-8 bg-slate-100 rounded-full overflow-hidden">
-         <div className="h-full bg-indigo-500 w-2/3 group-hover:w-full transition-all duration-1000" />
-      </div>
-    </div>
-  </div>
+const NavTab = ({ label, active = false }: { label: string; active?: boolean }) => (
+  <button className={`px-6 py-4 text-sm font-semibold relative transition-colors ${active ? "text-[#5D5FEF]" : "text-slate-500 hover:text-slate-700"}`}>
+    {label}
+    {active && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#5D5FEF]" />}
+  </button>
 );
 
-const EmployeeCard = ({ emp, idx }: { emp: Employee; idx: number }) => (
-  <div className="group relative bg-white/60 backdrop-blur-xl border border-slate-200/40 rounded-[40px] p-8 hover:shadow-[0_32px_64px_-12px_rgba(80,72,229,0.12)] transition-all duration-700 animate-in fade-in slide-in-from-bottom-8 fill-mode-both" style={{ animationDelay: `${idx * 50}ms` }}>
-    <div className="absolute top-6 right-8">
-       <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[2px] ${emp.status === 'Active' ? 'bg-emerald-50 text-emerald-600' : 'bg-orange-50 text-orange-600'}`}>
+const FilterButton = ({ label, icon }: { label: string; icon?: React.ReactNode }) => (
+  <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
+    {icon}
+    {label}
+    <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+  </button>
+);
+
+const StatusBadge = ({ label, count }: { label: string; count: number }) => (
+  <button className="px-6 py-2 rounded-full text-xs font-semibold flex items-center gap-2 bg-white border border-slate-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] text-slate-900 hover:border-[#5D5FEF] transition-all group">
+    <span className="font-bold text-[#0f172a] group-hover:text-[#5D5FEF]">{count}</span>
+    <span className="text-slate-500 group-hover:text-slate-900">{label}</span>
+  </button>
+);
+
+const EmployeeCard = ({ emp }: { emp: Employee }) => {
+  const statusColors = {
+    'Active': 'bg-green-100 text-green-600',
+    'On Leave': 'bg-orange-100 text-orange-600',
+    'Onboarding': 'bg-indigo-100 text-indigo-600'
+  };
+
+  return (
+    <div className="bg-white rounded-[32px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex flex-col items-center group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className="w-full flex justify-end mb-2">
+        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${statusColors[emp.status]}`}>
           {emp.status}
-       </div>
-    </div>
-
-    <div className="flex flex-col items-center text-center mt-4">
-       <div className="relative mb-6">
-          <div className={`absolute -inset-2 bg-gradient-to-br ${emp.gradient} rounded-[32px] blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-700`} />
-          <div className={`relative w-24 h-24 rounded-[30px] bg-gradient-to-br ${emp.gradient} flex items-center justify-center text-white font-black text-[36px] shadow-2xl group-hover:scale-105 transition-transform duration-700`}>
-             {emp.initial}
-          </div>
-       </div>
-       
-       <h3 className="font-['Inter:Black',sans-serif] font-black text-[24px] text-[#0f172a] tracking-tight group-hover:text-[#5048e5] transition-colors">{emp.name}</h3>
-       <p className="text-[14px] font-medium text-slate-500 mt-1 mb-6">{emp.role}</p>
-       
-       <div className="flex gap-2 mb-8">
-          <span className="px-3 py-1 bg-slate-100/80 rounded-lg text-[11px] font-bold text-slate-500 uppercase tracking-wide">{emp.dept}</span>
-       </div>
-
-       <div className="w-full grid grid-cols-3 gap-2 bg-slate-50/50 rounded-3xl p-6 border border-slate-100">
-          <div>
-             <p className="text-[18px] font-black text-[#0f172a]">{emp.projects}</p>
-             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1">Projects</p>
-          </div>
-          <div className="border-x border-slate-200/60">
-             <p className="text-[18px] font-black text-[#0f172a]">{emp.tasks}</p>
-             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1">Tasks</p>
-          </div>
-          <div>
-             <p className={`text-[18px] font-black ${emp.capacity > 90 ? 'text-rose-500' : 'text-emerald-500'}`}>{emp.capacity}%</p>
-             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1">Capacity</p>
-          </div>
-       </div>
-       
-       <button className="mt-8 w-full py-4 bg-white border border-slate-200/60 rounded-2xl font-bold text-[13px] text-slate-700 hover:bg-[#5048e5] hover:text-white hover:border-[#5048e5] hover:shadow-xl hover:shadow-indigo-100 transition-all duration-300">
-          View Specialist Profile
-       </button>
-    </div>
-  </div>
-);
-
-const TABLE_GRID_TEMPLATE = "grid-cols-[1.5fr_1fr_1fr_0.8fr_0.8fr_1fr_auto]";
-
-const EmployeeRow = ({ emp, idx }: { emp: Employee; idx: number }) => (
-  <div className="group flex flex-col border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both" style={{ animationDelay: `${idx * 30}ms` }}>
-    <div className={`grid ${TABLE_GRID_TEMPLATE} items-center gap-6 px-8 py-5`}>
-      {/* Employee */}
-      <div className="flex items-center gap-4">
-        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${emp.gradient} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
-          {emp.initial}
-        </div>
-        <div>
-          <h4 className="font-bold text-[#0f172a] text-[15px]">{emp.name}</h4>
-          <p className="text-slate-400 text-[12px] font-medium">{emp.role}</p>
-        </div>
+        </span>
+      </div>
+      
+      <div className={`w-20 h-20 rounded-full ${emp.bgClass} flex items-center justify-center text-3xl font-bold mb-6`}>
+        {emp.initial}
       </div>
 
-      {/* Department */}
-      <div className="text-[13px] font-semibold text-slate-600">
+      <h3 className="text-xl font-bold text-slate-900 mb-1">{emp.name}</h3>
+      <p className="text-sm font-medium text-slate-400 mb-4">{emp.role}</p>
+      
+      <div className="px-4 py-1 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">
         {emp.dept}
       </div>
 
-      {/* Status */}
-      <div>
-        <span className={`inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[1px] ${emp.status === 'Active' ? 'bg-emerald-50 text-emerald-600' : 'bg-orange-50 text-orange-600'}`}>
-          {emp.status}
-        </span>
-      </div>
-
-      {/* Projects */}
-      <div className="text-[14px] font-black text-[#0f172a]">
-        {emp.projects}
-      </div>
-
-      {/* Tasks */}
-      <div className="text-[14px] font-black text-[#0f172a]">
-        {emp.tasks}
-      </div>
-
-      {/* Capacity */}
-      <div className="flex items-center gap-3">
-        <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden min-w-[60px]">
-          <div 
-            className={`h-full transition-all duration-1000 ${emp.capacity > 90 ? 'bg-rose-500' : 'bg-emerald-500'}`} 
-            style={{ width: `${emp.capacity}%` }} 
-          />
+      <div className="w-full grid grid-cols-3 gap-4 mb-8">
+        <div className="text-center">
+          <p className="text-lg font-bold text-slate-900">{emp.projects}</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Projects</p>
         </div>
-        <span className={`text-[13px] font-black min-w-[35px] ${emp.capacity > 90 ? 'text-rose-500' : 'text-emerald-500'}`}>
-          {emp.capacity}%
-        </span>
-      </div>
-
-      {/* Actions */}
-      <div className="flex justify-end">
-        <button className="p-2.5 rounded-xl hover:bg-white hover:shadow-md hover:border-slate-200 border border-transparent transition-all group/btn">
-          <svg className="w-5 h-5 text-slate-400 group-hover/btn:text-[#5048e5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-);
-
-const EmployeeTable = ({ employees }: { employees: Employee[] }) => (
-  <div className="bg-white/60 backdrop-blur-xl border border-slate-200/40 rounded-[32px] overflow-hidden shadow-sm animate-in fade-in duration-700">
-    {/* Table Header */}
-    <div className={`grid ${TABLE_GRID_TEMPLATE} gap-6 px-8 py-6 bg-slate-50/50 border-b border-slate-200/40`}>
-      {['Specialist', 'Department', 'Status', 'Projects', 'Tasks', 'Bandwidth', ''].map((header, i) => (
-        <div key={i} className={`text-[11px] font-black uppercase tracking-[2px] text-slate-400 ${i === 6 ? 'text-right' : ''}`}>
-          {header}
+        <div className="text-center border-x border-slate-100">
+          <p className="text-lg font-bold text-slate-900">{emp.tasks}</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Tasks</p>
         </div>
-      ))}
-    </div>
-    
-    {/* Table Body */}
-    <div className="max-h-[800px] overflow-y-auto custom-scrollbar">
-      {employees.map((emp, idx) => (
-        <EmployeeRow key={idx} emp={emp} idx={idx} />
-      ))}
-    </div>
-  </div>
-);
+        <div className="text-center">
+          <p className={`text-lg font-bold ${emp.capacityColor}`}>{emp.capacity}%</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Capacity</p>
+        </div>
+      </div>
 
-// --- Main Page ---
+      <button className="text-sm font-bold text-[#5D5FEF] hover:underline transition-all">
+        View Profile
+      </button>
+    </div>
+  );
+};
 
 export default function PeopleEmployeeDirectory() {
-  const [viewType, setViewType] = useState<'grid' | 'list'>('grid');
+  const [search, setSearch] = useState("");
 
   return (
-    <div className="bg-[#f8fafc] flex h-screen overflow-hidden selection:bg-[#5048e5]/10 selection:text-[#5048e5]">
-      {/* Cinematic Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#5048e5]/5 blur-[160px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#7c3aed]/5 blur-[140px] rounded-full" />
-      </div>
+    <div className="bg-[#F9FAFB] min-h-screen font-['Inter',sans-serif]">
+      <main className="max-w-[1400px] mx-auto px-8 py-10">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+          <div>
+            <h1 className="text-[40px] font-extrabold text-slate-900 tracking-tight mb-2">Employee Directory</h1>
+            <p className="text-slate-400 font-medium">24 employees across 6 departments</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg>
+              Filters
+            </button>
+            <button className="flex items-center gap-2 px-6 py-2.5 bg-[#5D5FEF] text-white rounded-xl text-sm font-bold hover:bg-[#4D4FCF] transition-all shadow-lg shadow-indigo-200">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+              Add Employee
+            </button>
+          </div>
+        </div>
 
-      <div className="flex-1 flex flex-col relative z-10 overflow-hidden">
+        {/* Filter Bar */}
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <FilterButton 
+              label="Department" 
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} 
+            />
+            <FilterButton 
+              label="Role" 
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} 
+            />
+            <FilterButton 
+              label="Status" 
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} 
+            />
+          </div>
 
-        
-        <main className="flex-1 overflow-y-auto custom-scrollbar p-12 scroll-smooth">
-           <div className="max-w-[1400px] mx-auto pb-32">
-              <header className="mb-16 flex flex-col xl:flex-row xl:items-end justify-between gap-12">
-                 <div className="animate-in fade-in slide-in-from-left-8 duration-1000">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 text-[#5048e5] rounded-full text-[11px] font-black uppercase tracking-[2px] mb-6 border border-indigo-100">
-                       <span className="w-1.5 h-1.5 rounded-full bg-[#5048e5] animate-pulse" />
-                       Human Capital Interface
-                    </div>
-                    <h1 className="font-['Inter:Black',sans-serif] font-black text-[56px] lg:text-[80px] text-[#0f172a] tracking-tight leading-[0.9] mb-8">
-                       Employee<br />Directory<span className="text-[#5048e5]">.</span>
-                    </h1>
-                    <p className="text-[20px] lg:text-[24px] font-medium text-slate-500 max-w-2xl leading-relaxed">
-                       Orchestrate your high-performance collective with precision and architectural clarity.
-                    </p>
-                 </div>
+          <div className="relative flex-1 max-w-md">
+            <input 
+              type="text" 
+              placeholder="Search employees..." 
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full bg-white border border-slate-200 rounded-xl px-12 py-2.5 text-sm outline-none focus:border-[#5D5FEF] transition-all"
+            />
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </div>
+        </div>
 
-                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in fade-in slide-in-from-right-8 duration-1000">
-                    <StatCard label="Total" value="24" color="bg-indigo-50 text-indigo-600 shadow-indigo-100" />
-                    <StatCard label="Active" value="20" color="bg-emerald-50 text-emerald-600 shadow-emerald-100" />
-                    <StatCard label="Leave" value="02" color="bg-rose-50 text-rose-600 shadow-rose-100" />
-                    <StatCard label="New" value="02" color="bg-amber-50 text-amber-600 shadow-amber-100" />
-                 </div>
-              </header>
+        {/* Status Counters */}
+        <div className="flex flex-wrap items-center gap-2 mb-12">
+          <StatusBadge label="Total" count={24} />
+          <StatusBadge label="Active" count={20} />
+          <StatusBadge label="On Leave" count={2} />
+          <StatusBadge label="Onboarding" count={2} />
+        </div>
 
-              <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 bg-white/40 backdrop-blur-md p-6 rounded-[32px] border border-slate-200/40">
-                 <div className="flex flex-wrap gap-4">
-                    {['Department', 'Role', 'Status'].map(filter => (
-                      <button key={filter} className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/60 font-bold text-[13px] text-slate-700 hover:border-[#5048e5] transition-all">
-                        {filter}
-                        <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-                      </button>
-                    ))}
-                 </div>
-                 <div className="flex gap-2 p-1.5 bg-slate-100/50 rounded-2xl border border-slate-200/40">
-                    <button 
-                      onClick={() => setViewType('grid')}
-                      className={`px-6 py-2.5 rounded-xl transition-all font-bold text-[13px] ${viewType === 'grid' ? 'bg-white shadow-sm text-[#0f172a]' : 'text-slate-500 hover:text-slate-700'}`}
-                    >
-                      Grid View
-                    </button>
-                    <button 
-                      onClick={() => setViewType('list')}
-                      className={`px-6 py-2.5 rounded-xl transition-all font-bold text-[13px] ${viewType === 'list' ? 'bg-white shadow-sm text-[#0f172a]' : 'text-slate-500 hover:text-slate-700'}`}
-                    >
-                      List View
-                    </button>
-                 </div>
-              </div>
-
-              {viewType === 'grid' ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                   {employees.map((emp, idx) => (
-                      <EmployeeCard key={idx} emp={emp} idx={idx} />
-                   ))}
-                </div>
-              ) : (
-                <EmployeeTable employees={employees} />
-              )}
-           </div>
-        </main>
-      </div>
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+          {employees.map((emp, i) => (
+            <EmployeeCard key={i} emp={emp} />
+          ))}
+        </div>
+      </main>
 
       <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e2e8f0;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #cbd5e1;
-        }
       `}} />
     </div>
   );
