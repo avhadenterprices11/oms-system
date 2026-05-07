@@ -2541,7 +2541,7 @@ function ColumnFailed() {
 
 function Container36() {
   return (
-    <div className="content-stretch flex gap-[24px] h-[831px] items-start relative shrink-0 w-full" data-name="Container">
+    <div className="flex gap-[24px] items-start relative shrink-0 min-h-full" data-name="Container">
       <ColumnIdea />
       <ColumnDrafting />
       <ColumnReview />
@@ -2555,11 +2555,9 @@ function Container36() {
 
 function KanbanSurface() {
   return (
-    <div className="bg-[#f8f6f6] h-[962px] relative shrink-0 w-full" data-name="Kanban Surface">
-      <div className="flex flex-col justify-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col items-start justify-center p-[32px] relative size-full">
-          <Container36 />
-        </div>
+    <div className="bg-[#f8f6f6] flex-1 overflow-x-auto relative w-full custom-scrollbar" data-name="Kanban Surface">
+      <div className="flex flex-col min-h-full min-w-max p-[32px]">
+        <Container36 />
       </div>
     </div>
   );
@@ -2567,8 +2565,10 @@ function KanbanSurface() {
 
 function WorkspaceContent() {
   return (
-    <div className="bg-white content-stretch flex flex-col h-[1206px] items-start relative shrink-0 w-full" data-name="Workspace Content">
-      <EnhancedProjectHeaderSection />
+    <div className="bg-white flex flex-col items-start relative w-full h-full overflow-hidden" data-name="Workspace Content">
+      <div className="w-full shrink-0">
+        <EnhancedProjectHeaderSection />
+      </div>
       <KanbanSurface />
     </div>
   );
@@ -2594,8 +2594,8 @@ function Body() {
 
 export default function SocialMediaContent() {
   return (
-    <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="Social Media - Content">
-      <Body />
+    <div className="bg-[#f6f6f8] flex flex-col items-start relative h-full w-full overflow-hidden" data-name="Social Media - Content">
+      <WorkspaceContent />
     </div>
   );
 }

@@ -1,4 +1,8 @@
 "use client";
+import { useState } from "react";
+import CreateProjectFromDeal from "../CreateProjectFromDeal/CreateProjectFromDeal";
+import CreateClientDeliveryFromDeal from "../CreateClientDeliveryFromDeal/CreateClientDeliveryFromDeal";
+import LinkToClientDelivery from "../LinkToClientDelivery/LinkToClientDelivery";
 import svgPaths from "./svg-5j4ddh0vyn";
 
 function Link() {
@@ -508,7 +512,7 @@ function Container32() {
 
 function Button4() {
   return (
-    <div className="absolute bg-[#5048e5] content-stretch flex h-[36.667px] items-center left-[641.27px] px-[17px] py-[10px] rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] top-[15.87px] w-[78.455px]" data-name="Button">
+    <div className="absolute bg-[#5048e5] content-stretch flex h-[36.667px] items-center left-[641.27px] px-[17px] py-[10px] rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] top-[15.87px] w-[78.455px] cursor-pointer hover:bg-[#4338ca] transition-colors" data-name="Button">
       <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Export</p>
     </div>
   );
@@ -889,7 +893,7 @@ function Container35() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[1037.309px] left-[256px] top-0 w-[1024.002px]" data-name="Main Content">
+    <div className="relative h-[1037.309px] mx-auto w-[1024.002px]" data-name="Main Content">
       <Container />
       <Container1 />
       <Container3 />
@@ -910,10 +914,8 @@ function Container40() {
 
 function Body() {
   return (
-    <div className="absolute h-[1037.309px] left-0 top-0 w-[1280px]" data-name="Body">
+    <div className="relative w-full" data-name="Body">
       <MainContent />
-      <Container39 />
-      <Container40 />
     </div>
   );
 }
@@ -1578,10 +1580,42 @@ function Header() {
 }
 
 export default function CrmImportExport() {
+  const [showExportModal, setShowExportModal] = useState(false);
+  const [showDeliveryModal, setShowDeliveryModal] = useState(false);
+  const [showLinkModal, setShowLinkModal] = useState(false);
+
+  const handleGlobalClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const text = target.textContent?.trim();
+    if (text === "Export") {
+      setShowExportModal(true);
+    }
+  };
+
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="CRM — Import & Export">
-      <Body />
-      <Sidebar />
+    <div onClick={handleGlobalClick} className="bg-[#f6f6f8] min-h-screen py-12" data-name="CRM — Import & Export">
+      {!showExportModal && !showDeliveryModal && !showLinkModal && <Body />}
+      {showExportModal && (
+        <CreateProjectFromDeal
+          onClose={() => setShowExportModal(false)}
+          onCreateDelivery={() => {
+            setShowExportModal(false);
+            setShowDeliveryModal(true);
+          }}
+        />
+      )}
+      {showDeliveryModal && (
+        <CreateClientDeliveryFromDeal 
+          onClose={() => setShowDeliveryModal(false)} 
+          onCreateDelivery={() => {
+            setShowDeliveryModal(false);
+            setShowLinkModal(true);
+          }}
+        />
+      )}
+      {showLinkModal && (
+        <LinkToClientDelivery onClose={() => setShowLinkModal(false)} />
+      )}
     </div>
   );
 }

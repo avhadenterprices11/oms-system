@@ -1,5 +1,7 @@
 "use client";
+import { useState } from "react";
 import svgPaths from "./svg-hh4m5l22if";
+import MeetingScheduler from "../MeetingScheduler/MeetingScheduler";
 import imgProfilePic from "./8903f064e14b604493b2a186385c8300714f69a3.png";
 import imgAb6AXuDe2Gm03ZPzl00NW4EUqqQaj8Jj5UzMjXSz3CTlGkyqr0T6HpsrhIvUgUj1VUqXzsASjVlrDprcMf5UygHqgIRrK0T7FTqWHlB9OwcmNcD4Odf7A8Kic11Hpqmdh61IeCflPnVbKkZsiLh5ZwRd9W9IeNpxIqGuk8TkGgOh0PiHu3Dcchc01U7Va7GJiZ3PexmGpgI6N86WDbiYqSEtoS6RIqN06VnRhNiJnFbIwPh8BSlgJ8TRyqKzcJo2A2Hn48V from "./b34b41a31d4ba20d5dc752c3bda165f5f4b7bad9.png";
 import imgAb6AXuDJwPhOhuZsVpwMXjvphPTb2OsXkAyUo8NpLdSw7EGfl7Oca1YDYeoBuyZm7PZtnyY716K5FgAodF9FteXrfYLcTl0294Gt8Odz3PjIe59GeuSp2Y3DtXfBqMfEm5SktWVngNJfcBlNPmu036DZuOLmxUiCfHLsnavb8EkRvGlCyYa2KbMdSv1I7LaSv7BjTzVakfXmoC0OuYtNdBeUkt1LMEcyasB7XvErWzPu4SgYsVqE2WxUoPgS1MzXe9ODslknx1IdZ from "./8f8d9c774dcb0dfe677f02ce8a623b6eb10be7b1.png";
@@ -721,9 +723,13 @@ function Container21() {
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0" data-name="Button">
+    <div 
+      className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <Container21 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">
         <p className="leading-[20px]">Schedule a meeting</p>
@@ -732,11 +738,11 @@ function Button1() {
   );
 }
 
-function PageHeader() {
+function PageHeader({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="content-stretch flex h-[64px] items-end justify-between relative shrink-0 w-full" data-name="Page Header">
       <Container19 />
-      <Button1 />
+      <Button1 onClick={onSchedule} />
     </div>
   );
 }
@@ -926,22 +932,22 @@ function FiltersSearch() {
   );
 }
 
-function Frame() {
+function Frame({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="relative shrink-0 w-full">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[56px] items-start relative size-full">
-        <PageHeader />
+        <PageHeader onSchedule={onSchedule} />
         <FiltersSearch />
       </div>
     </div>
   );
 }
 
-function EnhancedProjectHeaderSection() {
+function EnhancedProjectHeaderSection({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="bg-[#f8fafc] border-b border-[#e2e8f0] relative w-full shrink-0" data-name="Enhanced Project Header Section">
       <div className="content-stretch flex flex-col items-start pb-[32px] pt-[32px] px-[32px] relative w-full">
-        <Frame />
+        <Frame onSchedule={onSchedule} />
       </div>
     </div>
   );
@@ -2245,45 +2251,42 @@ function OverviewTabContent() {
   );
 }
 
-function WorkspaceContent() {
+function WorkspaceContent({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="bg-[#f6f6f8] flex flex-col items-start relative w-full" data-name="Workspace Content">
-      <EnhancedProjectHeaderSection />
+      <EnhancedProjectHeaderSection onSchedule={onSchedule} />
       <OverviewTabContent />
     </div>
   );
 }
 
-function MainContentArea() {
+function MainContentArea({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-name="Main Content Area">
       <HeaderTopNavigation />
-      <WorkspaceContent />
+      <WorkspaceContent onSchedule={onSchedule} />
     </div>
   );
 }
 
-function Body() {
+function Body({ onSchedule }: { onSchedule?: () => void }) {
   return (
     <div className="content-stretch flex items-start relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
-      <MainContentArea />
-    </div>
-  );
-}
-
-function Frame1() {
-  return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <Body />
+      <MainContentArea onSchedule={onSchedule} />
     </div>
   );
 }
 
 export default function MeetingsListView() {
+  const [showScheduler, setShowScheduler] = useState(false);
+
   return (
     <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="Meetings List View">
-      <Frame1 />
+      <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+        <Body onSchedule={() => setShowScheduler(true)} />
+      </div>
+      {showScheduler && <MeetingScheduler onClose={() => setShowScheduler(false)} />}
     </div>
   );
 }

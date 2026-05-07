@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 // --- Types & Data ---
 
@@ -51,7 +52,7 @@ const StatusBadge = ({ label, count }: { label: string; count: number }) => (
   </button>
 );
 
-const EmployeeCard = ({ emp, onEdit }: { emp: Employee, onEdit: () => void }) => {
+const EmployeeCard = ({ emp, onEdit, onViewProfile }: { emp: Employee, onEdit: () => void, onViewProfile: () => void }) => {
   const statusColors = {
     'Active': 'bg-green-100 text-green-600',
     'On Leave': 'bg-orange-100 text-orange-600',
@@ -102,7 +103,13 @@ const EmployeeCard = ({ emp, onEdit }: { emp: Employee, onEdit: () => void }) =>
       </div>
 
       <div className="flex items-center gap-4">
-        <button className="text-[12px] font-black text-[#5D5FEF] hover:underline transition-all">
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onViewProfile();
+          }}
+          className="text-[12px] font-black text-[#5D5FEF] hover:underline transition-all"
+        >
           View Profile
         </button>
       </div>
@@ -111,12 +118,23 @@ const EmployeeCard = ({ emp, onEdit }: { emp: Employee, onEdit: () => void }) =>
 };
 
 export default function PeopleEmployeeDirectory() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  
   const [search, setSearch] = useState("");
-  const [showAddEmployee, setShowAddEmployee] = useState(false);
+  const showAddEmployee = searchParams.get("view") === "add";
   const [showEditEmployee, setShowEditEmployee] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get("edit") === "true") {
+      setSelectedEmployee(employees[0]);
+      setShowEditEmployee(true);
+    }
+  }, [searchParams]);
 
   if (showAddEmployee) {
     if (showSuccess) {
@@ -159,7 +177,10 @@ export default function PeopleEmployeeDirectory() {
 
             {/* Actions */}
             <div className="space-y-4">
-              <button className="w-full py-4 bg-[#5D5FEF] text-white rounded-2xl text-[14px] font-black shadow-lg shadow-indigo-100 hover:bg-[#4D4FCF] transition-all">
+              <button 
+                onClick={() => router.push(pathname + "?edit=true")}
+                className="w-full py-4 bg-[#5D5FEF] text-white rounded-2xl text-[14px] font-black shadow-lg shadow-indigo-100 hover:bg-[#4D4FCF] transition-all"
+              >
                 View Profile
               </button>
               <button 
@@ -173,7 +194,7 @@ export default function PeopleEmployeeDirectory() {
               </button>
               <button 
                 onClick={() => {
-                  setShowAddEmployee(false);
+                  router.push(pathname);
                   setShowSuccess(false);
                   setCurrentStep(1);
                 }}
@@ -805,7 +826,7 @@ export default function PeopleEmployeeDirectory() {
             <span className="text-[13px] font-bold text-slate-400">Step {currentStep} of 4</span>
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => currentStep === 1 ? setShowAddEmployee(false) : setCurrentStep(currentStep - 1)}
+                onClick={() => currentStep === 1 ? router.push(pathname) : setCurrentStep(currentStep - 1)}
                 className="px-8 py-3 rounded-2xl text-[14px] font-black text-slate-600 hover:bg-slate-100 transition-all border border-slate-200 bg-white"
               >
                 {currentStep === 1 ? "Cancel" : "Back"}
@@ -814,7 +835,7 @@ export default function PeopleEmployeeDirectory() {
                 <>
                   <button 
                     onClick={() => {
-                      setShowAddEmployee(false);
+                      router.push(pathname);
                       setCurrentStep(1);
                     }}
                     className="px-8 py-3 rounded-2xl text-[14px] font-black text-slate-600 hover:bg-slate-100 transition-all border border-slate-200 bg-white"
@@ -868,7 +889,7 @@ export default function PeopleEmployeeDirectory() {
               Filters
             </button>
             <button 
-              onClick={() => setShowAddEmployee(true)}
+              onClick={() => router.push(pathname + "?view=add")}
               className="flex items-center gap-2 px-6 py-2.5 bg-[#5D5FEF] text-white rounded-xl text-sm font-bold hover:bg-[#4D4FCF] transition-all shadow-lg shadow-indigo-200"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
@@ -923,6 +944,11 @@ export default function PeopleEmployeeDirectory() {
               onEdit={() => {
                 setSelectedEmployee(emp);
                 setShowEditEmployee(true);
+              }}
+              onViewProfile={() => {
+                if (emp.name === "Ravi Kumar") {
+                  router.push("/profile");
+                }
               }}
             />
           ))}

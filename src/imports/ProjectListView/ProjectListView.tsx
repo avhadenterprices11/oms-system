@@ -1,6 +1,10 @@
 "use client";
+import React, { useState, useEffect, createContext, useContext } from "react";
+import ProjectDetailsRedesign from "../ProjectDetailsRedesign/ProjectDetailsRedesign";
 import svgPaths from "./svg-vf7pc75xjv";
 import imgProfilePic from "./8903f064e14b604493b2a186385c8300714f69a3.png";
+
+const ViewContext = createContext<{ setView: (v: string) => void }>({ setView: () => {} });
 
 function Logog() {
   return (
@@ -1175,8 +1179,12 @@ function Container43() {
 }
 
 function Button12() {
+  const { setView } = useContext(ViewContext);
   return (
-    <div className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[20px] py-[10px] relative rounded-[8px] shrink-0 hover:bg-[#4338ca] transition-colors" data-name="Button">
+    <div 
+      onClick={() => setView('details')}
+      className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[20px] py-[10px] relative rounded-[8px] shrink-0 hover:bg-[#4338ca] transition-colors cursor-pointer" data-name="Button"
+    >
       <div className="flex items-center gap-2">
         <span className="text-white text-lg font-bold">+</span>
         <span className="font-bold text-[14px] text-center text-white whitespace-nowrap">Add Projects</span>
@@ -2799,11 +2807,15 @@ function WorkspaceContent() {
 }
 
 export default function ProjectListView() {
+  const [view, setView] = useState('list');
+
   return (
-    <div className="bg-white min-h-screen w-full flex justify-center overflow-x-hidden" data-name="Project List View">
-      <div className="w-full max-w-[1280px] flex flex-col">
-        <WorkspaceContent />
+    <ViewContext.Provider value={{ setView }}>
+      <div className="bg-white min-h-screen w-full flex justify-center overflow-x-hidden" data-name="Project List View">
+        <div className="w-full max-w-[1280px] flex flex-col">
+          {view === 'details' ? <ProjectDetailsRedesign /> : <WorkspaceContent />}
+        </div>
       </div>
-    </div>
+    </ViewContext.Provider>
   );
 }

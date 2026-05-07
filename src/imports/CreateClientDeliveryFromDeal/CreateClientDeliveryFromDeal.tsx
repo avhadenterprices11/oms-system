@@ -667,7 +667,7 @@ function Header() {
 
 function Container19() {
   return (
-    <div className="absolute content-stretch flex h-[24.444px] items-start left-[32px] top-[32px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[24.444px] items-start left-[32px] top-[24px] w-[576.007px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] min-w-px not-italic relative text-[#0f172a] text-[20px]">Create Client Delivery from Deal</p>
     </div>
   );
@@ -675,7 +675,7 @@ function Container19() {
 
 function Container20() {
   return (
-    <div className="absolute content-stretch flex h-[16.667px] items-start left-[32px] top-[60.43px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.667px] items-start left-[32px] top-[52px] w-[576.007px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[14px]">Pre-populate delivery workspace from CRM deal data.</p>
     </div>
   );
@@ -732,7 +732,7 @@ function Container23() {
 
 function Container21() {
   return (
-    <div className="absolute content-stretch flex gap-[10px] h-[29.219px] items-start left-[32px] top-[101.09px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[10px] h-[29.219px] items-start left-[32px] top-[80px] w-[576.007px]" data-name="Container">
       <Container22 />
       <Container23 />
     </div>
@@ -805,7 +805,7 @@ function Container26() {
 
 function Container24() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[150.31px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[125px] w-[576.007px]" data-name="Container">
       <Container25 />
       <Container26 />
     </div>
@@ -846,7 +846,7 @@ function Container28() {
 
 function Container27() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[225.2px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[195px] w-[576.007px]" data-name="Container">
       <Container28 />
     </div>
   );
@@ -867,7 +867,7 @@ function Icon21() {
 
 function Container29() {
   return (
-    <div className="absolute h-[16.667px] left-[32px] top-[324.64px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[32px] top-[265px] w-[576.007px]" data-name="Container">
       <Icon21 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Scope `}</p>
     </div>
@@ -906,7 +906,7 @@ function Container31() {
 
 function Container30() {
   return (
-    <div className="absolute h-[112.552px] left-[32px] top-[355.3px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[112.552px] left-[32px] top-[295px] w-[576.007px]" data-name="Container">
       <Container31 />
     </div>
   );
@@ -942,7 +942,7 @@ function Dropdown() {
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-white inset-0 rounded-[8px]" />
         <div className="absolute inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[16.12%] left-0 max-w-none top-[41.94%] w-[1.74%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[16.12%] max-w-none right-[14px] top-[41.94%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -991,7 +991,7 @@ function Container33() {
 
 function Container32() {
   return (
-    <div className="absolute h-[78.663px] left-[32px] top-[483.85px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[78.663px] left-[32px] top-[415px] w-[576.007px]" data-name="Container">
       <Container33 />
     </div>
   );
@@ -1019,7 +1019,7 @@ function Icon22() {
 
 function Container34() {
   return (
-    <div className="absolute h-[16.667px] left-[32px] top-[603.07px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[32px] top-[505px] w-[576.007px]" data-name="Container">
       <Icon22 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Team Assignment `}</p>
     </div>
@@ -1054,7 +1054,7 @@ function Dropdown1() {
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[16.12%] left-0 max-w-none top-[41.94%] w-[1.74%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[16.12%] max-w-none right-[14px] top-[41.94%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -1091,7 +1091,7 @@ function Container36() {
 
 function Container35() {
   return (
-    <div className="absolute h-[58.333px] left-[32px] top-[633.73px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.333px] left-[32px] top-[535px] w-[576.007px]" data-name="Container">
       <Container36 />
     </div>
   );
@@ -1173,7 +1173,7 @@ function Container38() {
 
 function Container37() {
   return (
-    <div className="absolute h-[63.108px] left-[32px] top-[708.06px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[63.108px] left-[32px] top-[605px] w-[576.007px]" data-name="Container">
       <Container38 />
     </div>
   );
@@ -1196,7 +1196,7 @@ function Icon23() {
 
 function Container42() {
   return (
-    <div className="absolute h-[16.667px] left-[32px] top-[811.73px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[32px] top-[685px] w-[576.007px]" data-name="Container">
       <Icon23 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Timeline `}</p>
     </div>
@@ -1265,16 +1265,16 @@ function Container45() {
 
 function Container43() {
   return (
-    <div className="absolute h-[81.215px] left-[32px] top-[842.39px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[81.215px] left-[32px] top-[715px] w-[576.007px]" data-name="Container">
       <Container44 />
       <Container45 />
     </div>
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px]" data-name="Button">
+    <div onClick={onClick} className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px] cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17.556px] py-[10.556px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Cancel</p>
@@ -1283,9 +1283,9 @@ function Button1() {
   );
 }
 
-function Button2() {
+function Button2({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[138.602px]" data-name="Button">
+    <div onClick={onClick} className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[138.602px] cursor-pointer hover:bg-[#4338ca] transition-colors" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17px] py-[10px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Create Delivery</p>
       </div>
@@ -1293,19 +1293,19 @@ function Button2() {
   );
 }
 
-function Container46() {
+function Container46({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
-    <div className="absolute content-stretch flex gap-[10px] h-[58.333px] items-start justify-end left-[32px] pt-[20.556px] top-[947.6px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[10px] h-[58.333px] items-start justify-end left-[32px] pt-[20.556px] top-[800px] w-[576.007px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t-[0.556px] inset-0 pointer-events-none" />
-      <Button1 />
-      <Button2 />
+      <Button1 onClick={onClose} />
+      <Button2 onClick={onCreateDelivery} />
     </div>
   );
 }
 
-function Container18() {
+function Container18({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
-    <div className="bg-white h-[1036px] relative rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] shrink-0 w-[640px]" data-name="Container">
+    <div className="bg-white h-[880px] relative rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] shrink-0 w-[640px]" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid overflow-clip relative rounded-[inherit] size-full">
         <Container19 />
         <Container20 />
@@ -1320,7 +1320,7 @@ function Container18() {
         <Container37 />
         <Container42 />
         <Container43 />
-        <Container46 />
+        <Container46 onClose={onClose} onCreateDelivery={onCreateDelivery} />
       </div>
     </div>
   );
@@ -1334,13 +1334,11 @@ function Container17() {
   );
 }
 
-export default function CreateClientDeliveryFromDeal() {
+export default function CreateClientDeliveryFromDeal({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Create Client Delivery from Deal">
-      <MainContent />
-      <Sidebar />
-      <Header />
-      <Container17 />
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f1f5f9] overflow-y-auto py-10" data-name="Modal Overlay">
+      <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
+      <Container18 onClose={onClose} onCreateDelivery={onCreateDelivery} />
     </div>
   );
 }

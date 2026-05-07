@@ -255,7 +255,7 @@ function Container5() {
 
 function Container18() {
   return (
-    <div className="absolute content-stretch flex h-[21.667px] items-start left-[31.99px] top-[32px] w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[21.667px] items-start left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#0f172a] text-[18px]">Basic Information</p>
     </div>
   );
@@ -263,7 +263,7 @@ function Container18() {
 
 function Container19() {
   return (
-    <div className="absolute content-stretch flex h-[16.667px] items-start left-[31.99px] top-[57.65px] w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.667px] items-start left-[31.99px] top-[26px] w-[754.896px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[14px]">{`Enter the employee's personal and contact details.`}</p>
     </div>
   );
@@ -284,7 +284,7 @@ function Icon() {
 
 function Container20() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-[98.32px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-0 top-0 w-[754.896px]" data-name="Container">
       <Icon />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Profile Photo `}</p>
     </div>
@@ -317,7 +317,7 @@ function Text7() {
 
 function Container21() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[3.993px] items-center justify-center left-[31.99px] px-[1.667px] py-[22.448px] rounded-[16px] size-[80px] top-[128.98px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[3.993px] items-center justify-center left-0 px-[1.667px] py-[22.448px] rounded-[16px] size-[80px] top-[24px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[1.667px] border-dashed inset-0 pointer-events-none rounded-[16px]" />
       <Icon1 />
       <Text7 />
@@ -340,7 +340,7 @@ function Icon2() {
 
 function Container22() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-[249.53px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-0 top-0 w-full" data-name="Container">
       <Icon2 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Personal Details `}</p>
     </div>
@@ -415,7 +415,7 @@ function Container25() {
 
 function Container23() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[280.19px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-0 top-0 w-full" data-name="Container">
       <Container24 />
       <Container25 />
     </div>
@@ -487,7 +487,7 @@ function Container28() {
 
 function Container26() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[355.08px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container27 />
       <Container28 />
     </div>
@@ -578,7 +578,7 @@ function Container31() {
 
 function Container29() {
   return (
-    <div className="absolute h-[60.885px] left-[31.99px] top-[429.97px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container30 />
       <Container31 />
     </div>
@@ -600,7 +600,7 @@ function Icon3() {
 
 function Container32() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-[531.4px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Icon3 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Address `}</p>
     </div>
@@ -639,7 +639,7 @@ function Container34() {
 
 function Container33() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[562.07px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container34 />
     </div>
   );
@@ -737,7 +737,7 @@ function Container38() {
 
 function Container35() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[636.95px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container36 />
       <Container37 />
       <Container38 />
@@ -807,7 +807,7 @@ function Container40() {
 
 function Container39() {
   return (
-    <div className="absolute h-[58.333px] left-[31.99px] top-[711.84px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container40 />
     </div>
   );
@@ -833,7 +833,7 @@ function Icon4() {
 
 function Container41() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-[810.73px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Icon4 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Emergency Contact `}</p>
     </div>
@@ -927,7 +927,7 @@ function Container44() {
 
 function Container42() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[841.39px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container43 />
       <Container44 />
     </div>
@@ -966,7 +966,7 @@ function Container46() {
 
 function Container45() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-[916.28px] w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
       <Container46 />
     </div>
   );
@@ -974,22 +974,56 @@ function Container45() {
 
 function Container17() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[1024.271px] left-0 rounded-[24px] top-[172.09px] w-[820px]" data-name="Container">
-      <Container18 />
-      <Container19 />
-      <Container20 />
-      <Container21 />
-      <Container22 />
-      <Container23 />
-      <Container26 />
-      <Container29 />
-      <Container32 />
-      <Container33 />
-      <Container35 />
-      <Container39 />
-      <Container41 />
-      <Container42 />
-      <Container45 />
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[720px] left-0 rounded-[24px] top-[172.09px] w-[820px]" data-name="Container">
+      {/* Basic Info Header */}
+      <div className="absolute top-[20px] w-full">
+        <Container18 />
+        <Container19 />
+      </div>
+
+      {/* Photo and Personal Details Row */}
+      <div className="absolute top-[75px] left-[32px]">
+        <Container20 />
+        <Container21 />
+      </div>
+
+      <div className="absolute top-[75px] left-[132px] w-[654px]">
+        <Container22 />
+        <div className="relative top-[28px]">
+          <Container23 />
+        </div>
+      </div>
+
+      {/* Rows */}
+      <div className="absolute top-[165px] w-full">
+        <Container26 />
+      </div>
+
+      <div className="absolute top-[235px] w-full">
+        <Container29 />
+      </div>
+
+      <div className="absolute top-[305px] w-full">
+        <Container32 />
+        <Container33 />
+      </div>
+
+      <div className="absolute top-[385px] w-full">
+        <Container35 />
+      </div>
+
+      <div className="absolute top-[455px] w-full">
+        <Container39 />
+      </div>
+
+      <div className="absolute top-[525px] w-full">
+        <Container41 />
+        <Container42 />
+      </div>
+
+      <div className="absolute top-[605px] w-full">
+        <Container45 />
+      </div>
     </div>
   );
 }
@@ -1051,7 +1085,7 @@ function Container49() {
 
 function Container47() {
   return (
-    <div className="absolute content-stretch flex h-[41.771px] items-center justify-between left-0 top-[1216.36px] w-[820px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[41.771px] items-center justify-between left-0 top-[730px] w-[820px]" data-name="Container">
       <Container48 />
       <Container49 />
     </div>
@@ -1060,12 +1094,20 @@ function Container47() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[1258.134px] left-[358px] top-[83.99px] w-[820px]" data-name="Main Content">
+    <div className="absolute h-[900px] left-[280px] top-[24px] w-[820px]" data-name="Main Content">
       <Container />
-      <Container1 />
-      <Container5 />
-      <Container17 />
-      <Container47 />
+      <div className="relative" style={{ top: '-10px' }}>
+        <Container1 />
+      </div>
+      <div className="relative" style={{ top: '-35px' }}>
+        <Container5 />
+      </div>
+      <div className="relative" style={{ top: '-60px' }}>
+        <Container17 />
+      </div>
+      <div className="relative" style={{ top: '-85px' }}>
+        <Container47 />
+      </div>
     </div>
   );
 }
@@ -1721,7 +1763,7 @@ function Container58() {
 
 function Header() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0 w-[1377.335px]" data-name="Header">
+    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] right-0 pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0" data-name="Header">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid inset-0 pointer-events-none" />
       <Container57 />
       <Container58 />

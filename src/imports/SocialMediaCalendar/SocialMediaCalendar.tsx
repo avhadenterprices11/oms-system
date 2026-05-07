@@ -1048,7 +1048,7 @@ function Background7() {
 
 function PrevMonthDays() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-1 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Prev month days">
+    <div className="bg-[rgba(242,243,255,0.3)] col-1 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Prev month days">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.45px]">
           <p className="leading-[20px]">26</p>
@@ -1060,7 +1060,7 @@ function PrevMonthDays() {
 
 function Overlay1() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-2 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
+    <div className="bg-[rgba(242,243,255,0.3)] col-2 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[16.63px]">
           <p className="leading-[20px]">27</p>
@@ -1072,7 +1072,7 @@ function Overlay1() {
 
 function Overlay2() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-3 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
+    <div className="bg-[rgba(242,243,255,0.3)] col-3 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.45px]">
           <p className="leading-[20px]">28</p>
@@ -1084,7 +1084,7 @@ function Overlay2() {
 
 function Overlay3() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-4 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
+    <div className="bg-[rgba(242,243,255,0.3)] col-4 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.45px]">
           <p className="leading-[20px]">29</p>
@@ -1096,7 +1096,7 @@ function Overlay3() {
 
 function Overlay4() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-5 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
+    <div className="bg-[rgba(242,243,255,0.3)] col-5 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.83px]">
           <p className="leading-[20px]">30</p>
@@ -1108,7 +1108,7 @@ function Overlay4() {
 
 function Overlay5() {
   return (
-    <div className="bg-[rgba(242,243,255,0.3)] col-6 h-[160px] justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
+    <div className="bg-[rgba(242,243,255,0.3)] col-6 h-full justify-self-stretch opacity-40 relative row-2 shrink-0" data-name="Overlay">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.59px]">
           <p className="leading-[20px]">31</p>
@@ -1120,7 +1120,7 @@ function Overlay5() {
 
 function CurrentMonth() {
   return (
-    <div className="bg-white col-7 h-[160px] justify-self-stretch relative row-2 shrink-0" data-name="Current month">
+    <div className="bg-white col-7 h-full justify-self-stretch relative row-2 shrink-0" data-name="Current month">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[5.81px]">
           <p className="leading-[20px]">1</p>
@@ -1190,7 +1190,7 @@ function ScheduledPost() {
 
 function Background8() {
   return (
-    <div className="bg-white col-1 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-1 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col gap-[8.5px] items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8.64px]">
           <p className="leading-[20px]">2</p>
@@ -1203,7 +1203,7 @@ function Background8() {
 
 function Background9() {
   return (
-    <div className="bg-white col-2 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-2 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8.78px]">
           <p className="leading-[20px]">3</p>
@@ -1274,7 +1274,7 @@ function Post() {
 
 function Background10() {
   return (
-    <div className="bg-white col-3 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-3 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col gap-[8.5px] items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[9.19px]">
           <p className="leading-[20px]">4</p>
@@ -1287,7 +1287,7 @@ function Background10() {
 
 function Background11() {
   return (
-    <div className="bg-white col-4 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-4 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8.45px]">
           <p className="leading-[20px]">5</p>
@@ -1299,7 +1299,7 @@ function Background11() {
 
 function Background12() {
   return (
-    <div className="bg-white col-5 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-5 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8.83px]">
           <p className="leading-[20px]">6</p>
@@ -1311,7 +1311,7 @@ function Background12() {
 
 function Background13() {
   return (
-    <div className="bg-white col-6 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Background">
+    <div className="bg-white col-6 h-full justify-self-stretch relative row-3 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8px]">
           <p className="leading-[20px]">7</p>
@@ -1323,7 +1323,7 @@ function Background13() {
 
 function Row() {
   return (
-    <div className="bg-white col-7 h-[160px] justify-self-stretch relative row-3 shrink-0" data-name="Row 2">
+    <div className="bg-white col-7 h-full justify-self-stretch relative row-3 shrink-0" data-name="Row 2">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[8.81px]">
           <p className="leading-[20px]">8</p>
@@ -1461,7 +1461,7 @@ function Container37() {
 
 function BackgroundBorder() {
   return (
-    <div className="bg-white col-1 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background+Border">
+    <div className="bg-white col-1 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background+Border">
       <div aria-hidden="true" className="absolute border-2 border-[rgba(53,37,205,0.2)] border-solid inset-0 pointer-events-none" />
       <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center leading-[0] left-[14px] not-italic text-[#3525cd] text-[14px] top-[23.5px] w-[9.09px]">
         <p className="leading-[20px]">9</p>
@@ -1473,7 +1473,7 @@ function BackgroundBorder() {
 
 function Background14() {
   return (
-    <div className="bg-white col-2 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background">
+    <div className="bg-white col-2 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.86px]">
           <p className="leading-[20px]">10</p>
@@ -1485,7 +1485,7 @@ function Background14() {
 
 function Background15() {
   return (
-    <div className="bg-white col-3 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background">
+    <div className="bg-white col-3 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[11.63px]">
           <p className="leading-[20px]">11</p>
@@ -1555,7 +1555,7 @@ function BackgroundBorder1() {
 
 function Background16() {
   return (
-    <div className="bg-white col-4 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background">
+    <div className="bg-white col-4 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col gap-[8.5px] items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.44px]">
           <p className="leading-[20px]">12</p>
@@ -1568,7 +1568,7 @@ function Background16() {
 
 function Background17() {
   return (
-    <div className="bg-white col-5 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background">
+    <div className="bg-white col-5 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.59px]">
           <p className="leading-[20px]">13</p>
@@ -1580,7 +1580,7 @@ function Background17() {
 
 function Background18() {
   return (
-    <div className="bg-white col-6 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Background">
+    <div className="bg-white col-6 h-full justify-self-stretch relative row-4 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[15px]">
           <p className="leading-[20px]">14</p>
@@ -1592,7 +1592,7 @@ function Background18() {
 
 function Row3MinimalRepresentationForOtherDays() {
   return (
-    <div className="bg-white col-7 h-[160px] justify-self-stretch relative row-4 shrink-0" data-name="Row 3 (Minimal representation for other days)">
+    <div className="bg-white col-7 h-full justify-self-stretch relative row-4 shrink-0" data-name="Row 3 (Minimal representation for other days)">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.27px]">
           <p className="leading-[20px]">15</p>
@@ -1604,7 +1604,7 @@ function Row3MinimalRepresentationForOtherDays() {
 
 function Background19() {
   return (
-    <div className="bg-white col-1 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-1 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.64px]">
           <p className="leading-[20px]">16</p>
@@ -1675,7 +1675,7 @@ function BackgroundBorder2() {
 
 function Background20() {
   return (
-    <div className="bg-white col-2 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-2 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col gap-[8.5px] items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[13.81px]">
           <p className="leading-[20px]">17</p>
@@ -1688,7 +1688,7 @@ function Background20() {
 
 function Background21() {
   return (
-    <div className="bg-white col-3 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-3 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.63px]">
           <p className="leading-[20px]">18</p>
@@ -1700,7 +1700,7 @@ function Background21() {
 
 function Background22() {
   return (
-    <div className="bg-white col-4 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-4 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.64px]">
           <p className="leading-[20px]">19</p>
@@ -1712,7 +1712,7 @@ function Background22() {
 
 function Background23() {
   return (
-    <div className="bg-white col-5 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-5 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.67px]">
           <p className="leading-[20px]">20</p>
@@ -1724,7 +1724,7 @@ function Background23() {
 
 function Background24() {
   return (
-    <div className="bg-white col-6 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Background">
+    <div className="bg-white col-6 h-full justify-self-stretch relative row-5 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[14.44px]">
           <p className="leading-[20px]">21</p>
@@ -1736,7 +1736,7 @@ function Background24() {
 
 function FillingTheRestWithPlaceholderCells() {
   return (
-    <div className="bg-white col-7 h-[160px] justify-self-stretch relative row-5 shrink-0" data-name="Filling the rest with placeholder cells">
+    <div className="bg-white col-7 h-full justify-self-stretch relative row-5 shrink-0" data-name="Filling the rest with placeholder cells">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.27px]">
           <p className="leading-[20px]">22</p>
@@ -1748,7 +1748,7 @@ function FillingTheRestWithPlaceholderCells() {
 
 function Background25() {
   return (
-    <div className="bg-white col-1 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-1 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.41px]">
           <p className="leading-[20px]">23</p>
@@ -1760,7 +1760,7 @@ function Background25() {
 
 function Background26() {
   return (
-    <div className="bg-white col-2 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-2 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.61px]">
           <p className="leading-[20px]">24</p>
@@ -1772,7 +1772,7 @@ function Background26() {
 
 function Background27() {
   return (
-    <div className="bg-white col-3 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-3 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.08px]">
           <p className="leading-[20px]">25</p>
@@ -1784,7 +1784,7 @@ function Background27() {
 
 function Background28() {
   return (
-    <div className="bg-white col-4 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-4 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.45px]">
           <p className="leading-[20px]">26</p>
@@ -1796,7 +1796,7 @@ function Background28() {
 
 function Background29() {
   return (
-    <div className="bg-white col-5 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-5 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[16.63px]">
           <p className="leading-[20px]">27</p>
@@ -1808,7 +1808,7 @@ function Background29() {
 
 function Background30() {
   return (
-    <div className="bg-white col-6 h-[160px] justify-self-stretch relative row-6 shrink-0" data-name="Background">
+    <div className="bg-white col-6 h-full justify-self-stretch relative row-6 shrink-0" data-name="Background">
       <div className="content-stretch flex flex-col items-start p-[12px] relative size-full">
         <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#131b2e] text-[14px] w-[17.45px]">
           <p className="leading-[20px]">28</p>
@@ -1820,7 +1820,7 @@ function Background30() {
 
 function CalendarGrid() {
   return (
-    <div className="bg-[#f2f3ff] gap-x-px gap-y-px grid grid-cols-[repeat(7,minmax(0,1fr))] grid-rows-[______40px_160px_160px_160px_160px_160px] overflow-clip relative rounded-[16px] shrink-0 w-full" data-name="Calendar Grid">
+    <div className="bg-[#f2f3ff] gap-x-px gap-y-px grid grid-cols-[repeat(7,minmax(0,1fr))] grid-rows-[40px_repeat(5,1fr)] overflow-clip relative rounded-[16px] flex-1 w-full min-h-0" data-name="Calendar Grid">
       <DaysHeader />
       <Background2 />
       <Background3 />
@@ -1868,9 +1868,11 @@ function CalendarGrid() {
 
 function SectionCalendarContainer() {
   return (
-    <div className="flex-[1_0_0] min-h-px relative w-full" data-name="Section - Calendar Container">
-      <div className="content-stretch flex flex-col gap-[32px] items-start p-[32px] relative size-full">
-        <CalendarHeader />
+    <div className="flex-1 relative w-full h-full overflow-hidden" data-name="Section - Calendar Container">
+      <div className="flex flex-col gap-[16px] items-center py-[20px] px-[40px] relative h-full w-full max-w-[1400px] mx-auto">
+        <div className="w-full">
+          <CalendarHeader />
+        </div>
         <CalendarGrid />
       </div>
     </div>
@@ -1897,8 +1899,8 @@ function Body() {
 
 export default function SocialMediaCalendar() {
   return (
-    <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="Social Media - Calendar">
-      <Body />
+    <div className="bg-[#f6f6f8] flex flex-col items-start relative h-full w-full overflow-hidden" data-name="Social Media - Calendar">
+      <SectionCalendarContainer />
     </div>
   );
 }

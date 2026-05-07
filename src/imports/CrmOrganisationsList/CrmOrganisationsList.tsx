@@ -6,6 +6,8 @@ import imgImageBackground1 from "./f6b74a059c286c183dd2e6f3b249965c27cb96f3.png"
 import imgImageBackground2 from "./e3c192b9f8cab81324a475461c8722fdfbfc95b5.png";
 import imgImageBackground3 from "./16f0748024b7a8c69060da8408bca49ba301d1df.png";
 import imgImageBackground4 from "./1b0feb2845a889a698345f9df674e958dbcd4021.png";
+import { useState } from "react";
+import AddOrganisationModal from "../AddOrganisationModal/AddOrganisationModal";
 
 function Logog() {
   return (
@@ -828,22 +830,26 @@ function Container24() {
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0" data-name="Button">
+    <div 
+      onClick={onClick}
+      className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors" 
+      data-name="Button"
+    >
       <Container24 />
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-center text-white w-[117.44px]">
+      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white whitespace-nowrap">
         <p className="leading-[20px]">Add Organisation</p>
       </div>
     </div>
   );
 }
 
-function PageHeader() {
+function PageHeader({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="content-stretch flex h-[64px] items-end justify-between relative shrink-0 w-full" data-name="Page Header">
       <Container22 />
-      <Button1 />
+      <Button1 onClick={onAddClick} />
     </div>
   );
 }
@@ -1013,23 +1019,23 @@ function Container25() {
   );
 }
 
-function Frame() {
+function Frame({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="relative shrink-0 w-full">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[56px] items-start relative size-full">
-        <PageHeader />
+        <PageHeader onAddClick={onAddClick} />
         <Container25 />
       </div>
     </div>
   );
 }
 
-function EnhancedProjectHeaderSection() {
+function EnhancedProjectHeaderSection({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="bg-[rgba(248,250,252,0.5)] flex-[1_0_0] min-h-px relative w-full" data-name="Enhanced Project Header Section">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <div className="content-stretch flex flex-col items-start pb-px pt-[32px] px-[32px] relative size-full">
-        <Frame />
+        <Frame onAddClick={onAddClick} />
       </div>
     </div>
   );
@@ -1235,7 +1241,7 @@ function Container51() {
   return (
     <div className="relative shrink-0" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[14px] w-[78.88px]">
+        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#64748b] text-[14px] whitespace-nowrap">
           <p className="leading-[20px]">Page 1 of 12</p>
         </div>
       </div>
@@ -1365,37 +1371,39 @@ function OverviewTabContent() {
   );
 }
 
-function WorkspaceContent() {
+function WorkspaceContent({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="bg-white content-stretch flex flex-col h-[1206px] items-start relative shrink-0 w-full" data-name="Workspace Content">
-      <EnhancedProjectHeaderSection />
+      <EnhancedProjectHeaderSection onAddClick={onAddClick} />
       <OverviewTabContent />
     </div>
   );
 }
 
-function MainContentArea() {
+function MainContentArea({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-name="Main Content Area">
       <HeaderTopNavigation />
-      <WorkspaceContent />
+      <WorkspaceContent onAddClick={onAddClick} />
     </div>
   );
 }
 
-function Body() {
+function Body({ onAddClick }: { onAddClick?: () => void }) {
   return (
     <div className="content-stretch flex h-[1024px] items-start overflow-clip relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
-      <MainContentArea />
+      <MainContentArea onAddClick={onAddClick} />
     </div>
   );
 }
 
 export default function CrmOrganisationsList() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="CRM Organisations List">
-      <Body />
+      <Body onAddClick={() => setIsModalOpen(true)} />
+      <AddOrganisationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
