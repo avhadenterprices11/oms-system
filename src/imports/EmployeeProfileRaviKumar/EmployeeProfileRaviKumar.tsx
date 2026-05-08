@@ -63,40 +63,9 @@ function Container() {
   );
 }
 
-function Container3() {
-  return (
-    <div className="relative rounded-[16px] shrink-0 size-[71.997px]" style={{ backgroundImage: "linear-gradient(135deg, rgb(254, 202, 202) 0%, rgb(252, 165, 165) 100%)" }} data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center relative size-full">
-        <p className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] not-italic relative shrink-0 text-[28px] text-white whitespace-nowrap">R</p>
-      </div>
-    </div>
-  );
-}
 
-function Text3() {
-  return (
-    <div className="absolute bg-[#ffe4e6] content-stretch flex h-[18.993px] items-start left-[155px] px-[8px] py-[2px] rounded-[9999px] top-[4.95px] w-[68.012px]" data-name="Text">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[15px] not-italic relative shrink-0 text-[#e11d48] text-[10px] tracking-[-0.5px] whitespace-nowrap">Overloaded</p>
-    </div>
-  );
-}
 
-function Container5() {
-  return (
-    <div className="absolute h-[28.889px] left-0 top-0 w-[472.569px]" data-name="Container">
-      <p className="absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] left-0 not-italic text-[#0f172a] text-[24px] top-0 tracking-[-0.5px] whitespace-nowrap">{`Ravi Kumar `}</p>
-      <Text3 />
-    </div>
-  );
-}
 
-function Container6() {
-  return (
-    <div className="absolute content-stretch flex h-[18.333px] items-start left-0 top-[32.88px] w-[472.569px]" data-name="Container">
-      <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[15px]">Full Stack Developer · Engineering</p>
-    </div>
-  );
-}
 
 function Icon() {
   return (
@@ -233,16 +202,6 @@ function ProfileInfo() {
   );
 }
 
-function Container2() {
-  return (
-    <div className="h-[95.425px] relative shrink-0 w-[564.566px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[20px] items-start relative size-full">
-        <Container3 />
-        <Container4 />
-      </div>
-    </div>
-  );
-}
 
 function Icon3() {
   return (
