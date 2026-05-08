@@ -207,3 +207,42 @@
 [data-shell="root"] [data-name="Aside"] {
   display: none !important;
 }
+
+/* Custom Scrollbar for a 'Quiet Luxury' look */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-radius: 20px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(0, 0, 0, 0.05) transparent !important;
+}
+
+/* Complete Scrollbar Hiding while keeping functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}

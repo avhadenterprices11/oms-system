@@ -214,7 +214,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
           )}
         </div>
         
-        <nav className={`flex-1 w-full flex flex-col gap-1.5 overflow-y-auto custom-scrollbar transition-all duration-500 ${isCollapsed ? "px-4" : "py-2"}`}>
+        <nav className={`flex-1 w-full flex flex-col gap-2 overflow-y-auto scrollbar-hide ${isCollapsed ? "px-4" : "py-2"}`}>
           {[
             { href: "/", label: "Dashboard", icon: svgPaths.p20793584 },
             { href: "/chat", label: "Chat", icon: svgPaths.p1fe7b600 },
@@ -276,24 +276,26 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             </div>
           )}
 
-          <Link 
-            href="/settings"
-            className={`flex items-center gap-[12px] h-[44px] px-[12px] rounded-[12px] transition-all duration-300 group relative ${
-              pathname === "/settings" 
-                ? "bg-[#5048e5] text-white shadow-lg shadow-[#5048e5]/20" 
-                : "bg-indigo-50/80 text-[#5048e5] hover:bg-indigo-100/80"
-            } ${isCollapsed ? "w-[44px] justify-center mx-auto" : "w-full"}`}
-          >
-            <div className="relative shrink-0 size-[18px]">
-              <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            {!isCollapsed && (
-              <span className="font-bold text-[14px] tracking-tight">Settings</span>
-            )}
-          </Link>
+          <div className="px-4 mb-4">
+            <Link 
+              href="/settings"
+              className={`flex items-center gap-[12px] h-[44px] px-[12px] rounded-[12px] transition-all duration-300 group relative ${
+                pathname === "/settings" 
+                  ? "bg-[#5048e5] text-white shadow-lg shadow-[#5048e5]/20" 
+                  : "bg-indigo-50/80 text-[#5048e5] hover:bg-indigo-100/80"
+              } ${isCollapsed ? "w-[44px] justify-center mx-auto" : "w-full"}`}
+            >
+              <div className="relative shrink-0 size-[18px]">
+                <svg className="absolute block inset-0 size-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              {!isCollapsed && (
+                <span className="font-bold text-[14px] tracking-tight">Settings</span>
+              )}
+            </Link>
+          </div>
         </nav>
 
         <div className="p-4 w-full">
@@ -539,7 +541,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         </header>
 
         {/* Content */}
-        <main className="flex-1 overflow-auto bg-[#f8fafc]">
+        <main className="flex-1 overflow-y-auto scrollbar-hide bg-[#f8fafc]">
           {children}
         </main>
       </div>
@@ -576,7 +578,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Modal Content - Scrollable */}
-            <div className="flex-1 overflow-y-auto px-12 py-10 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto px-12 py-10 scrollbar-hide">
               <div className="grid grid-cols-12 gap-12">
                 {/* Left Column: Identity & Contact */}
                 <div className="col-span-12 lg:col-span-7 space-y-12">

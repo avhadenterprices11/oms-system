@@ -90,18 +90,18 @@ function PostComposerContent() {
   return (
     <div className="flex-1 flex flex-row h-full overflow-hidden bg-[#f8fafc]">
       {/* Left Column: Editor */}
-      <div className="flex-1 overflow-y-auto px-10 py-8 border-r border-slate-200 custom-scrollbar">
-        <div className="max-w-[600px]">
-          <header className="mb-8">
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Create New Post</h1>
-            <p className="text-slate-500">Draft and schedule your content across multiple platforms.</p>
+      <div className="flex-1 overflow-y-auto custom-scrollbar">
+        <div className="max-w-[800px] mx-auto px-10 py-12">
+          <header className="mb-10">
+            <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Post Composer</h1>
+            <p className="text-slate-500 text-lg">Craft and schedule your digital narrative across all channels.</p>
           </header>
 
           {/* Section 1: Destination */}
-          <section className="mb-10">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">1. Select Destination</h2>
-              <button className="text-sm font-bold text-indigo-600 hover:text-indigo-700">Manage Accounts</button>
+          <section className="mb-12">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-[2px]">1. Select Destination</h2>
+              <button className="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors">Manage Accounts</button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <PlatformCard 
@@ -218,7 +218,7 @@ function PostComposerContent() {
       </div>
 
       {/* Right Column: Preview */}
-      <div className="w-[500px] flex flex-col bg-[#f1f5f9]/50">
+      <div className="w-[480px] flex flex-col bg-slate-50 border-l border-slate-200">
         {/* Tabs */}
         <div className="flex items-center justify-center gap-8 py-8 px-4 border-b border-slate-200">
           {['Instagram', 'LinkedIn', 'X / Twitter', 'Facebook'].map(tab => (
@@ -323,7 +323,7 @@ function PostComposerContent() {
 
 export default function SocialMediaPostComposer() {
   return (
-    <div className="bg-[#f6f6f8] flex flex-col items-start relative h-full w-full overflow-hidden" data-name="Social Media - Post Composer">
+    <div className="bg-[#f8fafc] flex flex-col items-center relative h-full w-full overflow-hidden" data-name="Social Media - Post Composer">
       <PostComposerContent />
     </div>
   );

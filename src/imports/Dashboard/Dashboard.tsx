@@ -2627,26 +2627,6 @@ export default function Dashboard() {
           </div>
         )}
       </DashboardContext.Provider>
-      
-      <style dangerouslySetInnerHTML={{ __html: `
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-          height: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}} />
     </div>
   );
 }
