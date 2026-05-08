@@ -1,5 +1,6 @@
 "use client";
 import svgPaths from "./svg-fy052vnjwd";
+import { useRouter } from "next/navigation";
 
 function Container2() {
   return (
@@ -925,8 +926,13 @@ function Container27() {
 }
 
 function Button1() {
+  const router = useRouter();
   return (
-    <div className="bg-[#5048e5] h-[36.667px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2)] shrink-0 w-[416.007px]" data-name="Button">
+    <div 
+      onClick={() => router.push("/people/directory?edit=true")}
+      className="bg-[#5048e5] h-[36.667px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2)] shrink-0 w-[416.007px] cursor-pointer" 
+      data-name="Button"
+    >
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center px-[24px] py-[10px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">View Profile</p>
       </div>

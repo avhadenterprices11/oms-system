@@ -759,7 +759,7 @@ function Container21() {
 
 function Margin1() {
   return (
-    <div className="content-stretch flex flex-col items-start pt-[8px] relative shrink-0 w-full" data-name="Margin">
+    <div className="content-stretch flex flex-col items-start pt-[4px] relative shrink-0 w-full" data-name="Margin">
       <Container21 />
     </div>
   );
@@ -768,7 +768,7 @@ function Margin1() {
 function BreadcrumbsHeader() {
   return (
     <div className="relative shrink-0 w-full" data-name="Breadcrumbs & Header">
-      <div className="content-stretch flex flex-col gap-[2px] items-start px-[24px] py-[24px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[2px] items-start px-[24px] pt-[24px] pb-[12px] relative size-full">
         <Nav1 />
         <Margin1 />
       </div>
@@ -964,7 +964,7 @@ function BackgroundBorderShadow() {
 function FiltersToolbar() {
   return (
     <div className="relative shrink-0 w-full" data-name="Filters Toolbar">
-      <div className="content-stretch flex flex-col items-start pb-[16px] px-[24px] relative size-full">
+      <div className="content-stretch flex flex-col items-start pb-[12px] px-[24px] relative size-full">
         <BackgroundBorderShadow />
       </div>
     </div>
@@ -1031,11 +1031,12 @@ function Cell5() {
   );
 }
 
+const TABLE_GRID_TEMPLATE = "grid-cols-[minmax(280px,1.5fr)_140px_minmax(160px,1.2fr)_140px_100px_60px]";
+
 function HeaderRow() {
   return (
-    <div className="bg-[#f8fafc] relative shrink-0 w-full" data-name="Header → Row">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px] relative">
+    <div className="bg-[#f8fafc] relative shrink-0 w-full border-b border-[#e2e8f0]" data-name="Header → Row">
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px] relative`}>
         <Cell />
         <Cell1 />
         <Cell2 />
@@ -1216,13 +1217,13 @@ function Data5() {
 function Row() {
   return (
     <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 1">
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px]">
-        <div className="w-[320px] shrink-0"><Data /></div>
-        <div className="w-[150px] shrink-0"><Data1 /></div>
-        <div className="w-[180px] shrink-0"><Data2 /></div>
-        <div className="w-[150px] shrink-0"><Data3 /></div>
-        <div className="w-[100px] shrink-0 flex justify-center"><Data4 /></div>
-        <div className="w-[80px] shrink-0 flex justify-center"><Data5 /></div>
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px]`}>
+        <div className="min-w-0"><Data /></div>
+        <div className="min-w-0"><Data1 /></div>
+        <div className="min-w-0"><Data2 /></div>
+        <div className="min-w-0"><Data3 /></div>
+        <div className="flex justify-center"><Data4 /></div>
+        <div className="flex justify-center"><Data5 /></div>
       </div>
     </div>
   );
@@ -1406,13 +1407,13 @@ function Data11() {
 function Row1() {
   return (
     <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 2">
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px]">
-        <div className="w-[320px] shrink-0"><Data6 /></div>
-        <div className="w-[150px] shrink-0"><Data7 /></div>
-        <div className="w-[180px] shrink-0"><Data8 /></div>
-        <div className="w-[150px] shrink-0"><Data9 /></div>
-        <div className="w-[100px] shrink-0 flex justify-center"><Data10 /></div>
-        <div className="w-[80px] shrink-0 flex justify-center"><Data11 /></div>
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px]`}>
+        <div className="min-w-0"><Data6 /></div>
+        <div className="min-w-0"><Data7 /></div>
+        <div className="min-w-0"><Data8 /></div>
+        <div className="min-w-0"><Data9 /></div>
+        <div className="flex justify-center"><Data10 /></div>
+        <div className="flex justify-center"><Data11 /></div>
       </div>
     </div>
   );
@@ -1584,8 +1585,8 @@ function Button8() {
 
 function Data17() {
   return (
-    <div className="relative shrink-0 w-[83.19px]" data-name="Data">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-end px-[24px] py-[32.5px] relative size-full">
+    <div className="relative shrink-0" data-name="Data">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center relative size-full">
         <Button8 />
       </div>
     </div>
@@ -1595,13 +1596,13 @@ function Data17() {
 function Row2() {
   return (
     <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 3">
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px]">
-        <div className="w-[320px] shrink-0"><Data12 /></div>
-        <div className="w-[150px] shrink-0"><Data13 /></div>
-        <div className="w-[180px] shrink-0"><Data14 /></div>
-        <div className="w-[150px] shrink-0"><Data15 /></div>
-        <div className="w-[100px] shrink-0 flex justify-center"><Data16 /></div>
-        <div className="w-[80px] shrink-0 flex justify-center"><Data17 /></div>
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px]`}>
+        <div className="min-w-0"><Data12 /></div>
+        <div className="min-w-0"><Data13 /></div>
+        <div className="min-w-0"><Data14 /></div>
+        <div className="min-w-0"><Data15 /></div>
+        <div className="flex justify-center"><Data16 /></div>
+        <div className="flex justify-center"><Data17 /></div>
       </div>
     </div>
   );
@@ -1785,13 +1786,13 @@ function Data23() {
 function Row3() {
   return (
     <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 4">
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px]">
-        <div className="w-[320px] shrink-0"><Data18 /></div>
-        <div className="w-[150px] shrink-0"><Data19 /></div>
-        <div className="w-[180px] shrink-0"><Data20 /></div>
-        <div className="w-[150px] shrink-0"><Data21 /></div>
-        <div className="w-[100px] shrink-0 flex justify-center"><Data22 /></div>
-        <div className="w-[80px] shrink-0 flex justify-center"><Data23 /></div>
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px]`}>
+        <div className="min-w-0"><Data18 /></div>
+        <div className="min-w-0"><Data19 /></div>
+        <div className="min-w-0"><Data20 /></div>
+        <div className="min-w-0"><Data21 /></div>
+        <div className="flex justify-center"><Data22 /></div>
+        <div className="flex justify-center"><Data23 /></div>
       </div>
     </div>
   );
@@ -1975,13 +1976,13 @@ function Data29() {
 function Row4() {
   return (
     <div className="border-b border-[#f1f5f9] relative shrink-0 w-full hover:bg-[#f8fafc] transition-colors" data-name="Row 5">
-      <div className="flex flex-row items-center w-full px-[32px] gap-[32px] py-[16px]">
-        <div className="w-[320px] shrink-0"><Data24 /></div>
-        <div className="w-[150px] shrink-0"><Data25 /></div>
-        <div className="w-[180px] shrink-0"><Data26 /></div>
-        <div className="w-[150px] shrink-0"><Data27 /></div>
-        <div className="w-[100px] shrink-0 flex justify-center"><Data28 /></div>
-        <div className="w-[80px] shrink-0 flex justify-center"><Data29 /></div>
+      <div className={`grid ${TABLE_GRID_TEMPLATE} items-center w-full px-[32px] gap-[32px] py-[16px]`}>
+        <div className="min-w-0"><Data24 /></div>
+        <div className="min-w-0"><Data25 /></div>
+        <div className="min-w-0"><Data26 /></div>
+        <div className="min-w-0"><Data27 /></div>
+        <div className="flex justify-center"><Data28 /></div>
+        <div className="flex justify-center"><Data29 /></div>
       </div>
     </div>
   );

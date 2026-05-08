@@ -2273,7 +2273,7 @@ function MeetingsTableCard() {
 
 function OverviewTabContent() {
   return (
-    <div className="absolute bg-[#f6f6f8] content-stretch flex flex-col items-start left-0 min-h-[960px] p-[32px] top-[246px] w-[1024px]" data-name="Overview Tab Content">
+    <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative w-full p-[40px] gap-[40px]" data-name="Overview Tab Content">
       <MeetingsTableCard />
     </div>
   );
@@ -2299,7 +2299,7 @@ function MainContentArea() {
 
 function Body() {
   return (
-    <div className="content-stretch flex h-[1024px] items-start mb-[-1024px] overflow-clip relative shrink-0 w-full" data-name="Body">
+    <div className="content-stretch flex items-start relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
       <MainContentArea />
     </div>
@@ -2347,20 +2347,24 @@ function Container70() {
   );
 }
 
-function Button14() {
+function Button14({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[9999px] shrink-0" data-name="Button">
+    <div 
+      className="content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-slate-100 transition-colors" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <Container70 />
     </div>
   );
 }
 
-function Header() {
+function Header({ onClose }: { onClose?: () => void }) {
   return (
     <div className="relative shrink-0 w-full" data-name="Header">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between relative size-full">
         <Container68 />
-        <Button14 />
+        <Button14 onClick={onClose} />
       </div>
     </div>
   );
@@ -3138,9 +3142,13 @@ function Form() {
   );
 }
 
-function Button16() {
+function Button16({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="content-stretch flex flex-col items-center justify-center px-[25px] py-[11px] relative rounded-[8px] shrink-0" data-name="Button">
+    <div 
+      className="content-stretch flex flex-col items-center justify-center px-[25px] py-[11px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-slate-50 transition-colors" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[24px] justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[16px] text-center w-[53.73px]">
         <p className="leading-[24px]">Cancel</p>
@@ -3149,9 +3157,13 @@ function Button16() {
   );
 }
 
-function Button17() {
+function Button17({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] content-stretch flex flex-col items-center justify-center px-[24px] py-[11px] relative rounded-[8px] shrink-0" data-name="Button">
+    <div 
+      className="bg-[#5048e5] content-stretch flex flex-col items-center justify-center px-[24px] py-[11px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <div className="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[8px] shadow-[0px_10px_15px_-3px_rgba(80,72,229,0.2),0px_4px_6px_-4px_rgba(80,72,229,0.2)]" data-name="Button:shadow" />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[24px] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-center text-white w-[139.77px]">
         <p className="leading-[24px]">Schedule Meeting</p>
@@ -3160,25 +3172,25 @@ function Button17() {
   );
 }
 
-function Container97() {
+function Container97({ onClose }: { onClose?: () => void }) {
   return (
     <div className="relative shrink-0 w-full" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[12px] items-start justify-end relative size-full">
-        <Button16 />
-        <Button17 />
+        <Button16 onClick={onClose} />
+        <Button17 onClick={onClose} />
       </div>
     </div>
   );
 }
 
-function LeftSideFormScrollable() {
+function LeftSideFormScrollable({ onClose }: { onClose?: () => void }) {
   return (
     <div className="flex-[1_0_0] h-full min-w-px relative" data-name="Left Side: Form (Scrollable)">
       <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[32px] items-start pl-[32px] pr-[33px] py-[32px] relative size-full">
-          <Header />
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid flex flex-col gap-[40px] items-start pl-[40px] pr-[40px] py-[40px] relative w-full">
+          <Header onClose={onClose} />
           <Form />
-          <Container97 />
+          <Container97 onClose={onClose} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-r border-solid inset-0 pointer-events-none" />
@@ -3533,40 +3545,43 @@ function RightSideAvailabilityPreview() {
   );
 }
 
-function ModalContainer() {
+function ModalContainer({ onClose }: { onClose?: () => void }) {
   return (
-    <div className="bg-white h-[921px] max-w-[1024px] relative rounded-[12px] shrink-0 w-[1024px]" data-name="Modal Container">
-      <div className="content-stretch flex items-start max-w-[inherit] overflow-clip p-px relative rounded-[inherit] size-full">
-        <LeftSideFormScrollable />
+    <div className="bg-white h-full max-h-[90vh] max-w-[1100px] relative rounded-[20px] shrink-0 w-[1100px] flex flex-col shadow-2xl" data-name="Modal Container">
+      <div className="flex items-start max-w-[inherit] overflow-hidden relative rounded-[inherit] h-full">
+        <LeftSideFormScrollable onClose={onClose} />
         <RightSideAvailabilityPreview />
       </div>
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[12px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]" />
+      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[20px]" />
     </div>
   );
 }
 
-function ModalOverlay() {
+function ModalOverlay({ onClose }: { onClose?: () => void }) {
   return (
-    <div className="backdrop-blur-[2px] bg-[rgba(15,23,42,0.4)] h-[1024px] mb-[-1024px] relative shrink-0 w-full" data-name="Modal Overlay">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-          <ModalContainer />
-        </div>
-      </div>
+    <div className="backdrop-blur-[8px] bg-[rgba(15,23,42,0.6)] h-full min-h-screen relative shrink-0 w-full z-[100] flex items-center justify-center py-[40px] px-[20px]" data-name="Modal Overlay">
+      <ModalContainer onClose={onClose} />
     </div>
   );
 }
 
 function Frame1() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[1024px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Body />
       <ModalOverlay />
     </div>
   );
 }
 
-export default function MeetingScheduler() {
+export default function MeetingScheduler({ onClose }: { onClose?: () => void }) {
+  if (onClose) {
+    return (
+      <div className="fixed inset-0 z-[200]">
+        <ModalOverlay onClose={onClose} />
+      </div>
+    );
+  }
   return (
     <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="Meeting Scheduler">
       <Frame1 />

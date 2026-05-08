@@ -905,7 +905,7 @@ function Dropdown() {
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-white inset-0 rounded-[8px]" />
         <div className="absolute inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[15.88%] left-0 max-w-none top-[42.06%] w-[3.33%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[15.88%] max-w-none right-[14px] top-[42.06%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -1208,9 +1208,9 @@ function Container39() {
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px]" data-name="Button">
+    <div onClick={onClick} className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px] cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17.556px] py-[10.556px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Cancel</p>
@@ -1219,9 +1219,9 @@ function Button1() {
   );
 }
 
-function Button2() {
+function Button2({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[202.769px]" data-name="Button">
+    <div onClick={onClick} className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[202.769px] cursor-pointer hover:bg-[#4338ca] transition-colors" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17px] py-[10px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">{`Create Project & Delivery`}</p>
       </div>
@@ -1229,17 +1229,17 @@ function Button2() {
   );
 }
 
-function Container46() {
+function Container46({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
     <div className="absolute content-stretch flex gap-[10px] h-[58.333px] items-start justify-end left-[32px] pt-[20.556px] top-[715.16px] w-[616.007px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t-[0.556px] inset-0 pointer-events-none" />
-      <Button1 />
-      <Button2 />
+      <Button1 onClick={onClose} />
+      <Button2 onClick={onCreateDelivery} />
     </div>
   );
 }
 
-function Container19() {
+function Container19({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
     <div className="bg-white h-[805.486px] relative rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] shrink-0 w-[680px]" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid overflow-clip relative rounded-[inherit] size-full">
@@ -1252,7 +1252,7 @@ function Container19() {
         <Container35 />
         <Container38 />
         <Container39 />
-        <Container46 />
+        <Container46 onClose={onClose} onCreateDelivery={onCreateDelivery} />
       </div>
     </div>
   );
@@ -1266,13 +1266,11 @@ function Container18() {
   );
 }
 
-export default function CreateProjectFromDeal() {
+export default function CreateProjectFromDeal({ onClose, onCreateDelivery }: { onClose?: () => void; onCreateDelivery?: () => void }) {
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Create Project from Deal">
-      <Body />
-      <Sidebar />
-      <Header />
-      <Container18 />
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f1f5f9] overflow-y-auto py-10" data-name="Modal Overlay">
+      <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
+      <Container19 onClose={onClose} onCreateDelivery={onCreateDelivery} />
     </div>
   );
 }

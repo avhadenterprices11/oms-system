@@ -1,35 +1,35 @@
 "use client";
 import svgPaths from "./svg-uek832ym4v";
 
-function Text() {
-  return (
-    <div className="absolute bg-[#ede9fe] content-stretch flex h-[43.984px] items-center left-[248.25px] px-[12px] py-[4px] rounded-[9999px] top-0 w-[98.403px]" data-name="Text">
-      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[36px] not-italic relative shrink-0 text-[#5048e5] text-[12px] tracking-[-0.75px] whitespace-nowrap">Manager View</p>
-    </div>
-  );
-}
-
 function Container2() {
   return (
-    <div className="h-[43.984px] relative shrink-0 w-full" data-name="Container">
-      <p className="absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[36px] left-0 not-italic text-[#0f172a] text-[30px] top-[3.44px] tracking-[-0.75px] whitespace-nowrap">{`Leave Approvals `}</p>
-      <Text />
+    <div className="flex items-center gap-[12px] relative" data-name="Container">
+      <h1 className="font-['Inter:Extra_Bold',sans-serif] font-extrabold text-[#0f172a] text-[30px] tracking-[-0.75px] whitespace-nowrap leading-none">
+        Leave Approvals
+      </h1>
+      <div className="bg-[#ede9fe] px-[12px] py-[6px] rounded-full flex items-center justify-center h-fit" data-name="Badge">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#5048e5] text-[12px] tracking-[-0.2px] whitespace-nowrap leading-none">
+          Manager View
+        </p>
+      </div>
     </div>
   );
 }
 
 function Container3() {
   return (
-    <div className="h-[24.002px] relative shrink-0 w-full" data-name="Container">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[24px] left-0 not-italic text-[#64748b] text-[16px] top-[-0.78px] whitespace-nowrap">Pending requests requiring your action</p>
+    <div className="relative shrink-0 w-full" data-name="Container">
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[24px] text-[#64748b] text-[16px] whitespace-nowrap">
+        Pending requests requiring your action
+      </p>
     </div>
   );
 }
 
 function Container1() {
   return (
-    <div className="h-[71.979px] relative shrink-0 w-[346.649px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[3.993px] items-start relative size-full">
+    <div className="relative shrink-0" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid flex flex-col gap-[6px] items-start relative">
         <Container2 />
         <Container3 />
       </div>

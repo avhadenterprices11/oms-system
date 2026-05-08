@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import LeaveRequest from "../LeaveRequest/LeaveRequest";
 import svgPaths from "./svg-brr7xtw1rq";
 import imgProfilePic from "./8903f064e14b604493b2a186385c8300714f69a3.png";
 import imgImageBackground from "./2daa5e8783aa23085464355ee469da1fc4737314.png";
@@ -692,9 +694,13 @@ function Container20() {
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0" data-name="Button">
+    <div 
+      onClick={onClick}
+      className="bg-[#5048e5] content-stretch drop-shadow-[0px_1px_1px_rgba(80,72,229,0.2)] flex gap-[8px] items-center px-[16px] py-[8px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors" 
+      data-name="Button"
+    >
       <Container20 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">
         <p className="leading-[20px]">Request Leave</p>
@@ -703,11 +709,11 @@ function Button1() {
   );
 }
 
-function Container19() {
+function Container19({ onRequestLeave }: { onRequestLeave: () => void }) {
   return (
     <div className="content-stretch flex items-center relative shrink-0 w-full" data-name="Container">
       <Heading />
-      <Button1 />
+      <Button1 onClick={onRequestLeave} />
     </div>
   );
 }
@@ -925,10 +931,10 @@ function Container21() {
   );
 }
 
-function SectionLeaveBalanceCards() {
+function SectionLeaveBalanceCards({ onRequestLeave }: { onRequestLeave: () => void }) {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Section - Leave Balance Cards">
-      <Container19 />
+    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-name="Section - Leave Balance Cards">
+      <Container19 onRequestLeave={onRequestLeave} />
       <Container21 />
     </div>
   );
@@ -2164,12 +2170,12 @@ function Container28() {
   );
 }
 
-function MainScrollableContent() {
+function MainScrollableContent({ onRequestLeave }: { onRequestLeave: () => void }) {
   return (
     <div className="flex-1 overflow-y-auto relative w-full" data-name="Main - Scrollable Content">
       <div className="max-w-[1440px] mx-auto min-h-full">
         <div className="content-stretch flex flex-col gap-[32px] items-start p-[32px] relative w-full">
-          <SectionLeaveBalanceCards />
+          <SectionLeaveBalanceCards onRequestLeave={onRequestLeave} />
           <Container28 />
         </div>
       </div>
@@ -2177,28 +2183,39 @@ function MainScrollableContent() {
   );
 }
 
-function MainContentArea() {
+function MainContentArea({ onRequestLeave, onCancel, onSwitchToApprovals, view }: { onRequestLeave: () => void; onCancel: () => void; onSwitchToApprovals: () => void; view: 'dashboard' | 'request' }) {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-name="Main Content Area">
       <HeaderTopNavigation />
-      <MainScrollableContent />
+      {view === 'dashboard' ? (
+        <MainScrollableContent onRequestLeave={onRequestLeave} />
+      ) : (
+        <LeaveRequest onCancel={onCancel} onSubmit={onSwitchToApprovals} />
+      )}
     </div>
   );
 }
 
-function Body() {
+function Body({ onSwitchToApprovals }: { onSwitchToApprovals: () => void }) {
+  const [view, setView] = useState<'dashboard' | 'request'>('dashboard');
+
   return (
     <div className="content-stretch flex h-screen items-start overflow-clip relative shrink-0 w-full" data-name="Body">
       <AsideSidebarNavigation />
-      <MainContentArea />
+      <MainContentArea 
+        view={view}
+        onRequestLeave={() => setView('request')}
+        onCancel={() => setView('dashboard')}
+        onSwitchToApprovals={onSwitchToApprovals}
+      />
     </div>
   );
 }
 
-export default function LeaveDashboard() {
+export default function LeaveDashboard({ onSwitchToApprovals = () => {} }: { onSwitchToApprovals?: () => void }) {
   return (
     <div className="bg-[#f6f6f8] content-stretch flex flex-col items-start relative size-full" data-name="Leave Dashboard">
-      <Body />
+      <Body onSwitchToApprovals={onSwitchToApprovals} />
     </div>
   );
 }

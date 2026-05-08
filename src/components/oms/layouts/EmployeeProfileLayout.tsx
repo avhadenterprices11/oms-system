@@ -178,7 +178,7 @@ export function EmployeeProfileLayout({ onNavigateBack }: EmployeeProfileLayoutP
       </div>
 
       {/* Main Content Area - Hide imported sidebars */}
-      <div className="flex-1 overflow-hidden [&_[data-name='Sidebar']]:hidden">
+      <div className="flex-1 overflow-y-auto relative [&_[data-name='Sidebar']]:hidden">
         {currentTab === "overview" && <EmployeeProfileRaviKumar />}
         {currentTab === "projects" && <EmployeeProfileRaviKumarProjects />}
         {currentTab === "tasks" && <EmployeeProfileRaviKumarTasks />}

@@ -14,6 +14,8 @@ import CreateCampaign from "@/imports/CreateCampaign/CreateCampaign";
 import UploadAssets from "@/imports/UploadAssets/UploadAssets";
 import AssetDetail from "@/imports/AssetDetail/AssetDetail";
 
+import { usePathname } from "next/navigation";
+
 type SocialMediaView = "overview" | "content" | "accounts" | "calendar" | "composer" | "brands" | "campaigns" | "assets";
 type ModalView = null | "add-brand" | "create-campaign" | "upload-assets" | "asset-detail";
 
@@ -22,7 +24,21 @@ interface SocialMediaLayoutProps {
 }
 
 export function SocialMediaLayout({ onNavigateBack }: SocialMediaLayoutProps) {
-  const [currentView, setCurrentView] = useState<SocialMediaView>("overview");
+  const pathname = usePathname();
+  
+  // Map pathname to initial view
+  const getInitialView = (): SocialMediaView => {
+    if (pathname.includes("/accounts")) return "accounts";
+    if (pathname.includes("/content")) return "content";
+    if (pathname.includes("/calendar")) return "calendar";
+    if (pathname.includes("/composer")) return "composer";
+    if (pathname.includes("/brands")) return "brands";
+    if (pathname.includes("/campaigns")) return "campaigns";
+    if (pathname.includes("/assets")) return "assets";
+    return "overview";
+  };
+
+  const [currentView, setCurrentView] = useState<SocialMediaView>(getInitialView());
   const [modalView, setModalView] = useState<ModalView>(null);
 
   const handleViewChange = (e: React.MouseEvent) => {
@@ -191,8 +207,8 @@ export function SocialMediaLayout({ onNavigateBack }: SocialMediaLayoutProps) {
         </button>
       </div>
 
-      {/* Main Content Area - Hide imported sidebars */}
-      <div className="flex-1 overflow-hidden [&_[data-name='Sidebar']]:hidden [&_.sidebar]:hidden">
+      {/* Main Content Area - Hide internal sidebars and navbars from imported components */}
+      <div className="flex-1 overflow-hidden [&_[data-name*='Sidebar']]:hidden [&_[data-name*='Navigation']]:hidden [&_.sidebar]:hidden">
         {currentView === "overview" && <SocialMediaSocialOverview />}
         {currentView === "content" && <SocialMediaContent />}
         {currentView === "accounts" && <SocialMediaSocialAccounts />}

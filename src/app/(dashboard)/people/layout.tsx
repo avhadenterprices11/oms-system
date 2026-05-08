@@ -22,9 +22,9 @@ export default function PeopleLayout({ children }: { children: React.ReactNode }
     const text = target.textContent?.toLowerCase() || "";
 
     // Modal triggers
-    if (text.includes("add employee")) {
+    if (text.includes("add employee") && !pathname.includes("/directory")) {
       setModalView("add-employee");
-    } else if (text.includes("edit") && !text.includes("edit structure")) {
+    } else if (text.includes("edit") && !text.includes("edit structure") && !pathname.includes("/directory")) {
       setModalView("edit-employee");
     } else if (text.includes("message")) {
       setModalView("message-employee");

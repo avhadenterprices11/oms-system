@@ -758,7 +758,7 @@ function Dropdown() {
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-white inset-0 rounded-[8px]" />
         <div className="absolute inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[16.12%] left-0 max-w-none top-[41.94%] w-[2.4%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[16.12%] max-w-none right-[14px] top-[41.94%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -891,7 +891,7 @@ function Dropdown1() {
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[16.12%] left-0 max-w-none top-[41.94%] w-[2.61%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[16.12%] max-w-none right-[14px] top-[41.94%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -958,7 +958,7 @@ function Dropdown2() {
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
-          <img alt="" className="absolute h-[16.12%] left-0 max-w-none top-[41.94%] w-[2.61%]" src={imgDropdown.src} />
+          <img alt="" className="absolute h-[16.12%] max-w-none right-[14px] top-[41.94%] w-[10px]" src={imgDropdown.src} />
         </div>
       </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
@@ -1009,9 +1009,9 @@ function Container25() {
   );
 }
 
-function Button1() {
+function Button1({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px]" data-name="Button">
+    <div onClick={onClick} className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.127px] cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17.556px] py-[10.556px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[14px] text-center whitespace-nowrap">Cancel</p>
@@ -1022,7 +1022,7 @@ function Button1() {
 
 function Button2() {
   return (
-    <div className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[62.118px]" data-name="Button">
+    <div className="bg-[#5048e5] h-[37.778px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[62.118px] cursor-pointer hover:bg-[#4338ca] transition-colors" data-name="Button">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[17px] py-[10px] relative size-full">
         <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">Link</p>
       </div>
@@ -1030,17 +1030,17 @@ function Button2() {
   );
 }
 
-function Container29() {
+function Container29({ onClose }: { onClose?: () => void }) {
   return (
     <div className="absolute content-stretch flex gap-[10px] h-[54.332px] items-start justify-end left-[32px] pt-[16.554px] top-[569.11px] w-[416.007px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t-[0.556px] inset-0 pointer-events-none" />
-      <Button1 />
+      <Button1 onClick={onClose} />
       <Button2 />
     </div>
   );
 }
 
-function Container19() {
+function Container19({ onClose }: { onClose?: () => void }) {
   return (
     <div className="bg-white h-[655.443px] relative rounded-[20px] shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)] shrink-0 w-[480px]" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
@@ -1050,7 +1050,7 @@ function Container19() {
         <Container23 />
         <Container24 />
         <Container25 />
-        <Container29 />
+        <Container29 onClose={onClose} />
       </div>
     </div>
   );
@@ -1064,13 +1064,11 @@ function Container18() {
   );
 }
 
-export default function LinkToClientDelivery() {
+export default function LinkToClientDelivery({ onClose }: { onClose?: () => void }) {
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Link to Client Delivery">
-      <Body />
-      <Sidebar />
-      <Header />
-      <Container18 />
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f1f5f9] overflow-y-auto py-10" data-name="Modal Overlay">
+      <div className="absolute inset-0 cursor-pointer" onClick={onClose} />
+      <Container19 onClose={onClose} />
     </div>
   );
 }
