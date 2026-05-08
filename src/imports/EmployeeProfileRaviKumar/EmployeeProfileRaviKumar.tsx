@@ -233,16 +233,6 @@ function ProfileInfo() {
   );
 }
 
-function Container2() {
-  return (
-    <div className="h-[95.425px] relative shrink-0 w-[564.566px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[20px] items-start relative size-full">
-        <Container3 />
-        <Container4 />
-      </div>
-    </div>
-  );
-}
 
 function Icon3() {
   return (
