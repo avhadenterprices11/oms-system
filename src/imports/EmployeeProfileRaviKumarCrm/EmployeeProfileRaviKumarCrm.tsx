@@ -238,13 +238,14 @@ function Icon3() {
 
 function Button() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[118.75px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon3 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[70.54px] not-italic text-[#334155] text-[14px] text-center top-[10.56px] whitespace-nowrap">Message</p>
+    <button className="bg-white flex-[1_0_0] h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-4 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="MessageButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Message</p>
+    </button>
   );
 }
 
@@ -267,13 +268,14 @@ function Icon4() {
 
 function Button1() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.917px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon4 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[53.04px] not-italic text-[#334155] text-[14px] text-center top-[10.56px] whitespace-nowrap">Edit</p>
+    <button className="bg-white h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-5 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="EditButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Edit</p>
+    </button>
   );
 }
 
@@ -291,31 +293,28 @@ function Icon5() {
 
 function Button2() {
   return (
-    <div className="bg-[#5048e5] h-[53.333px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[102.439px]" data-name="Button">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon5 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[51.5px] not-italic text-[14px] text-center text-white top-[10px] w-[69px]">Assign Task</p>
-      </div>
-    </div>
+    <button className="bg-[#5048e5] h-[40px] rounded-[10px] shadow-sm shrink-0 px-6 cursor-pointer hover:bg-[#4338ca] transition-all active:scale-[0.95] flex items-center justify-center gap-2 group border-0" data-name="AssignTaskButton">
+      <svg className="size-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+      </svg>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[14px] text-white whitespace-nowrap">Assign Task</p>
+    </button>
   );
 }
 
 function Container8() {
   return (
-    <div className="h-[53.333px] relative shrink-0 w-[324.106px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-center relative size-full">
-        <Button />
-        <Button1 />
-        <Button2 />
-      </div>
+    <div className="flex items-center gap-[10px] flex-wrap justify-end" data-name="Container">
+      <Button />
+      <Button1 />
+      <Button2 />
     </div>
   );
 }
 
 function Container1() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[136.415px] items-start justify-between left-[32px] pb-[0.556px] pl-[32.553px] pr-[-11.137px] pt-[28.551px] rounded-[24px] top-[52.11px] w-[960.009px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[24px]" />
+    <div className="absolute bg-white flex h-auto min-h-[136px] items-center justify-between left-[32px] right-[32px] py-8 px-8 rounded-[24px] top-[40px] shadow-sm border border-[#e2e8f0]" data-name="Container">
       <Container2 />
       <Container8 />
     </div>
@@ -436,7 +435,7 @@ function Container17() {
 
 function Container9() {
   return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[37.335px] left-[32px] top-[208.52px] w-[960.009px]" data-name="Container">
+    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[38px] left-[32px] right-[32px] top-[208px]" data-name="Container">
       <Container10 />
       <Container11 />
       <Container12 />
@@ -668,8 +667,7 @@ function TableBody() {
 
 function Container19() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[13.993px] h-[237.491px] items-start left-0 pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-0 w-[415.469px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
+    <div className="bg-white flex flex-col gap-[14px] h-full items-start p-6 rounded-[20px] border border-[#e2e8f0] shadow-sm relative w-full" data-name="Container">
       <Container20 />
       <TableBody />
     </div>
@@ -932,8 +930,7 @@ function TableBody1() {
 
 function Container23() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[13.993px] h-[237.491px] items-start left-[431.47px] pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-0 w-[343.22px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
+    <div className="bg-white flex flex-col gap-[14px] h-full items-start p-6 rounded-[20px] border border-[#e2e8f0] shadow-sm relative w-full" data-name="Container">
       <Container24 />
       <TableBody1 />
     </div>
@@ -1265,8 +1262,7 @@ function TableBody2() {
 
 function Container27() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[13.993px] h-[237.491px] items-start left-[790.69px] pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-0 w-[467.917px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
+    <div className="bg-white flex flex-col gap-[14px] h-full items-start p-6 rounded-[20px] border border-[#e2e8f0] shadow-sm relative w-full" data-name="Container">
       <Container28 />
       <TableBody2 />
     </div>
@@ -1632,7 +1628,7 @@ function Container63() {
 
 function Container31() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[329.714px] left-0 rounded-[20px] top-[253.49px] w-[1258.603px]" data-name="Container">
+    <div className="bg-white border-[#e2e8f0] border-[0.556px] border-solid min-h-[330px] rounded-[20px] w-full p-6 relative flex flex-col gap-4 shadow-sm" data-name="Container">
       <Container32 />
       <Container35 />
       <Container42 />
@@ -1645,10 +1641,12 @@ function Container31() {
 
 function Container18() {
   return (
-    <div className="absolute h-[583.203px] left-[32px] top-[265.86px] w-[960.009px]" data-name="Container">
-      <Container19 />
-      <Container23 />
-      <Container27 />
+    <div className="absolute flex flex-col gap-6 items-start left-[32px] right-[32px] top-[265px] h-auto pb-20" data-name="Container">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 w-full">
+        <Container19 />
+        <Container23 />
+        <Container27 />
+      </div>
       <Container31 />
     </div>
   );
@@ -1656,8 +1654,7 @@ function Container18() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[881.059px] left-[256px] top-0 w-[1024.002px]" data-name="Main Content">
-      <Container />
+    <div className="absolute h-auto left-0 right-0 top-0 pb-10" data-name="Main Content">
       <Container1 />
       <Container9 />
       <Container18 />
@@ -1671,9 +1668,8 @@ function Container69() {
 
 function Body() {
   return (
-    <div className="absolute h-[1023.993px] left-0 top-[63.99px] w-[1280px]" data-name="Body">
+    <div className="absolute min-h-screen left-0 top-0 w-full pb-10" data-name="Body">
       <MainContent />
-      <Container69 />
     </div>
   );
 }
@@ -2176,7 +2172,7 @@ function Button3() {
 
 function Sidebar() {
   return (
-    <div className="absolute bg-white border-[rgba(80,72,229,0.1)] border-r-[0.556px] border-solid h-[924.444px] left-0 top-0 w-[255.998px]" data-name="Sidebar">
+    <div className="absolute bg-white border-[#e2e8f0] border-r border-solid min-h-screen left-0 top-0 w-[256px] z-20" data-name="Sidebar">
       <Container70 />
       <Button3 />
     </div>
@@ -2329,8 +2325,7 @@ function Container78() {
 
 function Header() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0 w-[1377.335px]" data-name="Header">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid inset-0 pointer-events-none" />
+    <div className="absolute bg-white content-stretch flex h-[64px] items-center justify-between left-[256px] right-0 pb-[0.556px] pl-[32px] pr-[32px] top-0 border-b border-[#e2e8f0] z-10" data-name="Header">
       <Container77 />
       <Container78 />
     </div>
@@ -2341,8 +2336,6 @@ export default function EmployeeProfileRaviKumarCrm() {
   return (
     <div className="bg-[#f6f6f8] relative size-full" data-name="Employee Profile — Ravi Kumar — CRM">
       <Body />
-      <Sidebar />
-      <Header />
     </div>
   );
 }

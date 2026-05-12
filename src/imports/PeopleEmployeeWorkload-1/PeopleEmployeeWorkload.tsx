@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 // --- Types & Data ---
 
@@ -46,13 +47,54 @@ const StatCard = ({ label, value, badge, badgeColor, icon, iconBg }: any) => (
   </div>
 );
 
-const FilterDropdown = ({ label, icon }: { label: string; icon?: React.ReactNode }) => (
-  <button className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
-    {icon}
-    {label}
-    <svg className="w-4 h-4 text-slate-400 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-  </button>
-);
+const FilterButton = ({ 
+  label, 
+  icon, 
+  options, 
+  value, 
+  onSelect 
+}: { 
+  label: string; 
+  icon?: React.ReactNode; 
+  options?: string[];
+  value?: string;
+  onSelect?: (val: string) => void;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-2 px-4 py-2.5 border rounded-xl text-[13px] font-semibold transition-all shadow-sm ${isOpen || (value && !value.includes("All") && value !== label) ? "bg-indigo-50 border-indigo-200 text-[#5D5FEF]" : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"}`}
+      >
+        {icon}
+        {value || label}
+        <svg className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+      </button>
+
+      {isOpen && (
+        <>
+          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+          <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-slate-100 rounded-2xl shadow-xl z-20 py-2 animate-in fade-in zoom-in-95 duration-200">
+            {options?.map(opt => (
+              <button
+                key={opt}
+                onClick={() => {
+                  onSelect?.(opt);
+                  setIsOpen(false);
+                }}
+                className={`w-full text-left px-4 py-2.5 text-sm font-bold transition-colors ${value === opt ? "text-[#5D5FEF] bg-indigo-50/50" : "text-slate-600 hover:bg-slate-50"}`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const TABLE_GRID_TEMPLATE = "grid-cols-[2fr_1.2fr_0.8fr_1fr_1.5fr_1.2fr_1.5fr_0.5fr]";
 
@@ -142,7 +184,30 @@ const WorkloadRow = ({ emp }: { emp: EmployeeWorkload }) => {
 };
 
 export default function PeopleEmployeeWorkload() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [showOnLeave, setShowOnLeave] = useState(false);
+  const [search, setSearch] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [activeFilters, setActiveFilters] = useState({
+    dept: "All Departments",
+    status: "All Statuses",
+    manager: "All Managers"
+  });
+
+  const departments = ["All Departments", "Engineering", "Design", "Operations", "Sales", "Marketing", "HR"];
+  const statuses = ["All Statuses", "Overloaded", "Balanced", "Optimal", "Available"];
+  const managers = ["All Managers", "Ashwini Reddy", "Marcus Vane", "Lisa Chen"];
+
+  const filteredEmployees = employees.filter(emp => {
+    const matchesSearch = emp.name.toLowerCase().includes(search.toLowerCase()) || 
+                         emp.role.toLowerCase().includes(search.toLowerCase());
+    const matchesDept = activeFilters.dept === "All Departments" || emp.dept === activeFilters.dept;
+    const matchesStatus = activeFilters.status === "All Statuses" || emp.status === activeFilters.status;
+    const matchesLeave = !showOnLeave || emp.onLeave;
+
+    return matchesSearch && matchesDept && matchesStatus && matchesLeave;
+  });
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen font-['Inter',sans-serif]">
@@ -150,19 +215,36 @@ export default function PeopleEmployeeWorkload() {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
           <div>
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-2 text-[13px] font-bold text-slate-400 mb-6">
+              <span 
+                onClick={() => router.push("/people")} 
+                className="cursor-pointer hover:text-[#5D5FEF] transition-colors"
+              >
+                People
+              </span>
+              <span>/</span>
+              <span className="text-slate-900">Workload</span>
+            </div>
             <h1 className="text-[40px] font-extrabold text-slate-900 tracking-tight mb-2">Employee Workload</h1>
-            <p className="text-slate-400 font-medium text-lg">Showing workload for 24 employees across 12 active projects.</p>
+            <p className="text-slate-400 font-medium text-lg">Showing workload for {filteredEmployees.length} employees.</p>
           </div>
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+            <button 
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-2 px-5 py-2.5 border rounded-xl text-sm font-bold transition-all shadow-sm ${showFilters ? "bg-[#5D5FEF] text-white border-[#5D5FEF]" : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"}`}
+            >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg>
-              Filters
+              {showFilters ? "Hide Filters" : "Filters"}
             </button>
             <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M16 10l-4 4m0 0l-4-4m4 4V4" /></svg>
               Export
             </button>
-            <button className="flex items-center gap-2 px-6 py-2.5 bg-[#5D5FEF] text-white rounded-xl text-sm font-bold hover:bg-[#4D4FCF] transition-all shadow-lg shadow-indigo-200">
+            <button 
+              onClick={() => router.push("/people/directory?view=add")}
+              className="flex items-center gap-2 px-6 py-2.5 bg-[#5D5FEF] text-white rounded-xl text-sm font-bold hover:bg-[#4D4FCF] transition-all shadow-lg shadow-indigo-200"
+            >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
               Add Employee
             </button>
@@ -206,11 +288,39 @@ export default function PeopleEmployeeWorkload() {
         </div>
 
         {/* Filter Bar */}
-        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
+        {showFilters && (
+          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8 animate-in slide-in-from-left-4 fade-in duration-300">
           <div className="flex flex-wrap items-center gap-3">
-            <FilterDropdown label="All Departments" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} />
-            <FilterDropdown label="All Statuses" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
-            <FilterDropdown label="All Managers" icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} />
+            <FilterButton 
+              label="Department" 
+              options={departments}
+              value={activeFilters.dept}
+              onSelect={(val) => setActiveFilters(prev => ({ ...prev, dept: val }))}
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} 
+            />
+            <FilterButton 
+              label="Status" 
+              options={statuses}
+              value={activeFilters.status}
+              onSelect={(val) => setActiveFilters(prev => ({ ...prev, status: val }))}
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} 
+            />
+            <FilterButton 
+              label="Manager" 
+              options={managers}
+              value={activeFilters.manager}
+              onSelect={(val) => setActiveFilters(prev => ({ ...prev, manager: val }))}
+              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} 
+            />
+
+            {(activeFilters.dept !== "All Departments" || activeFilters.status !== "All Statuses" || activeFilters.manager !== "All Managers") && (
+              <button 
+                onClick={() => setActiveFilters({ dept: "All Departments", status: "All Statuses", manager: "All Managers" })}
+                className="text-xs font-bold text-[#5D5FEF] hover:underline px-2"
+              >
+                Clear All
+              </button>
+            )}
             
             <div className="h-6 w-px bg-slate-200 mx-2 hidden md:block" />
             
@@ -229,11 +339,14 @@ export default function PeopleEmployeeWorkload() {
             <input 
               type="text" 
               placeholder="Search by name..." 
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-white border border-slate-200 rounded-xl px-12 py-2.5 text-sm outline-none focus:border-[#5D5FEF] transition-all"
             />
             <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           </div>
-        </div>
+          </div>
+        )}
 
         {/* Table */}
         <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
@@ -258,7 +371,7 @@ export default function PeopleEmployeeWorkload() {
           </div>
           
           <div className="overflow-y-auto">
-            {employees.map((emp) => (
+            {filteredEmployees.map((emp) => (
               <WorkloadRow key={emp.id} emp={emp} />
             ))}
           </div>

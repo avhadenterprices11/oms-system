@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import svgPaths from "./svg-fbq8gta56j";
 
 function Link() {
@@ -53,7 +54,7 @@ function Text2() {
 
 function Container() {
   return (
-    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-[32px] top-[20px] w-[960.009px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-[32px] right-[32px] top-[20px]" data-name="Container">
       <Link />
       <Text />
       <Link1 />
@@ -75,16 +76,20 @@ function Container3() {
 
 function Text3() {
   return (
-    <div className="absolute bg-[#d1fae5] content-stretch flex h-[18.993px] items-start left-[139.84px] px-[8px] py-[2px] rounded-[9999px] top-[4.95px] w-[44.262px]" data-name="Text">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[15px] not-italic relative shrink-0 text-[#047857] text-[10px] tracking-[-0.5px] whitespace-nowrap">Active</p>
+    <div className="bg-emerald-50 px-2.5 py-1 rounded-lg flex items-center gap-2 border border-emerald-100/50 shadow-sm transition-all hover:bg-emerald-100/30 group" data-name="Text">
+      <div className="relative flex items-center justify-center">
+        <div className="absolute size-2 bg-emerald-400 rounded-full animate-ping opacity-75" />
+        <div className="relative size-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+      </div>
+      <p className="font-['Inter:Medium',sans-serif] font-medium text-emerald-700 text-[12px] tracking-tight">Active</p>
     </div>
   );
 }
 
 function Container5() {
   return (
-    <div className="absolute h-[28.889px] left-0 top-0 w-[522.491px]" data-name="Container">
-      <p className="absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] left-0 not-italic text-[#0f172a] text-[24px] top-0 tracking-[-0.5px] whitespace-nowrap">{`Ravi Kumar `}</p>
+    <div className="flex items-center gap-3 mb-1" data-name="Container">
+      <p className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[normal] text-[#0f172a] text-[24px] tracking-[-0.5px] whitespace-nowrap">{`Ravi Kumar `}</p>
       <Text3 />
     </div>
   );
@@ -92,8 +97,8 @@ function Container5() {
 
 function Container6() {
   return (
-    <div className="absolute content-stretch flex h-[18.333px] items-start left-0 top-[32.88px] w-[522.491px]" data-name="Container">
-      <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[15px]">Full Stack Developer · Engineering</p>
+    <div className="flex items-center" data-name="Container">
+      <p className="font-['Inter:Regular',sans-serif] font-normal text-[#64748b] text-[15px]">Full Stack Developer · Engineering</p>
     </div>
   );
 }
@@ -193,7 +198,7 @@ function Text6() {
 
 function Container7() {
   return (
-    <div className="absolute content-stretch flex gap-[20px] h-[16.111px] items-start left-0 top-[63.2px] w-[522.491px]" data-name="Container">
+    <div className="flex items-center gap-6" data-name="Container">
       <Text4 />
       <Text5 />
       <Text6 />
@@ -203,10 +208,12 @@ function Container7() {
 
 function Container4() {
   return (
-    <div className="flex-[1_0_0] h-[79.314px] min-w-px relative" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Container5 />
+    <div className="flex flex-col justify-center" data-name="Container">
+      <Container5 />
+      <div className="relative h-6">
         <Container6 />
+      </div>
+      <div className="relative h-6 mt-1">
         <Container7 />
       </div>
     </div>
@@ -215,11 +222,9 @@ function Container4() {
 
 function Container2() {
   return (
-    <div className="h-[79.314px] relative shrink-0 w-[614.488px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[20px] items-start relative size-full">
-        <Container3 />
-        <Container4 />
-      </div>
+    <div className="flex items-center gap-6" data-name="Container">
+      <Container3 />
+      <Container4 />
     </div>
   );
 }
@@ -238,13 +243,14 @@ function Icon3() {
 
 function Button() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[118.75px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon3 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[70.54px] not-italic text-[#334155] text-[14px] text-center top-[10.56px] whitespace-nowrap">Message</p>
+    <button className="bg-white flex-[1_0_0] h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-4 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="MessageButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Message</p>
+    </button>
   );
 }
 
@@ -267,13 +273,14 @@ function Icon4() {
 
 function Button1() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[82.917px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon4 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[53.04px] not-italic text-[#334155] text-[14px] text-center top-[10.56px] whitespace-nowrap">Edit</p>
+    <button className="bg-white h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-5 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="EditButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Edit</p>
+    </button>
   );
 }
 
@@ -289,35 +296,32 @@ function Icon5() {
   );
 }
 
-function Button2() {
+function Button2({ onClick }: { onClick: () => void }) {
   return (
-    <div className="bg-[#5048e5] h-[53.333px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[102.439px]" data-name="Button">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon5 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[51.5px] not-italic text-[14px] text-center text-white top-[10px] w-[69px]">Assign Task</p>
-      </div>
+    <button onClick={onClick} className="bg-[#5048e5] h-[40px] rounded-[10px] shadow-sm shrink-0 px-6 cursor-pointer hover:bg-[#4338ca] transition-all active:scale-[0.95] flex items-center justify-center gap-2 group border-0" data-name="AssignTaskButton">
+      <svg className="size-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+      </svg>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[14px] text-white whitespace-nowrap">Assign Task</p>
+    </button>
+  );
+}
+
+function Container8({ onAssignTask }: { onAssignTask: () => void }) {
+  return (
+    <div className="flex items-center gap-3 flex-wrap justify-end" data-name="Container">
+      <Button />
+      <Button1 />
+      <Button2 onClick={onAssignTask} />
     </div>
   );
 }
 
-function Container8() {
+function Container1({ onAssignTask }: { onAssignTask: () => void }) {
   return (
-    <div className="h-[53.333px] relative shrink-0 w-[324.106px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-center relative size-full">
-        <Button />
-        <Button1 />
-        <Button2 />
-      </div>
-    </div>
-  );
-}
-
-function Container1() {
-  return (
-    <div className="absolute bg-white content-stretch flex h-[136.415px] items-start justify-between left-[32px] pb-[0.556px] pl-[32.553px] pr-[-11.137px] pt-[28.551px] rounded-[24px] top-[52.11px] w-[960.009px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[24px]" />
+    <div className="absolute bg-white flex h-[136px] items-center justify-between left-[32px] right-[32px] px-8 rounded-[24px] top-[52px] shadow-sm border border-[#e2e8f0]" data-name="Container">
       <Container2 />
-      <Container8 />
+      <Container8 onAssignTask={onAssignTask} />
     </div>
   );
 }
@@ -436,7 +440,7 @@ function Container17() {
 
 function Container9() {
   return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[37.335px] left-[32px] top-[208.52px] w-[960.009px]" data-name="Container">
+    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[37.335px] left-[32px] right-[32px] top-[208px]" data-name="Container">
       <Container10 />
       <Container11 />
       <Container12 />
@@ -453,141 +457,10 @@ function Option() {
   return <div className="absolute left-[-287.99px] size-0 top-[-329.85px]" data-name="Option" />;
 }
 
-function Option1() {
-  return <div className="absolute left-[-287.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option2() {
-  return <div className="absolute left-[-287.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option3() {
-  return <div className="absolute left-[-287.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option4() {
-  return <div className="absolute left-[-287.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Dropdown() {
-  return (
-    <div className="bg-white h-[32.326px] relative rounded-[8px] shrink-0 w-[140px]" data-name="Dropdown">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">​</p>
-        <Option />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option1 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option2 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option3 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option4 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-287.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`    `}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Option5() {
-  return <div className="absolute left-[-439.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option6() {
-  return <div className="absolute left-[-439.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option7() {
-  return <div className="absolute left-[-439.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option8() {
-  return <div className="absolute left-[-439.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Option9() {
-  return <div className="absolute left-[-439.99px] size-0 top-[-329.85px]" data-name="Option" />;
-}
-
-function Dropdown1() {
-  return (
-    <div className="bg-white h-[32.326px] relative rounded-[8px] shrink-0 w-[140px]" data-name="Dropdown">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">​</p>
-        <Option5 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option6 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option7 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option8 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`      `}</p>
-        </div>
-        <Option9 />
-        <div className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[0] left-[-439.99px] not-italic text-[#334155] text-[13px] top-[-329.85px] whitespace-nowrap">
-          <p className="leading-[normal] mb-0 whitespace-pre">​</p>
-          <p className="leading-[normal] whitespace-pre">{`    `}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TextInput() {
-  return (
-    <div className="bg-white flex-[280_0_0] h-[31.215px] min-w-px relative rounded-[8px]" data-name="Text Input">
-      <div className="flex flex-row items-center overflow-clip rounded-[inherit] size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center px-[12px] py-[7px] relative size-full">
-          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[13px] whitespace-nowrap">Search tasks...</p>
-        </div>
-      </div>
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-    </div>
-  );
-}
-
-function Container18() {
-  return (
-    <div className="absolute content-stretch flex gap-[11.997px] h-[32.326px] items-center left-[32px] pr-[376.016px] top-[265.86px] w-[960.009px]" data-name="Container">
-      <Dropdown />
-      <Dropdown1 />
-      <TextInput />
-    </div>
-  );
-}
-
 function Container21() {
   return (
     <div className="h-[28.003px] relative shrink-0 w-full" data-name="Container">
-      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[93.64px] not-italic text-[#64748b] text-[28px] text-center top-[-0.33px] whitespace-nowrap">8</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[145.5px] not-italic text-[#64748b] text-[28px] text-center top-[-0.33px] whitespace-nowrap">8</p>
     </div>
   );
 }
@@ -602,7 +475,7 @@ function Container22() {
 
 function Container20() {
   return (
-    <div className="absolute bg-[#f8fafc] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-0 pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[228.003px]" data-name="Container">
+    <div className="absolute bg-[#f8fafc] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-0 pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[332px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container21 />
       <Container22 />
@@ -613,7 +486,7 @@ function Container20() {
 function Container24() {
   return (
     <div className="h-[28.003px] relative shrink-0 w-full" data-name="Container">
-      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[93.68px] not-italic text-[#2563eb] text-[28px] text-center top-[-0.33px] whitespace-nowrap">6</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[145.5px] not-italic text-[#2563eb] text-[28px] text-center top-[-0.33px] whitespace-nowrap">6</p>
     </div>
   );
 }
@@ -628,7 +501,7 @@ function Container25() {
 
 function Container23() {
   return (
-    <div className="absolute bg-[#eff6ff] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[244px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[228.003px]" data-name="Container">
+    <div className="absolute bg-[#eff6ff] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[348px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[332px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container24 />
       <Container25 />
@@ -639,7 +512,7 @@ function Container23() {
 function Container27() {
   return (
     <div className="h-[28.003px] relative shrink-0 w-full" data-name="Container">
-      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[93.8px] not-italic text-[#d97706] text-[28px] text-center top-[-0.33px] whitespace-nowrap">4</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[145.5px] not-italic text-[#d97706] text-[28px] text-center top-[-0.33px] whitespace-nowrap">4</p>
     </div>
   );
 }
@@ -654,7 +527,7 @@ function Container28() {
 
 function Container26() {
   return (
-    <div className="absolute bg-[#fffbeb] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[488px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[228.003px]" data-name="Container">
+    <div className="absolute bg-[#fffbeb] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[696px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[332px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container27 />
       <Container28 />
@@ -665,7 +538,7 @@ function Container26() {
 function Container30() {
   return (
     <div className="h-[28.003px] relative shrink-0 w-full" data-name="Container">
-      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[93.58px] not-italic text-[#059669] text-[28px] text-center top-[-0.33px] whitespace-nowrap">10</p>
+      <p className="-translate-x-1/2 absolute font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] left-[145.5px] not-italic text-[#059669] text-[28px] text-center top-[-0.33px] whitespace-nowrap">10</p>
     </div>
   );
 }
@@ -680,7 +553,7 @@ function Container31() {
 
 function Container29() {
   return (
-    <div className="absolute bg-[#ecfdf5] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[732.01px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[228.003px]" data-name="Container">
+    <div className="absolute bg-[#ecfdf5] content-stretch flex flex-col gap-[5.998px] h-[88.446px] items-start left-[1044px] pb-[0.556px] pt-[20.556px] px-[20.556px] rounded-[20px] top-0 w-[332px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container30 />
       <Container31 />
@@ -690,7 +563,7 @@ function Container29() {
 
 function Container19() {
   return (
-    <div className="absolute h-[88.446px] left-[32px] top-[314.18px] w-[960.009px]" data-name="Container">
+    <div className="absolute h-[88.446px] left-[32px] top-[314.18px] w-[1376px]" data-name="Container">
       <Container20 />
       <Container23 />
       <Container26 />
@@ -699,840 +572,152 @@ function Container19() {
   );
 }
 
-function HeaderCell() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-0 top-0 w-[301.528px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Task</p>
-    </div>
-  );
-}
-
-function HeaderCell1() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-[301.53px] top-0 w-[155.59px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Project</p>
-    </div>
-  );
-}
-
-function HeaderCell2() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-[457.12px] top-0 w-[105.304px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Priority</p>
-    </div>
-  );
-}
-
-function HeaderCell3() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-[562.42px] top-0 w-[120.677px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Status</p>
-    </div>
-  );
-}
-
-function HeaderCell4() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-[683.1px] top-0 w-[134.575px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Due Date</p>
-    </div>
-  );
-}
-
-function HeaderCell5() {
-  return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[27.934px] left-[817.67px] top-0 w-[101.224px]" data-name="Header Cell">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[16px] not-italic text-[#94a3b8] text-[10px] top-[7.99px] tracking-[0.5px] uppercase whitespace-nowrap">Assignee</p>
-    </div>
-  );
-}
-
 function TableRow() {
   return (
-    <div className="absolute h-[27.934px] left-0 top-0 w-[918.898px]" data-name="Table Row">
-      <HeaderCell />
-      <HeaderCell1 />
-      <HeaderCell2 />
-      <HeaderCell3 />
-      <HeaderCell4 />
-      <HeaderCell5 />
-    </div>
-  );
-}
-
-function TableCell() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Fix authentication token refresh</p>
-    </div>
-  );
-}
-
-function TableCell1() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Portal v2</p>
-    </div>
-  );
-}
-
-function Text12() {
-  return (
-    <div className="absolute bg-[#fee2e2] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[51.094px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#dc2626] text-[10px] top-[2px] whitespace-nowrap">Critical</p>
-    </div>
-  );
-}
-
-function TableCell2() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text12 />
-    </div>
-  );
-}
-
-function Text13() {
-  return (
-    <div className="absolute bg-[#dbeafe] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[71.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#2563eb] text-[10px] top-[2px] whitespace-nowrap">In Progress</p>
-    </div>
-  );
-}
-
-function TableCell3() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text13 />
-    </div>
-  );
-}
-
-function TableCell4() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Mar 29, 2026</p>
-    </div>
-  );
-}
-
-function TableCell5() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[40px] border-b border-[#f1f5f9] bg-slate-50/50 px-4" data-name="Table Row">
+      <div className="flex-[2] text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Task</div>
+      <div className="flex-1 text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Status</div>
+      <div className="flex-1 text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Priority</div>
+      <div className="flex-1 text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Start Date</div>
+      <div className="flex-1 text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Deadline</div>
+      <div className="flex-1 text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Assignee</div>
     </div>
   );
 }
 
 function TableRow1() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-0 w-[918.898px]" data-name="Table Row">
-      <TableCell />
-      <TableCell1 />
-      <TableCell2 />
-      <TableCell3 />
-      <TableCell4 />
-      <TableCell5 />
-    </div>
-  );
-}
-
-function TableCell6() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Implement user search API</p>
-    </div>
-  );
-}
-
-function TableCell7() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">API Migration</p>
-    </div>
-  );
-}
-
-function Text14() {
-  return (
-    <div className="absolute bg-[#ffedd5] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[38.715px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#ea580c] text-[10px] top-[2px] whitespace-nowrap">High</p>
-    </div>
-  );
-}
-
-function TableCell8() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text14 />
-    </div>
-  );
-}
-
-function Text15() {
-  return (
-    <div className="absolute bg-[#dbeafe] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[71.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#2563eb] text-[10px] top-[2px] whitespace-nowrap">In Progress</p>
-    </div>
-  );
-}
-
-function TableCell9() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text15 />
-    </div>
-  );
-}
-
-function TableCell10() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Mar 30, 2026</p>
-    </div>
-  );
-}
-
-function TableCell11() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Implement authentication flow</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Completed</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">High</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 01, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 10, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow2() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[37.55px] w-[918.898px]" data-name="Table Row">
-      <TableCell6 />
-      <TableCell7 />
-      <TableCell8 />
-      <TableCell9 />
-      <TableCell10 />
-      <TableCell11 />
-    </div>
-  );
-}
-
-function TableCell12() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Review PR #247 — payment module</p>
-    </div>
-  );
-}
-
-function TableCell13() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Portal v2</p>
-    </div>
-  );
-}
-
-function Text16() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[55.634px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">Medium</p>
-    </div>
-  );
-}
-
-function TableCell14() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text16 />
-    </div>
-  );
-}
-
-function Text17() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[62.648px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">In Review</p>
-    </div>
-  );
-}
-
-function TableCell15() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text17 />
-    </div>
-  );
-}
-
-function TableCell16() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Mar 28, 2026</p>
-    </div>
-  );
-}
-
-function TableCell17() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Design system documentation</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">In Progress</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Medium</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 05, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 20, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow3() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[75.1px] w-[918.898px]" data-name="Table Row">
-      <TableCell12 />
-      <TableCell13 />
-      <TableCell14 />
-      <TableCell15 />
-      <TableCell16 />
-      <TableCell17 />
-    </div>
-  );
-}
-
-function TableCell18() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Write unit tests for auth service</p>
-    </div>
-  );
-}
-
-function TableCell19() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Portal v2</p>
-    </div>
-  );
-}
-
-function Text18() {
-  return (
-    <div className="absolute bg-[#ffedd5] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[38.715px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#ea580c] text-[10px] top-[2px] whitespace-nowrap">High</p>
-    </div>
-  );
-}
-
-function TableCell20() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text18 />
-    </div>
-  );
-}
-
-function Text19() {
-  return (
-    <div className="absolute bg-[#dbeafe] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[71.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#2563eb] text-[10px] top-[2px] whitespace-nowrap">In Progress</p>
-    </div>
-  );
-}
-
-function TableCell21() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text19 />
-    </div>
-  );
-}
-
-function TableCell22() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Apr 1, 2026</p>
-    </div>
-  );
-}
-
-function TableCell23() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Optimize database queries</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">To Do</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">High</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 10, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 15, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow4() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[112.66px] w-[918.898px]" data-name="Table Row">
-      <TableCell18 />
-      <TableCell19 />
-      <TableCell20 />
-      <TableCell21 />
-      <TableCell22 />
-      <TableCell23 />
-    </div>
-  );
-}
-
-function TableCell24() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Database schema migration script</p>
-    </div>
-  );
-}
-
-function TableCell25() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">API Migration</p>
-    </div>
-  );
-}
-
-function Text20() {
-  return (
-    <div className="absolute bg-[#fee2e2] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[51.094px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#dc2626] text-[10px] top-[2px] whitespace-nowrap">Critical</p>
-    </div>
-  );
-}
-
-function TableCell26() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text20 />
-    </div>
-  );
-}
-
-function Text21() {
-  return (
-    <div className="absolute bg-[#f1f5f9] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[43.75px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#64748b] text-[10px] top-[2px] whitespace-nowrap">To Do</p>
-    </div>
-  );
-}
-
-function TableCell27() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text21 />
-    </div>
-  );
-}
-
-function TableCell28() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Apr 3, 2026</p>
-    </div>
-  );
-}
-
-function TableCell29() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">API security audit</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Completed</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Critical</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 01, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 05, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow5() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[150.21px] w-[918.898px]" data-name="Table Row">
-      <TableCell24 />
-      <TableCell25 />
-      <TableCell26 />
-      <TableCell27 />
-      <TableCell28 />
-      <TableCell29 />
-    </div>
-  );
-}
-
-function TableCell30() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Update API documentation</p>
-    </div>
-  );
-}
-
-function TableCell31() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">API Migration</p>
-    </div>
-  );
-}
-
-function Text22() {
-  return (
-    <div className="absolute bg-[#f1f5f9] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[36.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#64748b] text-[10px] top-[2px] whitespace-nowrap">Low</p>
-    </div>
-  );
-}
-
-function TableCell32() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text22 />
-    </div>
-  );
-}
-
-function Text23() {
-  return (
-    <div className="absolute bg-[#f1f5f9] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[43.75px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#64748b] text-[10px] top-[2px] whitespace-nowrap">To Do</p>
-    </div>
-  );
-}
-
-function TableCell33() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text23 />
-    </div>
-  );
-}
-
-function TableCell34() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Apr 5, 2026</p>
-    </div>
-  );
-}
-
-function TableCell35() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Integrate payment gateway</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">In Progress</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">High</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 12, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 25, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow6() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[187.76px] w-[918.898px]" data-name="Table Row">
-      <TableCell30 />
-      <TableCell31 />
-      <TableCell32 />
-      <TableCell33 />
-      <TableCell34 />
-      <TableCell35 />
-    </div>
-  );
-}
-
-function TableCell36() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Setup CI/CD for staging</p>
-    </div>
-  );
-}
-
-function TableCell37() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">DevOps Pipeline</p>
-    </div>
-  );
-}
-
-function Text24() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[55.634px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">Medium</p>
-    </div>
-  );
-}
-
-function TableCell38() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text24 />
-    </div>
-  );
-}
-
-function Text25() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[62.648px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">In Review</p>
-    </div>
-  );
-}
-
-function TableCell39() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text25 />
-    </div>
-  );
-}
-
-function TableCell40() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Mar 31, 2026</p>
-    </div>
-  );
-}
-
-function TableCell41() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">User dashboard redesign</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">To Do</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Low</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 20, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Apr 05, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow7() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[225.31px] w-[918.898px]" data-name="Table Row">
-      <TableCell36 />
-      <TableCell37 />
-      <TableCell38 />
-      <TableCell39 />
-      <TableCell40 />
-      <TableCell41 />
-    </div>
-  );
-}
-
-function TableCell42() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Optimize query performance</p>
-    </div>
-  );
-}
-
-function TableCell43() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Portal v2</p>
-    </div>
-  );
-}
-
-function Text26() {
-  return (
-    <div className="absolute bg-[#ffedd5] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[38.715px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#ea580c] text-[10px] top-[2px] whitespace-nowrap">High</p>
-    </div>
-  );
-}
-
-function TableCell44() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text26 />
-    </div>
-  );
-}
-
-function Text27() {
-  return (
-    <div className="absolute bg-[#dbeafe] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[71.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#2563eb] text-[10px] top-[2px] whitespace-nowrap">In Progress</p>
-    </div>
-  );
-}
-
-function TableCell45() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text27 />
-    </div>
-  );
-}
-
-function TableCell46() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Apr 2, 2026</p>
-    </div>
-  );
-}
-
-function TableCell47() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Bug fixes - Release 2.4</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Completed</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Medium</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 05, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 12, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow8() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[262.86px] w-[918.898px]" data-name="Table Row">
-      <TableCell42 />
-      <TableCell43 />
-      <TableCell44 />
-      <TableCell45 />
-      <TableCell46 />
-      <TableCell47 />
-    </div>
-  );
-}
-
-function TableCell48() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Implement WebSocket notifications</p>
-    </div>
-  );
-}
-
-function TableCell49() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Portal v2</p>
-    </div>
-  );
-}
-
-function Text28() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[55.634px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">Medium</p>
-    </div>
-  );
-}
-
-function TableCell50() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text28 />
-    </div>
-  );
-}
-
-function Text29() {
-  return (
-    <div className="absolute bg-[#f1f5f9] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[43.75px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#64748b] text-[10px] top-[2px] whitespace-nowrap">To Do</p>
-    </div>
-  );
-}
-
-function TableCell51() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text29 />
-    </div>
-  );
-}
-
-function TableCell52() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Apr 8, 2026</p>
-    </div>
-  );
-}
-
-function TableCell53() {
-  return (
-    <div className="absolute border-[#f1f5f9] border-b-[0.556px] border-solid h-[37.552px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Refactor frontend components</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">In Progress</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Low</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 15, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 30, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow9() {
   return (
-    <div className="absolute h-[37.552px] left-0 top-[300.42px] w-[918.898px]" data-name="Table Row">
-      <TableCell48 />
-      <TableCell49 />
-      <TableCell50 />
-      <TableCell51 />
-      <TableCell52 />
-      <TableCell53 />
-    </div>
-  );
-}
-
-function TableCell54() {
-  return (
-    <div className="absolute h-[37.274px] left-0 overflow-clip top-0 w-[301.528px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[10.72px] whitespace-nowrap">Code review — mobile auth flow</p>
-    </div>
-  );
-}
-
-function TableCell55() {
-  return (
-    <div className="absolute h-[37.274px] left-[301.53px] overflow-clip top-0 w-[155.59px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Mobile App</p>
-    </div>
-  );
-}
-
-function Text30() {
-  return (
-    <div className="absolute bg-[#f1f5f9] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[36.146px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#64748b] text-[10px] top-[2px] whitespace-nowrap">Low</p>
-    </div>
-  );
-}
-
-function TableCell56() {
-  return (
-    <div className="absolute h-[37.274px] left-[457.12px] overflow-clip top-0 w-[105.304px]" data-name="Table Cell">
-      <Text30 />
-    </div>
-  );
-}
-
-function Text31() {
-  return (
-    <div className="absolute bg-[#fef3c7] h-[15.66px] left-[16px] rounded-[9999px] top-[11.61px] w-[62.648px]" data-name="Text">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[7.99px] not-italic text-[#d97706] text-[10px] top-[2px] whitespace-nowrap">In Review</p>
-    </div>
-  );
-}
-
-function TableCell57() {
-  return (
-    <div className="absolute h-[37.274px] left-[562.42px] overflow-clip top-0 w-[120.677px]" data-name="Table Cell">
-      <Text31 />
-    </div>
-  );
-}
-
-function TableCell58() {
-  return (
-    <div className="absolute h-[37.274px] left-[683.1px] overflow-clip top-0 w-[134.575px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[10.72px] whitespace-nowrap">Mar 29, 2026</p>
-    </div>
-  );
-}
-
-function TableCell59() {
-  return (
-    <div className="absolute h-[37.274px] left-[817.67px] overflow-clip top-0 w-[101.224px]" data-name="Table Cell">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[10.72px] whitespace-nowrap">Ravi K.</p>
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Code review — mobile auth flow</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">To Do</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Medium</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 18, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 25, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableRow10() {
   return (
-    <div className="absolute h-[37.274px] left-0 top-[337.97px] w-[918.898px]" data-name="Table Row">
-      <TableCell54 />
-      <TableCell55 />
-      <TableCell56 />
-      <TableCell57 />
-      <TableCell58 />
-      <TableCell59 />
+    <div className="flex items-center w-full h-[48px] border-b border-[#f1f5f9] hover:bg-slate-50 transition-colors px-4" data-name="Table Row">
+      <div className="flex-[2] text-[13px] text-[#0f172a] font-medium">Create user feedback portal</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">In Progress</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">High</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 15, 2026</div>
+      <div className="flex-1 text-[13px] text-[#64748b]">Mar 29, 2026</div>
+      <div className="flex-1 text-[13px] text-[#334155]">Ravi K.</div>
     </div>
   );
 }
 
 function TableBody() {
   return (
-    <div className="absolute h-[375.243px] left-0 top-[27.93px] w-[918.898px]" data-name="Table Body">
+    <div className="w-full flex flex-col" data-name="Table Body">
       <TableRow1 />
       <TableRow2 />
       <TableRow3 />
@@ -1549,11 +734,9 @@ function TableBody() {
 
 function Table() {
   return (
-    <div className="h-[403.177px] relative shrink-0 w-[918.898px]" data-name="Table">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <TableRow />
-        <TableBody />
-      </div>
+    <div className="w-full flex flex-col" data-name="Table">
+      <TableRow />
+      <TableBody />
     </div>
   );
 }
@@ -1570,55 +753,40 @@ function Container34() {
 
 function Container36() {
   return (
-    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center p-[0.556px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[12px] whitespace-nowrap">‹</p>
-      </div>
+    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px] cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-center border border-[#e2e8f0]" data-name="Link">
+      <span className="text-[#334155] text-[16px]">‹</span>
     </div>
   );
 }
 
 function Container37() {
   return (
-    <div className="bg-[#5048e5] relative rounded-[8px] shrink-0 size-[31.997px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#5048e5] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center p-[0.556px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[12px] text-white whitespace-nowrap">1</p>
-      </div>
+    <div className="bg-[#5048e5] relative rounded-[8px] shrink-0 size-[31.997px] flex items-center justify-center shadow-sm" data-name="Link">
+      <span className="text-[12px] text-white font-bold">1</span>
     </div>
   );
 }
 
 function Container38() {
   return (
-    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center p-[0.556px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[12px] whitespace-nowrap">2</p>
-      </div>
+    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px] cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-center border border-[#e2e8f0]" data-name="Link">
+      <span className="text-[#334155] text-[12px] font-medium">2</span>
     </div>
   );
 }
 
 function Container39() {
   return (
-    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center p-[0.556px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[12px] whitespace-nowrap">3</p>
-      </div>
+    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px] cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-center border border-[#e2e8f0]" data-name="Link">
+      <span className="text-[#334155] text-[12px] font-medium">3</span>
     </div>
   );
 }
 
 function Container40() {
   return (
-    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center p-[0.556px] relative size-full">
-        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#334155] text-[12px] whitespace-nowrap">›</p>
-      </div>
+    <div className="bg-white relative rounded-[8px] shrink-0 size-[31.997px] cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-center border border-[#e2e8f0]" data-name="Link">
+      <span className="text-[#334155] text-[16px]">›</span>
     </div>
   );
 }
@@ -1651,26 +819,15 @@ function Container33() {
 
 function Container32() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[15.998px] h-[504.835px] items-start left-[32px] pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-[422.63px] w-[960.009px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
+    <div className="absolute bg-white content-stretch flex flex-col gap-[15.998px] h-auto items-start left-[32px] right-[32px] pb-[20px] pl-[20px] pr-[20px] pt-[20px] rounded-[20px] top-[422px] border border-[#e2e8f0] shadow-sm" data-name="Container">
       <Table />
       <Container33 />
     </div>
   );
 }
 
-function MainContent() {
-  return (
-    <div className="absolute h-[959.462px] left-[256px] top-[63.99px] w-[1024.002px]" data-name="Main Content">
-      <Container />
-      <Container1 />
-      <Container9 />
-      <Container18 />
-      <Container19 />
-      <Container32 />
-    </div>
-  );
-}
+// Unused components removed for clarity
+
 
 function Icon6() {
   return (
@@ -1811,532 +968,142 @@ function Icon9() {
   );
 }
 
-function Link4() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon9 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Chat</p>
-      </div>
-    </div>
-  );
-}
+export default function EmployeeProfileRaviKumarTasks() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [activePriority, setActivePriority] = useState("All Priorities");
+  const [activeStatus, setActiveStatus] = useState("All Statuses");
+  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
-function Icon10() {
   return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g clipPath="url(#clip0_1_397)" id="Icon">
-          <path d={svgPaths.p35891a80} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p2732b200} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_397">
-            <rect fill="white" height="17.9948" width="17.9948" />
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
-  );
-}
+    <div className="bg-[#f6f6f8] relative w-full h-auto" data-name="Employee Profile — Ravi Kumar — Tasks">
+      <div className="relative h-auto mx-auto w-[1440px] pb-32 pt-6" data-name="Main Content">
+        <Container />
+        <Container1 onAssignTask={() => setIsAddTaskOpen(true)} />
+        <Container9 />
+        
+        {/* Filters */}
+        <div className="absolute content-stretch flex gap-[12px] h-[32.326px] items-center left-[32px] right-[32px] top-[265px]">
+          <div 
+            className="bg-white h-[32.326px] relative rounded-[8px] shrink-0 w-[140px] cursor-pointer group flex items-center justify-between px-3 border border-[#e2e8f0] hover:border-[#5048e5] transition-colors"
+            onClick={() => setActivePriority(activePriority === "All Priorities" ? "High" : "All Priorities")}
+          >
+            <p className="font-['Inter:Medium',sans-serif] font-medium text-[#475569] text-[13px]">{activePriority}</p>
+            <svg className="w-4 h-4 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
 
-function Link5() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon10 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Tasks</p>
-      </div>
-    </div>
-  );
-}
+          <div 
+            className="bg-white h-[32.326px] relative rounded-[8px] shrink-0 w-[140px] cursor-pointer group flex items-center justify-between px-3 border border-[#e2e8f0] hover:border-[#5048e5] transition-colors"
+            onClick={() => setActiveStatus(activeStatus === "All Statuses" ? "In Progress" : "All Statuses")}
+          >
+            <p className="font-['Inter:Medium',sans-serif] font-medium text-[#475569] text-[13px]">{activeStatus}</p>
+            <svg className="w-4 h-4 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
 
-function Icon11() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p5590800} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.pb2f1300} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M8.9974 7.99769V15.9954" id="Vector_3" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
+          <div className="bg-white flex-1 h-[32.326px] relative rounded-[8px] border border-[#e2e8f0] flex items-center px-3">
+            <svg className="w-4 h-4 text-[#94a3b8] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input 
+              type="text" 
+              placeholder="Search tasks..." 
+              className="bg-transparent border-none outline-none text-[13px] text-[#334155] w-full placeholder:text-[#94a3b8]"
+            />
+          </div>
+        </div>
 
-function Link6() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon11 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Projects</p>
-      </div>
-    </div>
-  );
-}
+        <Container19 />
 
-function Icon12() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p1e56f800} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M1.99942 6.99797H15.9954" id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M5.99826 2.99913V6.99798" id="Vector_3" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M11.9965 2.99913V6.99798" id="Vector_4" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link7() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon12 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Events</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon13() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p172c300} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p227fd180} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link8() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon13 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">CRM</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon14() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.pc30a340} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p2e27ee00} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link9() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon14 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Client Delivery</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon15() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.pe411b40} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p1d30cb00} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p2210d700} id="Vector_3" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.pfb6e880} id="Vector_4" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link10() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon15 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Social Media</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon16() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p31766000} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p17ffbf00} fill="var(--fill-0, #475569)" id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link11() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon16 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Meetings</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon17() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g clipPath="url(#clip0_1_417)" id="Icon">
-          <path d={svgPaths.p306b1e80} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_417">
-            <rect fill="white" height="17.9948" width="17.9948" />
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
-  );
-}
-
-function Link12() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon17 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Documents</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon18() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p3605ea80} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p1d67ca00} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link13() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon18 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Leave</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon19() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p307a100} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M6.99797 7.99769V10.9977" id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d="M10.9968 7.99769V10.9977" id="Vector_3" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link14() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon19 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Announcements</p>
-      </div>
-    </div>
-  );
-}
-
-function Container47() {
-  return (
-    <div className="h-[33.325px] relative shrink-0 w-[223.446px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[12px] not-italic text-[#94a3b8] text-[11px] top-[16px] tracking-[0.6px] uppercase whitespace-nowrap">System</p>
-      </div>
-    </div>
-  );
-}
-
-function Icon20() {
-  return (
-    <div className="absolute left-[12px] size-[17.995px] top-[9px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p870bf80} id="Vector" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-          <path d={svgPaths.p38b3cc00} id="Vector_2" stroke="var(--stroke-0, #475569)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Link15() {
-  return (
-    <div className="h-[35.998px] relative rounded-[8px] shrink-0 w-[223.446px]" data-name="Link">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon20 />
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium leading-[normal] left-[41.99px] not-italic text-[#475569] text-[14px] top-[9.66px] whitespace-nowrap">Settings</p>
-      </div>
-    </div>
-  );
-}
-
-function Navigation() {
-  return (
-    <div className="h-[609.193px] relative shrink-0 w-full" data-name="Navigation">
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[3.993px] items-start pl-[15.998px] pt-[7.995px] relative size-full">
-          <Link2 />
-          <Link3 />
-          <Link4 />
-          <Link5 />
-          <Link6 />
-          <Link7 />
-          <Link8 />
-          <Link9 />
-          <Link10 />
-          <Link11 />
-          <Link12 />
-          <Link13 />
-          <Link14 />
-          <Container47 />
-          <Link15 />
+        {/* Table Container with Pagination */}
+        <div className="relative bg-white content-stretch flex flex-col gap-[15.998px] h-auto items-start mx-8 pb-[20px] pl-[20px] pr-[20px] pt-[20px] rounded-[20px] mt-[422px] border border-[#e2e8f0] shadow-sm">
+          <Table />
+          
+          <div className="w-full h-px bg-[#f1f5f9] my-2" />
+          
+          <div className="flex items-center justify-between w-full">
+            <p className="text-[12px] text-[#64748b]">Showing {(currentPage - 1) * 10 + 1} to {Math.min(currentPage * 10, 28)} of 28 tasks</p>
+            
+            <div className="flex items-center gap-1">
+              <button 
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                className="w-8 h-8 flex items-center justify-center rounded-lg border border-[#e2e8f0] hover:bg-slate-50 transition-colors disabled:opacity-30"
+                disabled={currentPage === 1}
+              >
+                ‹
+              </button>
+              {[1, 2, 3].map(num => (
+                <button
+                  key={num}
+                  onClick={() => setCurrentPage(num)}
+                  className={`w-8 h-8 flex items-center justify-center rounded-lg text-[12px] font-bold transition-all ${currentPage === num ? "bg-[#5048e5] text-white shadow-md shadow-indigo-100" : "bg-white border border-[#e2e8f0] text-[#334155] hover:bg-slate-50"}`}
+                >
+                  {num}
+                </button>
+              ))}
+              <button 
+                onClick={() => setCurrentPage(prev => Math.min(3, prev + 1))}
+                className="w-8 h-8 flex items-center justify-center rounded-lg border border-[#e2e8f0] hover:bg-slate-50 transition-colors disabled:opacity-30"
+                disabled={currentPage === 3}
+              >
+                ›
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+      <AddTaskModal isOpen={isAddTaskOpen} onClose={() => setIsAddTaskOpen(false)} />
     </div>
   );
 }
 
-function Container41() {
+function AddTaskModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
+  if (!isOpen) return null;
   return (
-    <div className="absolute content-stretch flex flex-col h-[697.179px] items-start left-0 top-0 w-[255.443px]" data-name="Container">
-      <Container42 />
-      <Navigation />
-    </div>
-  );
-}
-
-function Icon21() {
-  return (
-    <div className="absolute left-[20px] size-[17.995px] top-[13.99px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.9948 17.9948">
-        <g id="Icon">
-          <path d={svgPaths.p273a7380} id="Vector" stroke="var(--stroke-0, white)" strokeWidth="1.49957" />
-          <path d="M1.99942 13.4961H15.9954" id="Vector_2" stroke="var(--stroke-0, white)" strokeWidth="1.49957" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Button3() {
-  return (
-    <div className="absolute bg-[#5048e5] h-[45.981px] left-[16px] rounded-[12px] shadow-[0px_10px_25px_0px_rgba(80,72,229,0.3)] top-[862.47px] w-[223.446px]" data-name="Button">
-      <Icon21 />
-      <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[108.49px] not-italic text-[14px] text-center text-white top-[14.65px] whitespace-nowrap">Upload document</p>
-    </div>
-  );
-}
-
-function Sidebar() {
-  return (
-    <div className="absolute bg-white border-[rgba(80,72,229,0.1)] border-r-[0.556px] border-solid h-[924.444px] left-0 top-0 w-[255.998px]" data-name="Sidebar">
-      <Container41 />
-      <Button3 />
-    </div>
-  );
-}
-
-function Icon22() {
-  return (
-    <div className="relative shrink-0 size-[15.998px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 15.9983 15.9983">
-        <g clipPath="url(#clip0_1_370)" id="Icon">
-          <path d={svgPaths.p35a8ef0} id="Vector" stroke="var(--stroke-0, #94A3B8)" strokeWidth="1.49984" />
-          <path d={svgPaths.p2e1fb780} id="Vector_2" stroke="var(--stroke-0, #94A3B8)" strokeWidth="1.49984" />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_370">
-            <rect fill="white" height="15.9983" width="15.9983" />
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
-  );
-}
-
-function TextInput1() {
-  return (
-    <div className="h-[16.667px] relative shrink-0 w-[320.894px]" data-name="Text Input">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip relative rounded-[inherit] size-full">
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">Search resources, tasks, or teammates...</p>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div className="px-8 py-6 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-slate-900">Assign New Task</h2>
+            <p className="text-sm text-slate-500 font-medium">Create and assign a task to Ravi Kumar</p>
+          </div>
+          <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+            <svg className="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/></svg>
+          </button>
+        </div>
+        <div className="p-8 space-y-6">
+          <div className="space-y-2">
+            <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Task Title *</label>
+            <input type="text" placeholder="e.g. Implement login API endpoint" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all" />
+          </div>
+          <div className="space-y-2">
+            <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Description</label>
+            <textarea placeholder="Describe what needs to be done..." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all h-32 resize-none" />
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Priority</label>
+              <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] bg-white transition-all appearance-none">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Critical</option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Deadline</label>
+              <input type="date" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all" />
+            </div>
+          </div>
+        </div>
+        <div className="px-8 py-6 bg-slate-50 border-t border-slate-100 flex justify-end gap-3">
+          <button onClick={onClose} className="px-6 py-2.5 rounded-xl font-bold text-slate-600 hover:bg-slate-100 transition-all">Cancel</button>
+          <button className="px-8 py-2.5 rounded-xl bg-[#5048e5] text-white font-bold hover:bg-[#4338ca] shadow-lg shadow-indigo-100 transition-all">Assign Task</button>
+        </div>
       </div>
-    </div>
-  );
-}
-
-function Container48() {
-  return (
-    <div className="bg-[#f8fafc] h-[33.767px] relative rounded-[8px] shrink-0 w-[380px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-center pl-[16.554px] pr-[0.556px] py-[0.556px] relative size-full">
-        <Icon22 />
-        <TextInput1 />
-      </div>
-    </div>
-  );
-}
-
-function Container52() {
-  return (
-    <div className="content-stretch flex h-[16.667px] items-start relative shrink-0 w-full" data-name="Container">
-      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] text-right whitespace-nowrap">Ashwini</p>
-    </div>
-  );
-}
-
-function Container53() {
-  return (
-    <div className="content-stretch flex h-[14.444px] items-start relative shrink-0 w-full" data-name="Container">
-      <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[12px] text-right">Admin</p>
-    </div>
-  );
-}
-
-function Container51() {
-  return (
-    <div className="h-[31.111px] relative shrink-0 w-[53.993px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <Container52 />
-        <Container53 />
-      </div>
-    </div>
-  );
-}
-
-function Container54() {
-  return (
-    <div className="relative rounded-[17.999px] shrink-0 size-[35.998px]" style={{ backgroundImage: "linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(167, 139, 250) 100%)" }} data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center relative size-full">
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[13px] text-white whitespace-nowrap">A</p>
-      </div>
-    </div>
-  );
-}
-
-function Container50() {
-  return (
-    <div className="absolute content-stretch flex gap-[10px] h-[35.998px] items-center left-[103.99px] top-0 w-[99.991px]" data-name="Container">
-      <Container51 />
-      <Container54 />
-    </div>
-  );
-}
-
-function Icon23() {
-  return (
-    <div className="absolute left-[7.99px] size-[20px] top-[7.99px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
-        <g id="Icon">
-          <path d={svgPaths.p1cf42a00} id="Vector" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-          <path d={svgPaths.p35259c00} id="Vector_2" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container56() {
-  return <div className="absolute bg-[#ef4444] border-[1.111px] border-solid border-white left-[23px] rounded-[3.498px] size-[6.997px] top-[6px]" data-name="Container" />;
-}
-
-function Container55() {
-  return (
-    <div className="absolute left-0 rounded-[8px] size-[35.998px] top-0" data-name="Container">
-      <Icon23 />
-      <Container56 />
-    </div>
-  );
-}
-
-function Icon24() {
-  return (
-    <div className="relative shrink-0 size-[20px]" data-name="Icon">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
-        <g id="Icon">
-          <path d="M3 4H17V14H6L3 17V4Z" id="Vector" stroke="var(--stroke-0, #64748B)" strokeWidth="1.5" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container57() {
-  return (
-    <div className="absolute content-stretch flex items-center justify-center left-[52px] pl-[7.995px] pr-[8.003px] rounded-[8px] size-[35.998px] top-0" data-name="Container">
-      <Icon24 />
-    </div>
-  );
-}
-
-function Container49() {
-  return (
-    <div className="h-[35.998px] relative shrink-0 w-[203.984px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Container50 />
-        <Container55 />
-        <Container57 />
-      </div>
-    </div>
-  );
-}
-
-function Header() {
-  return (
-    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0 w-[1377.335px]" data-name="Header">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid inset-0 pointer-events-none" />
-      <Container48 />
-      <Container49 />
-    </div>
-  );
-}
-
-export default function EmployeeProfileRaviKumarTasks() {
-  return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Employee Profile — Ravi Kumar — Tasks">
-      <MainContent />
-      <Sidebar />
-      <Header />
     </div>
   );
 }

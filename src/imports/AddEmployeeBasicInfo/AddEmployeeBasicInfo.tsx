@@ -54,7 +54,7 @@ function Text2() {
 
 function Container() {
   return (
-    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-0 top-0 w-[820px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-0 top-0 w-[720px]" data-name="Container">
       <Link />
       <Text />
       <Link1 />
@@ -93,7 +93,7 @@ function Container2() {
 
 function Container1() {
   return (
-    <div className="absolute content-stretch flex h-[63.993px] items-start justify-between left-0 pr-[406.563px] top-[32.11px] w-[820px]" data-name="Container">
+    <div className="flex flex-col items-start w-full" data-name="Container">
       <Container2 />
     </div>
   );
@@ -241,7 +241,7 @@ function Container15() {
 
 function Container5() {
   return (
-    <div className="absolute content-stretch flex gap-[11.997px] h-[27.995px] items-center left-0 px-[40px] top-[116.1px] w-[820px]" data-name="Container">
+    <div className="flex items-center gap-6 w-full max-w-[720px] bg-white p-4 rounded-xl border border-slate-200" data-name="Container">
       <Container6 />
       <Container8 />
       <Container9 />
@@ -255,7 +255,7 @@ function Container5() {
 
 function Container18() {
   return (
-    <div className="absolute content-stretch flex h-[21.667px] items-start left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[21.667px] items-start left-[31.99px] top-0 w-[656px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#0f172a] text-[18px]">Basic Information</p>
     </div>
   );
@@ -263,7 +263,7 @@ function Container18() {
 
 function Container19() {
   return (
-    <div className="absolute content-stretch flex h-[16.667px] items-start left-[31.99px] top-[26px] w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.667px] items-start left-[31.99px] top-[26px] w-[656px]" data-name="Container">
       <p className="flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-px not-italic relative text-[#64748b] text-[14px]">{`Enter the employee's personal and contact details.`}</p>
     </div>
   );
@@ -284,7 +284,7 @@ function Icon() {
 
 function Container20() {
   return (
-    <div className="absolute h-[16.667px] left-0 top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-0 top-0 w-[656px]" data-name="Container">
       <Icon />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Profile Photo `}</p>
     </div>
@@ -317,11 +317,23 @@ function Text7() {
 
 function Container21() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[3.993px] items-center justify-center left-0 px-[1.667px] py-[22.448px] rounded-[16px] size-[80px] top-[24px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[1.667px] border-dashed inset-0 pointer-events-none rounded-[16px]" />
+    <div 
+      onClick={() => document.getElementById('profile-upload-basic')?.click()}
+      className="absolute content-stretch flex flex-col gap-[3.993px] items-center justify-center left-0 px-[1.667px] py-[22.448px] rounded-[16px] size-[80px] top-[24px] cursor-pointer hover:border-[#5048e5] hover:bg-indigo-50 transition-all group" 
+      data-name="Container"
+    >
+      <input 
+        type="file" 
+        id="profile-upload-basic" 
+        className="hidden" 
+        accept="image/*" 
+        onChange={(e) => console.log("File selected:", e.target.files?.[0].name)}
+      />
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[1.667px] border-dashed inset-0 pointer-events-none rounded-[16px] group-hover:border-[#5048e5]" />
       <Icon1 />
       <Text7 />
     </div>
+
   );
 }
 
@@ -349,7 +361,7 @@ function Container22() {
 
 function Label() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.444px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[0] min-w-px not-italic relative text-[#334155] text-[13px]">
           <span className="leading-[normal]">{`First Name `}</span>
@@ -362,7 +374,7 @@ function Label() {
 
 function TextInput() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[369.444px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">Ravi</p>
       </div>
@@ -373,7 +385,7 @@ function TextInput() {
 
 function Container24() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[369.444px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[320px]" data-name="Container">
       <Label />
       <TextInput />
     </div>
@@ -382,7 +394,7 @@ function Container24() {
 
 function Label1() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.453px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[0] min-w-px not-italic relative text-[#334155] text-[13px]">
           <span className="leading-[normal]">{`Last Name `}</span>
@@ -395,7 +407,7 @@ function Label1() {
 
 function TextInput1() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[369.453px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">Kumar</p>
       </div>
@@ -406,7 +418,7 @@ function TextInput1() {
 
 function Container25() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[385.44px] top-0 w-[369.453px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[336px] top-0 w-[320px]" data-name="Container">
       <Label1 />
       <TextInput1 />
     </div>
@@ -424,7 +436,7 @@ function Container23() {
 
 function Label2() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.444px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[0] min-w-px not-italic relative text-[#334155] text-[13px]">
           <span className="leading-[normal]">{`Email Address `}</span>
@@ -437,7 +449,7 @@ function Label2() {
 
 function EmailInput() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[369.444px]" data-name="Email Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Email Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">ravi.kumar@company.com</p>
       </div>
@@ -448,7 +460,7 @@ function EmailInput() {
 
 function Container27() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[369.444px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[320px]" data-name="Container">
       <Label2 />
       <EmailInput />
     </div>
@@ -457,7 +469,7 @@ function Container27() {
 
 function Label3() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.453px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Phone Number</p>
       </div>
@@ -467,7 +479,7 @@ function Label3() {
 
 function TextInput2() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[369.453px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">+91 98765 43210</p>
       </div>
@@ -478,7 +490,7 @@ function TextInput2() {
 
 function Container28() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[385.44px] top-0 w-[369.453px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[336px] top-0 w-[320px]" data-name="Container">
       <Label3 />
       <TextInput2 />
     </div>
@@ -487,7 +499,7 @@ function Container28() {
 
 function Container26() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container27 />
       <Container28 />
     </div>
@@ -496,7 +508,7 @@ function Container26() {
 
 function Label4() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.444px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Date of Birth</p>
       </div>
@@ -506,15 +518,25 @@ function Label4() {
 
 function DatePicker() {
   return (
-    <div className="bg-white h-[39.774px] relative rounded-[8px] shrink-0 w-[369.444px]" data-name="Date Picker">
+    <div className="bg-white h-[39.774px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Date Picker">
+      <input 
+        type="date" 
+        onClick={(e) => (e.target as any).showPicker?.()}
+        className="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10"
+      />
+      <div className="flex items-center justify-between px-3 h-full">
+        <span className="text-[14px] text-slate-400">Select Date</span>
+        <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+      </div>
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[8px]" />
     </div>
   );
 }
 
+
 function Container30() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[60.885px] items-start left-0 top-0 w-[369.444px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[60.885px] items-start left-0 top-0 w-[320px]" data-name="Container">
       <Label4 />
       <DatePicker />
     </div>
@@ -523,7 +545,7 @@ function Container30() {
 
 function Label5() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.453px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Gender</p>
       </div>
@@ -549,7 +571,7 @@ function Option3() {
 
 function Dropdown() {
   return (
-    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[369.453px]" data-name="Dropdown">
+    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Dropdown">
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
@@ -569,7 +591,7 @@ function Dropdown() {
 
 function Container31() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[60.885px] items-start left-[385.44px] top-0 w-[369.453px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[60.885px] items-start left-[336px] top-0 w-[320px]" data-name="Container">
       <Label5 />
       <Dropdown />
     </div>
@@ -578,7 +600,7 @@ function Container31() {
 
 function Container29() {
   return (
-    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container30 />
       <Container31 />
     </div>
@@ -600,7 +622,7 @@ function Icon3() {
 
 function Container32() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Icon3 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Address `}</p>
     </div>
@@ -609,7 +631,7 @@ function Container32() {
 
 function Label6() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[754.896px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[656px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Address Line 1</p>
       </div>
@@ -619,7 +641,7 @@ function Label6() {
 
 function TextInput3() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[754.896px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[656px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">Street address, apartment, suite...</p>
       </div>
@@ -630,7 +652,7 @@ function TextInput3() {
 
 function Container34() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[656px]" data-name="Container">
       <Label6 />
       <TextInput3 />
     </div>
@@ -639,7 +661,7 @@ function Container34() {
 
 function Container33() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container34 />
     </div>
   );
@@ -647,7 +669,7 @@ function Container33() {
 
 function Label7() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[240.964px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[208px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">City</p>
       </div>
@@ -657,7 +679,7 @@ function Label7() {
 
 function TextInput4() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[240.964px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[208px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">City</p>
       </div>
@@ -668,7 +690,7 @@ function TextInput4() {
 
 function Container36() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[240.964px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[208px]" data-name="Container">
       <Label7 />
       <TextInput4 />
     </div>
@@ -677,7 +699,7 @@ function Container36() {
 
 function Label8() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[240.964px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[208px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">State</p>
       </div>
@@ -687,7 +709,7 @@ function Label8() {
 
 function TextInput5() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[240.964px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[208px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">State</p>
       </div>
@@ -698,7 +720,7 @@ function TextInput5() {
 
 function Container37() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[256.96px] top-0 w-[240.964px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[224px] top-0 w-[208px]" data-name="Container">
       <Label8 />
       <TextInput5 />
     </div>
@@ -707,7 +729,7 @@ function Container37() {
 
 function Label9() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[240.972px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[208px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Zip Code</p>
       </div>
@@ -717,7 +739,7 @@ function Label9() {
 
 function TextInput6() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[240.972px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[208px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#94a3b8] text-[14px] whitespace-nowrap">Zip Code</p>
       </div>
@@ -728,7 +750,7 @@ function TextInput6() {
 
 function Container38() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[513.92px] top-0 w-[240.972px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[448px] top-0 w-[208px]" data-name="Container">
       <Label9 />
       <TextInput6 />
     </div>
@@ -737,7 +759,7 @@ function Container38() {
 
 function Container35() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container36 />
       <Container37 />
       <Container38 />
@@ -747,7 +769,7 @@ function Container35() {
 
 function Label10() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[754.896px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[656px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Country</p>
       </div>
@@ -777,7 +799,7 @@ function Option8() {
 
 function Dropdown1() {
   return (
-    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[754.896px]" data-name="Dropdown">
+    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[656px]" data-name="Dropdown">
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
@@ -798,7 +820,7 @@ function Dropdown1() {
 
 function Container40() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.333px] items-start left-0 top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.333px] items-start left-0 top-0 w-[656px]" data-name="Container">
       <Label10 />
       <Dropdown1 />
     </div>
@@ -807,7 +829,7 @@ function Container40() {
 
 function Container39() {
   return (
-    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[60.885px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container40 />
     </div>
   );
@@ -833,7 +855,7 @@ function Icon4() {
 
 function Container41() {
   return (
-    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[16.667px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Icon4 />
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[normal] left-[23.99px] not-italic text-[#0f172a] text-[14px] top-0 whitespace-nowrap">{` Emergency Contact `}</p>
     </div>
@@ -842,7 +864,7 @@ function Container41() {
 
 function Label11() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.444px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Contact Name</p>
       </div>
@@ -852,7 +874,7 @@ function Label11() {
 
 function TextInput7() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[369.444px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">Priya Kumar</p>
       </div>
@@ -863,7 +885,7 @@ function TextInput7() {
 
 function Container43() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[369.444px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[320px]" data-name="Container">
       <Label11 />
       <TextInput7 />
     </div>
@@ -872,7 +894,7 @@ function Container43() {
 
 function Label12() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[369.453px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[320px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Relationship</p>
       </div>
@@ -898,7 +920,7 @@ function Option12() {
 
 function Dropdown2() {
   return (
-    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[369.453px]" data-name="Dropdown">
+    <div className="h-[37.222px] relative rounded-[8px] shrink-0 w-[320px]" data-name="Dropdown">
       <div aria-hidden="true" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 pointer-events-none rounded-[8px]">
         <div className="absolute bg-clip-padding bg-white border-0 border-[transparent] border-solid inset-0 rounded-[8px]" />
         <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden rounded-[8px]">
@@ -918,7 +940,7 @@ function Dropdown2() {
 
 function Container44() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[385.44px] top-0 w-[369.453px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[336px] top-0 w-[320px]" data-name="Container">
       <Label12 />
       <Dropdown2 />
     </div>
@@ -927,7 +949,7 @@ function Container44() {
 
 function Container42() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container43 />
       <Container44 />
     </div>
@@ -936,7 +958,7 @@ function Container42() {
 
 function Label13() {
   return (
-    <div className="h-[16.111px] relative shrink-0 w-[754.896px]" data-name="Label">
+    <div className="h-[16.111px] relative shrink-0 w-[656px]" data-name="Label">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start relative size-full">
         <p className="flex-[1_0_0] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-px not-italic relative text-[#334155] text-[13px]">Contact Phone</p>
       </div>
@@ -946,7 +968,7 @@ function Label13() {
 
 function TextInput8() {
   return (
-    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[754.896px]" data-name="Text Input">
+    <div className="bg-white h-[37.778px] relative rounded-[8px] shrink-0 w-[656px]" data-name="Text Input">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center overflow-clip px-[14px] py-[10px] relative rounded-[inherit] size-full">
         <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#0f172a] text-[14px] whitespace-nowrap">+91 98765 43211</p>
       </div>
@@ -957,7 +979,7 @@ function TextInput8() {
 
 function Container46() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-0 top-0 w-[656px]" data-name="Container">
       <Label13 />
       <TextInput8 />
     </div>
@@ -966,67 +988,12 @@ function Container46() {
 
 function Container45() {
   return (
-    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[754.896px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[31.99px] top-0 w-[656px]" data-name="Container">
       <Container46 />
     </div>
   );
 }
 
-function Container17() {
-  return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[720px] left-0 rounded-[24px] top-[172.09px] w-[820px]" data-name="Container">
-      {/* Basic Info Header */}
-      <div className="absolute top-[20px] w-full">
-        <Container18 />
-        <Container19 />
-      </div>
-
-      {/* Photo and Personal Details Row */}
-      <div className="absolute top-[75px] left-[32px]">
-        <Container20 />
-        <Container21 />
-      </div>
-
-      <div className="absolute top-[75px] left-[132px] w-[654px]">
-        <Container22 />
-        <div className="relative top-[28px]">
-          <Container23 />
-        </div>
-      </div>
-
-      {/* Rows */}
-      <div className="absolute top-[165px] w-full">
-        <Container26 />
-      </div>
-
-      <div className="absolute top-[235px] w-full">
-        <Container29 />
-      </div>
-
-      <div className="absolute top-[305px] w-full">
-        <Container32 />
-        <Container33 />
-      </div>
-
-      <div className="absolute top-[385px] w-full">
-        <Container35 />
-      </div>
-
-      <div className="absolute top-[455px] w-full">
-        <Container39 />
-      </div>
-
-      <div className="absolute top-[525px] w-full">
-        <Container41 />
-        <Container42 />
-      </div>
-
-      <div className="absolute top-[605px] w-full">
-        <Container45 />
-      </div>
-    </div>
-  );
-}
 
 function Container48() {
   return (
@@ -1085,7 +1052,7 @@ function Container49() {
 
 function Container47() {
   return (
-    <div className="absolute content-stretch flex h-[41.771px] items-center justify-between left-0 top-[730px] w-[820px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[41.771px] items-center justify-between left-0 top-[730px] w-[720px]" data-name="Container">
       <Container48 />
       <Container49 />
     </div>
@@ -1094,18 +1061,18 @@ function Container47() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[900px] left-[280px] top-[24px] w-[820px]" data-name="Main Content">
+    <div className="flex-1 flex flex-col items-start px-8 py-8 ml-[256px] min-h-screen max-w-5xl" data-name="Main Content">
       <Container />
-      <div className="relative" style={{ top: '-10px' }}>
+      <div className="w-full mt-4">
         <Container1 />
       </div>
-      <div className="relative" style={{ top: '-35px' }}>
+      <div className="w-full mt-8">
         <Container5 />
       </div>
-      <div className="relative" style={{ top: '-60px' }}>
+      <div className="w-full mt-8">
         <Container17 />
       </div>
-      <div className="relative" style={{ top: '-85px' }}>
+      <div className="w-full mt-12 mb-20">
         <Container47 />
       </div>
     </div>
@@ -1696,7 +1663,7 @@ function Container63() {
 
 function Container59() {
   return (
-    <div className="absolute content-stretch flex gap-[10px] h-[35.998px] items-center left-[103.99px] top-0 w-[99.991px]" data-name="Container">
+    <div className="content-stretch flex gap-[10px] h-[35.998px] items-center w-[99.991px]" data-name="Container">
       <Container60 />
       <Container63 />
     </div>
@@ -1722,7 +1689,7 @@ function Container65() {
 
 function Container64() {
   return (
-    <div className="absolute left-0 rounded-[8px] size-[35.998px] top-0" data-name="Container">
+    <div className="relative rounded-[8px] size-[35.998px]" data-name="Container">
       <Icon23 />
       <Container65 />
     </div>
@@ -1743,7 +1710,7 @@ function Icon24() {
 
 function Container66() {
   return (
-    <div className="absolute content-stretch flex items-center justify-center left-[52px] pl-[7.995px] pr-[8.003px] rounded-[8px] size-[35.998px] top-0" data-name="Container">
+    <div className="content-stretch flex items-center justify-center pl-[7.995px] pr-[8.003px] rounded-[8px] size-[35.998px]" data-name="Container">
       <Icon24 />
     </div>
   );
@@ -1751,32 +1718,107 @@ function Container66() {
 
 function Container58() {
   return (
-    <div className="h-[35.998px] relative shrink-0 w-[203.984px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Container59 />
-        <Container64 />
-        <Container66 />
-      </div>
+    <div className="h-[35.998px] flex items-center gap-4" data-name="Container">
+      <Container59 />
+      <Container64 />
+      <Container66 />
     </div>
   );
 }
 
 function Header() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[63.993px] items-center justify-between left-[256px] right-0 pb-[0.556px] pl-[31.997px] pr-[31.996px] top-0" data-name="Header">
-      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid inset-0 pointer-events-none" />
+    <div className="bg-white content-stretch flex h-[64px] items-center justify-between px-8 w-full border-b border-slate-200" data-name="Header">
       <Container57 />
       <Container58 />
     </div>
   );
 }
 
+function Container17() {
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-[720px] bg-white p-8 rounded-2xl border border-slate-200 shadow-sm" data-name="Container">
+      <div className="relative h-12">
+        <Container18 />
+        <Container19 />
+      </div>
+      
+      <div className="relative h-28">
+        <Container20 />
+        <Container21 />
+      </div>
+
+      <div className="relative h-6 w-full">
+        <Container22 />
+      </div>
+
+      <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+        <div className="flex flex-col gap-1.5">
+          <Label />
+          <TextInput />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label1 />
+          <TextInput1 />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label2 />
+          <EmailInput />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label3 />
+          <TextInput2 />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label4 />
+          <DatePicker />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label5 />
+          <Dropdown />
+        </div>
+      </div>
+
+      <div className="relative h-6 w-full mt-4">
+        <Container32 />
+      </div>
+
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-1.5">
+          <Label6 />
+          <TextInput3 />
+        </div>
+        <div className="grid grid-cols-3 gap-6">
+          <div className="flex flex-col gap-1.5">
+            <Label7 />
+            <TextInput4 />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <Label8 />
+            <TextInput5 />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <Label9 />
+            <TextInput6 />
+          </div>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Label10 />
+          <Dropdown1 />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AddEmployeeBasicInfo() {
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Add Employee — Basic Info">
-      <MainContent />
+    <div className="bg-[#f6f6f8] flex w-full min-h-screen overflow-x-hidden" data-name="Add Employee — Basic Info">
       <Sidebar />
-      <Header />
+      <div className="flex-1 flex flex-col relative min-w-0">
+        <Header />
+        <MainContent />
+      </div>
     </div>
   );
 }

@@ -53,7 +53,7 @@ function Text2() {
 
 function Container() {
   return (
-    <div className="absolute content-stretch flex gap-[6px] h-[15.5px] items-center left-[32px] top-[20px] w-[960px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[6px] h-[15.5px] items-center left-[32px] top-[20px] w-[1376px]" data-name="Container">
       <Link />
       <Text />
       <Link1 />
@@ -75,7 +75,7 @@ function Container3() {
 
 function Text3() {
   return (
-    <div className="absolute bg-[#d1fae5] content-stretch flex h-[19px] items-start left-[139.88px] px-[8px] py-[2px] rounded-[9999px] top-[5.25px] w-[44.273px]" data-name="Text">
+    <div className="absolute bg-[#d1fae5] content-stretch flex h-[19px] items-start left-[155px] px-[8px] py-[2px] rounded-[9999px] top-[5.25px] w-[44.273px]" data-name="Text">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[15px] not-italic relative shrink-0 text-[#047857] text-[10px] tracking-[-0.5px] whitespace-nowrap">Active</p>
     </div>
   );
@@ -228,13 +228,14 @@ function Icon3() {
 
 function Button() {
   return (
-    <div className="bg-white flex-[1_0_0] h-[39px] min-w-px relative rounded-[8px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon3 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[71px] not-italic text-[#334155] text-[14px] text-center top-[11px] whitespace-nowrap">Message</p>
+    <button className="bg-white flex-[1_0_0] h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-4 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="MessageButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Message</p>
+    </button>
   );
 }
 
@@ -252,13 +253,14 @@ function Icon4() {
 
 function Button1() {
   return (
-    <div className="bg-white h-[39px] relative rounded-[8px] shrink-0 w-[83.82px]" data-name="Button">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon4 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[53.5px] not-italic text-[#334155] text-[14px] text-center top-[11px] whitespace-nowrap">Edit</p>
+    <button className="bg-white h-[40px] rounded-[10px] border border-[#e2e8f0] flex items-center justify-center gap-2 px-5 cursor-pointer hover:bg-slate-50 transition-all active:scale-[0.98] group" data-name="EditButton">
+      <div className="size-4 shrink-0 flex items-center justify-center">
+        <svg className="size-3.5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
       </div>
-    </div>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[14px] whitespace-nowrap">Edit</p>
+    </button>
   );
 }
 
@@ -276,31 +278,29 @@ function Icon5() {
 
 function Button2() {
   return (
-    <div className="bg-[#5048e5] h-[54px] relative rounded-[8px] shadow-[0px_10px_15px_0px_rgba(80,72,229,0.2),0px_4px_6px_0px_rgba(80,72,229,0.2)] shrink-0 w-[102.461px]" data-name="Button">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <Icon5 />
-        <p className="-translate-x-1/2 absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[51.5px] not-italic text-[14px] text-center text-white top-[10px] w-[69px]">Assign Task</p>
-      </div>
-    </div>
+    <button className="bg-[#5048e5] h-[40px] rounded-[10px] shadow-sm shrink-0 px-6 cursor-pointer hover:bg-[#4338ca] transition-all active:scale-[0.95] flex items-center justify-center gap-2 group border-0" data-name="AssignTaskButton">
+      <svg className="size-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+      </svg>
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[14px] text-white whitespace-nowrap">Assign Task</p>
+    </button>
   );
 }
 
 function Container8() {
   return (
-    <div className="h-[54px] relative shrink-0 w-[325.938px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[10px] items-center relative size-full">
-        <Button />
-        <Button1 />
-        <Button2 />
-      </div>
+    <div className="flex items-center gap-3 justify-end relative" data-name="Container">
+      <Button />
+      <Button1 />
+      <Button2 />
     </div>
   );
 }
 
 function Container1() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[137px] items-start justify-between left-[32px] pb-px pl-[33px] pr-[-13.445px] pt-[29px] rounded-[24px] top-[51.5px] w-[960px]" data-name="Container">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[24px]" />
+    <div className="absolute bg-white flex h-[136px] items-center justify-between left-[32px] right-[32px] px-8 rounded-[24px] top-[52px]" data-name="Container">
+      <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[24px]" />
       <Container2 />
       <Container8 />
     </div>
@@ -442,7 +442,7 @@ function Container17() {
 
 function Container9() {
   return (
-    <div className="absolute content-stretch flex h-[37.5px] items-start left-[32px] pb-px top-[208.5px] w-[960px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[37.5px] items-start left-[32px] pb-px top-[208.5px] w-[1376px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <Container10 />
       <Container11 />
@@ -529,7 +529,7 @@ function Link2() {
 
 function Container19() {
   return (
-    <div className="h-[28px] relative shrink-0 w-[918px]" data-name="Container">
+    <div className="h-[28px] relative shrink-0 w-[1334px]" data-name="Container">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between relative size-full">
         <Container20 />
         <Link2 />
@@ -540,7 +540,7 @@ function Container19() {
 
 function HeaderCell() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-0 pb-[9px] pt-[8px] px-[16px] top-0 w-[223.445px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-0 pb-[9px] pt-[8px] px-[16px] top-0 w-[639.445px]" data-name="Table Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase">Project Name</p>
     </div>
@@ -549,7 +549,7 @@ function HeaderCell() {
 
 function HeaderCell1() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-[223.45px] pb-[9px] pt-[8px] px-[16px] top-0 w-[124.133px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-[639.45px] pb-[9px] pt-[8px] px-[16px] top-0 w-[124.133px]" data-name="Header Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase">Role</p>
     </div>
@@ -558,7 +558,7 @@ function HeaderCell1() {
 
 function HeaderCell2() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-[347.58px] pb-[9px] pt-[8px] px-[16px] top-0 w-[128.055px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-[763.58px] pb-[9px] pt-[8px] px-[16px] top-0 w-[128.055px]" data-name="Header Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase">Status</p>
     </div>
@@ -567,7 +567,7 @@ function HeaderCell2() {
 
 function HeaderCell3() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-[475.63px] pb-[9px] pt-[8px] px-[16px] top-0 w-[188.688px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-[891.63px] pb-[9px] pt-[8px] px-[16px] top-0 w-[188.688px]" data-name="Header Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase">Progress</p>
     </div>
@@ -576,7 +576,7 @@ function HeaderCell3() {
 
 function HeaderCell4() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-[664.32px] pb-[9px] pt-[8px] px-[16px] top-0 w-[141.352px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-[1080.32px] pb-[9px] pt-[8px] px-[16px] top-0 w-[141.352px]" data-name="Header Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase">Deadline</p>
     </div>
@@ -585,7 +585,7 @@ function HeaderCell4() {
 
 function HeaderCell5() {
   return (
-    <div className="absolute content-stretch flex h-[28.5px] items-start left-[805.67px] pb-[9px] pt-[8px] px-[16px] top-0 w-[112.328px]" data-name="Header Cell">
+    <div className="absolute content-stretch flex h-[28.5px] items-start left-[1221.67px] pb-[9px] pt-[8px] px-[16px] top-0 w-[112.328px]" data-name="Header Cell">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-px not-italic relative text-[#94a3b8] text-[10px] text-center tracking-[0.5px] uppercase">Team Size</p>
     </div>
@@ -594,7 +594,7 @@ function HeaderCell5() {
 
 function TableRow() {
   return (
-    <div className="absolute h-[28.5px] left-0 top-0 w-[918px]" data-name="Table Row">
+    <div className="absolute h-[28.5px] left-0 top-0 w-[1334px]" data-name="Table Row">
       <HeaderCell />
       <HeaderCell1 />
       <HeaderCell2 />
@@ -607,7 +607,7 @@ function TableRow() {
 
 function TableCell() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[223.445px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[639.445px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[11.25px] whitespace-nowrap">Portal v2 Redesign</p>
     </div>
   );
@@ -615,7 +615,7 @@ function TableCell() {
 
 function TableCell1() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[223.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[639.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[11.25px] whitespace-nowrap">Lead Dev</p>
     </div>
   );
@@ -631,7 +631,7 @@ function Text13() {
 
 function TableCell2() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[347.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[763.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
       <Text13 />
     </div>
   );
@@ -674,7 +674,7 @@ function Container22() {
 
 function TableCell3() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[475.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[891.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
       <Container22 />
     </div>
   );
@@ -682,7 +682,7 @@ function TableCell3() {
 
 function TableCell4() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[664.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1080.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[11.25px] whitespace-nowrap">Apr 15, 2026</p>
     </div>
   );
@@ -690,7 +690,7 @@ function TableCell4() {
 
 function TableCell5() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[805.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1221.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[56.63px] not-italic text-[#334155] text-[13px] text-center top-[11.25px] whitespace-nowrap">6</p>
     </div>
   );
@@ -698,7 +698,7 @@ function TableCell5() {
 
 function TableRow1() {
   return (
-    <div className="absolute h-[38px] left-0 top-0 w-[918px]" data-name="Table Row">
+    <div className="absolute h-[38px] left-0 top-0 w-[1334px]" data-name="Table Row">
       <TableCell />
       <TableCell1 />
       <TableCell2 />
@@ -711,7 +711,7 @@ function TableRow1() {
 
 function TableCell6() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[223.445px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[639.445px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[11.25px] whitespace-nowrap">API Migration</p>
     </div>
   );
@@ -719,7 +719,7 @@ function TableCell6() {
 
 function TableCell7() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[223.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[639.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[11.25px] whitespace-nowrap">Developer</p>
     </div>
   );
@@ -735,7 +735,7 @@ function Text15() {
 
 function TableCell8() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[347.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[763.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
       <Text15 />
     </div>
   );
@@ -778,7 +778,7 @@ function Container25() {
 
 function TableCell9() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[475.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[891.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
       <Container25 />
     </div>
   );
@@ -786,7 +786,7 @@ function TableCell9() {
 
 function TableCell10() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[664.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1080.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[11.25px] whitespace-nowrap">May 1, 2026</p>
     </div>
   );
@@ -794,7 +794,7 @@ function TableCell10() {
 
 function TableCell11() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[805.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1221.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[56.46px] not-italic text-[#334155] text-[13px] text-center top-[11.25px] whitespace-nowrap">4</p>
     </div>
   );
@@ -802,7 +802,7 @@ function TableCell11() {
 
 function TableRow2() {
   return (
-    <div className="absolute h-[38px] left-0 top-[38px] w-[918px]" data-name="Table Row">
+    <div className="absolute h-[38px] left-0 top-[38px] w-[1334px]" data-name="Table Row">
       <TableCell6 />
       <TableCell7 />
       <TableCell8 />
@@ -815,7 +815,7 @@ function TableRow2() {
 
 function TableCell12() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[223.445px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[639.445px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[11.25px] whitespace-nowrap">Mobile App MVP</p>
     </div>
   );
@@ -823,7 +823,7 @@ function TableCell12() {
 
 function TableCell13() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[223.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[639.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[11.25px] whitespace-nowrap">Developer</p>
     </div>
   );
@@ -839,7 +839,7 @@ function Text17() {
 
 function TableCell14() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[347.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[763.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
       <Text17 />
     </div>
   );
@@ -882,7 +882,7 @@ function Container28() {
 
 function TableCell15() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[475.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[891.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
       <Container28 />
     </div>
   );
@@ -890,7 +890,7 @@ function TableCell15() {
 
 function TableCell16() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[664.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1080.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[11.25px] whitespace-nowrap">Jun 30, 2026</p>
     </div>
   );
@@ -898,7 +898,7 @@ function TableCell16() {
 
 function TableCell17() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[805.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1221.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[56.64px] not-italic text-[#334155] text-[13px] text-center top-[11.25px] whitespace-nowrap">8</p>
     </div>
   );
@@ -906,7 +906,7 @@ function TableCell17() {
 
 function TableRow3() {
   return (
-    <div className="absolute h-[38px] left-0 top-[76px] w-[918px]" data-name="Table Row">
+    <div className="absolute h-[38px] left-0 top-[76px] w-[1334px]" data-name="Table Row">
       <TableCell12 />
       <TableCell13 />
       <TableCell14 />
@@ -919,7 +919,7 @@ function TableRow3() {
 
 function TableCell18() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[223.445px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-0 overflow-clip top-0 w-[639.445px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[11.25px] whitespace-nowrap">DevOps Pipeline</p>
     </div>
   );
@@ -927,7 +927,7 @@ function TableCell18() {
 
 function TableCell19() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[223.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[639.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[11.25px] whitespace-nowrap">Reviewer</p>
     </div>
   );
@@ -943,7 +943,7 @@ function Text19() {
 
 function TableCell20() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[347.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[763.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
       <Text19 />
     </div>
   );
@@ -986,7 +986,7 @@ function Container31() {
 
 function TableCell21() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[475.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[891.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
       <Container31 />
     </div>
   );
@@ -994,7 +994,7 @@ function TableCell21() {
 
 function TableCell22() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[664.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1080.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[11.25px] whitespace-nowrap">Mar 31, 2026</p>
     </div>
   );
@@ -1002,7 +1002,7 @@ function TableCell22() {
 
 function TableCell23() {
   return (
-    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[805.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
+    <div className="absolute border-[#f1f5f9] border-b border-solid h-[38px] left-[1221.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[56.65px] not-italic text-[#334155] text-[13px] text-center top-[11.25px] whitespace-nowrap">3</p>
     </div>
   );
@@ -1010,7 +1010,7 @@ function TableCell23() {
 
 function TableRow4() {
   return (
-    <div className="absolute h-[38px] left-0 top-[114px] w-[918px]" data-name="Table Row">
+    <div className="absolute h-[38px] left-0 top-[114px] w-[1334px]" data-name="Table Row">
       <TableCell18 />
       <TableCell19 />
       <TableCell20 />
@@ -1023,7 +1023,7 @@ function TableRow4() {
 
 function TableCell24() {
   return (
-    <div className="absolute h-[37.5px] left-0 overflow-clip top-0 w-[223.445px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-0 overflow-clip top-0 w-[639.445px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] left-[16px] not-italic text-[#0f172a] text-[13px] top-[11.25px] whitespace-nowrap">Client Dashboard</p>
     </div>
   );
@@ -1031,7 +1031,7 @@ function TableCell24() {
 
 function TableCell25() {
   return (
-    <div className="absolute h-[37.5px] left-[223.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-[639.45px] overflow-clip top-0 w-[124.133px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#334155] text-[13px] top-[11.25px] whitespace-nowrap">Lead Dev</p>
     </div>
   );
@@ -1047,7 +1047,7 @@ function Text21() {
 
 function TableCell26() {
   return (
-    <div className="absolute h-[37.5px] left-[347.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-[763.58px] overflow-clip top-0 w-[128.055px]" data-name="Table Cell">
       <Text21 />
     </div>
   );
@@ -1088,7 +1088,7 @@ function Container34() {
 
 function TableCell27() {
   return (
-    <div className="absolute h-[37.5px] left-[475.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-[891.63px] overflow-clip top-0 w-[188.688px]" data-name="Table Cell">
       <Container34 />
     </div>
   );
@@ -1096,7 +1096,7 @@ function TableCell27() {
 
 function TableCell28() {
   return (
-    <div className="absolute h-[37.5px] left-[664.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-[1080.32px] overflow-clip top-0 w-[141.352px]" data-name="Table Cell">
       <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[16px] not-italic text-[#64748b] text-[13px] top-[11.25px] whitespace-nowrap">Feb 28, 2026</p>
     </div>
   );
@@ -1104,7 +1104,7 @@ function TableCell28() {
 
 function TableCell29() {
   return (
-    <div className="absolute h-[37.5px] left-[805.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
+    <div className="absolute h-[37.5px] left-[1221.67px] overflow-clip top-0 w-[112.328px]" data-name="Table Cell">
       <p className="-translate-x-1/2 absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[56.3px] not-italic text-[#334155] text-[13px] text-center top-[11.25px] whitespace-nowrap">5</p>
     </div>
   );
@@ -1112,7 +1112,7 @@ function TableCell29() {
 
 function TableRow5() {
   return (
-    <div className="absolute h-[37.5px] left-0 top-[152px] w-[918px]" data-name="Table Row">
+    <div className="absolute h-[37.5px] left-0 top-[152px] w-[1334px]" data-name="Table Row">
       <TableCell24 />
       <TableCell25 />
       <TableCell26 />
@@ -1125,7 +1125,7 @@ function TableRow5() {
 
 function TableBody() {
   return (
-    <div className="absolute h-[189.5px] left-0 top-[28.5px] w-[918px]" data-name="Table Body">
+    <div className="absolute h-[189.5px] left-0 top-[28.5px] w-[1334px]" data-name="Table Body">
       <TableRow1 />
       <TableRow2 />
       <TableRow3 />
@@ -1137,7 +1137,7 @@ function TableBody() {
 
 function Table() {
   return (
-    <div className="flex-[1_0_0] min-h-px relative w-[918px]" data-name="Table">
+    <div className="flex-[1_0_0] min-h-px relative w-[1334px]" data-name="Table">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
         <TableRow />
         <TableBody />
@@ -1148,7 +1148,7 @@ function Table() {
 
 function Container18() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[14px] h-[302px] items-start left-[32px] pl-[21px] pr-px py-[21px] rounded-[20px] top-[266px] w-[960px]" data-name="Container">
+    <div className="absolute bg-white content-stretch flex flex-col gap-[14px] h-[302px] items-start left-[32px] pl-[21px] pr-px py-[21px] rounded-[20px] top-[266px] w-[1376px]" data-name="Container">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container19 />
       <Table />
@@ -1182,7 +1182,7 @@ function Container41() {
 
 function Container38() {
   return (
-    <div className="absolute bg-[#f8fafc] border border-[#e2e8f0] border-solid h-[108.5px] left-0 rounded-[20px] top-0 w-[309.328px]" data-name="Container">
+    <div className="absolute bg-[#f8fafc] border border-[#e2e8f0] border-solid h-[108.5px] left-0 rounded-[20px] top-0 w-[448px]" data-name="Container">
       <Container39 />
       <Container40 />
       <Container41 />
@@ -1234,7 +1234,7 @@ function Container44() {
 
 function Container42() {
   return (
-    <div className="absolute bg-[#f8fafc] border border-[#e2e8f0] border-solid h-[108.5px] left-[325.33px] rounded-[20px] top-0 w-[309.336px]" data-name="Container">
+    <div className="absolute bg-[#f8fafc] border border-[#e2e8f0] border-solid h-[108.5px] left-[464px] rounded-[20px] top-0 w-[448px]" data-name="Container">
       <Container43 />
       <Container44 />
     </div>
@@ -1259,7 +1259,7 @@ function Container48() {
 
 function Container46() {
   return (
-    <div className="absolute bg-[#f8fafc] content-stretch flex flex-col gap-[4px] h-[108.5px] items-start left-[650.66px] pb-px pt-[21px] px-[21px] rounded-[20px] top-0 w-[309.336px]" data-name="Container">
+    <div className="absolute bg-[#f8fafc] content-stretch flex flex-col gap-[4px] h-[108.5px] items-start left-[928px] pb-px pt-[21px] px-[21px] rounded-[20px] top-0 w-[448px]" data-name="Container">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container47 />
       <Container48 />
@@ -1269,7 +1269,7 @@ function Container46() {
 
 function Container37() {
   return (
-    <div className="absolute h-[108.5px] left-[32px] top-[588px] w-[960px]" data-name="Container">
+    <div className="absolute h-[108.5px] left-[32px] top-[588px] w-[1376px]" data-name="Container">
       <Container38 />
       <Container42 />
       <Container46 />
@@ -1279,7 +1279,7 @@ function Container37() {
 
 function MainContent() {
   return (
-    <div className="absolute h-[728.5px] left-[256px] top-[64px] w-[1024px]" data-name="Main Content">
+    <div className="relative mx-auto w-[1440px] h-auto pb-24 pt-6" data-name="Main Content">
       <Container />
       <Container1 />
       <Container9 />
@@ -1777,7 +1777,7 @@ function Button3() {
 
 function Sidebar() {
   return (
-    <div className="absolute bg-white border-[rgba(80,72,229,0.1)] border-r border-solid h-[832px] left-0 top-0 w-[256px]" data-name="Sidebar">
+    <div className="fixed bg-white border-[rgba(80,72,229,0.1)] border-r border-solid h-screen left-0 top-0 w-[256px] z-40 overflow-y-auto" data-name="Sidebar">
       <Container49 />
       <Button3 />
     </div>
@@ -1925,7 +1925,7 @@ function Container57() {
 
 function Header() {
   return (
-    <div className="absolute bg-white content-stretch flex h-[64px] items-center justify-between left-[256px] pb-px px-[32px] top-0 w-[1214px]" data-name="Header">
+    <div className="absolute bg-white content-stretch flex h-[64px] items-center justify-between left-[256px] pb-px px-[32px] top-0 w-[1440px]" data-name="Header">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-b border-solid inset-0 pointer-events-none" />
       <Container56 />
       <Container57 />
@@ -1935,10 +1935,10 @@ function Header() {
 
 export default function EmployeeProfileRaviKumarProjects() {
   return (
-    <div className="bg-[#f6f6f8] relative size-full" data-name="Employee Profile — Ravi Kumar — Projects">
-      <MainContent />
-      <Sidebar />
-      <Header />
+    <div className="bg-[#f6f6f8] relative w-full h-auto" data-name="Employee Profile — Ravi Kumar — Projects">
+      <div className="relative mx-auto w-[1440px] h-auto">
+        <MainContent />
+      </div>
     </div>
   );
 }

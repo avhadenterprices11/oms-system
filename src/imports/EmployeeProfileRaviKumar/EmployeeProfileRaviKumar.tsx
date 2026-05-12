@@ -53,7 +53,7 @@ function Text2() {
 
 function Container() {
   return (
-    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-[32px] top-[12px] w-[960.009px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[5.998px] h-[16.111px] items-center left-[32px] top-[12px] w-[1376px]" data-name="Container">
       <Link />
       <Text />
       <Link1 />
@@ -291,7 +291,7 @@ function Container8() {
 
 function Container1() {
   return (
-    <div className="absolute bg-white border border-[#e2e8f0] border-solid flex h-[152px] items-center justify-between left-[32px] px-8 rounded-[24px] top-[40px] w-[960px] shadow-sm" data-name="Container">
+    <div className="absolute bg-white border border-[#e2e8f0] border-solid flex h-[152px] items-center justify-between left-[32px] px-8 rounded-[24px] top-[40px] w-[1376px] shadow-sm" data-name="Container">
       <ProfileInfo />
       <div className="flex items-center gap-3">
         <Button />
@@ -416,7 +416,7 @@ function Container17() {
 
 function Container9() {
   return (
-    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[37.335px] left-[32px] top-[204px] w-[960.009px]" data-name="Container">
+    <div className="absolute border-[#e2e8f0] border-b-[0.556px] border-solid h-[37.335px] left-[32px] top-[204px] w-[1376px]" data-name="Container">
       <Container10 />
       <Container11 />
       <Container12 />
@@ -677,7 +677,7 @@ function Container39() {
 
 function Container19() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-0 rounded-[20px] top-0 w-[309.332px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-0 rounded-[20px] top-0 w-[448px]" data-name="Container">
       <Container20 />
       <Container23 />
       <Container33 />
@@ -1237,7 +1237,7 @@ function Container74() {
 
 function Container40() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-[325.33px] rounded-[20px] top-0 w-[309.34px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-[464px] rounded-[20px] top-0 w-[448px]" data-name="Container">
       <Container41 />
       <Container44 />
       <Container54 />
@@ -1551,7 +1551,7 @@ function Container104() {
 
 function Container84() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-[650.67px] rounded-[20px] top-0 w-[309.34px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[330.816px] left-[928px] rounded-[20px] top-0 w-[448px]" data-name="Container">
       <Container85 />
       <Container88 />
       <Container92 />
@@ -1863,7 +1863,7 @@ function Container130() {
 
 function Container108() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-0 rounded-[20px] top-[346.81px] w-[309.332px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-0 rounded-[20px] top-[346.81px] w-[448px]" data-name="Container">
       <Container109 />
       <Container112 />
       <Container122 />
@@ -2198,7 +2198,7 @@ function Container159() {
 
 function Container134() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-[325.33px] rounded-[20px] top-[346.81px] w-[309.34px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-[464px] rounded-[20px] top-[346.81px] w-[448px]" data-name="Container">
       <Container135 />
       <Container138 />
       <Container145 />
@@ -2471,7 +2471,7 @@ function Container187() {
 
 function Container166() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-[650.67px] rounded-[20px] top-[346.81px] w-[309.34px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[318.932px] left-[928px] rounded-[20px] top-[346.81px] w-[448px]" data-name="Container">
       <Container167 />
       <Container170 />
       <Container187 />
@@ -2722,7 +2722,7 @@ function Container201() {
 
 function Container191() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[223.507px] left-0 rounded-[20px] top-[681.74px] w-[309.332px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[223.507px] left-0 rounded-[20px] top-[681.74px] w-[448px]" data-name="Container">
       <Container192 />
       <Container195 />
       <Container201 />
@@ -3032,7 +3032,7 @@ function Container223() {
 
 function Container207() {
   return (
-    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[223.507px] left-[325.33px] rounded-[20px] top-[681.74px] w-[309.34px]" data-name="Container">
+    <div className="absolute bg-white border-[#e2e8f0] border-[0.556px] border-solid h-[223.507px] left-[464px] rounded-[20px] top-[681.74px] w-[448px]" data-name="Container">
       <Container208 />
       <Container211 />
       <Container217 />
@@ -3501,7 +3501,7 @@ function Container233() {
 
 function Container229() {
   return (
-    <div className="absolute bg-white content-stretch flex flex-col gap-[13.993px] h-[231.068px] items-start left-0 pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-[921.25px] w-[960.009px]" data-name="Container">
+    <div className="absolute bg-white content-stretch flex flex-col gap-[13.993px] h-[231.068px] items-start left-0 pb-[0.556px] pl-[20.556px] pr-[0.556px] pt-[20.556px] rounded-[20px] top-[921.25px] w-[1376px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#e2e8f0] border-[0.556px] border-solid inset-0 pointer-events-none rounded-[20px]" />
       <Container230 />
       <Container233 />
@@ -3511,7 +3511,7 @@ function Container229() {
 
 function Container18() {
   return (
-    <div className="absolute h-[1152.318px] left-[32px] top-[252px] w-[960.009px]" data-name="Container">
+    <div className="absolute h-[1152.318px] left-[32px] top-[252px] w-[1376px]" data-name="Container">
       <Container19 />
       <Container40 />
       <Container84 />
@@ -3527,7 +3527,7 @@ function Container18() {
 
 function MainContent() {
   return (
-    <div className="relative mx-auto w-[1024px] h-[1550px] pb-24 pt-6" data-name="Main Content">
+    <div className="relative mx-auto w-[1440px] h-auto pb-24 pt-6" data-name="Main Content">
       <Container />
       <Container1 />
       <Container9 />

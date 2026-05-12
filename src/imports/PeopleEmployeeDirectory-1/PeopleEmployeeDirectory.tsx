@@ -37,18 +37,66 @@ const NavTab = ({ label, active = false }: { label: string; active?: boolean }) 
   </button>
 );
 
-const FilterButton = ({ label, icon }: { label: string; icon?: React.ReactNode }) => (
-  <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
-    {icon}
-    {label}
-    <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-  </button>
-);
+const FilterButton = ({ 
+  label, 
+  icon, 
+  options, 
+  value, 
+  onSelect 
+}: { 
+  label: string; 
+  icon?: React.ReactNode; 
+  options?: string[];
+  value?: string;
+  onSelect?: (val: string) => void;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const StatusBadge = ({ label, count }: { label: string; count: number }) => (
-  <button className="px-6 py-2 rounded-full text-xs font-semibold flex items-center gap-2 bg-white border border-slate-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] text-slate-900 hover:border-[#5D5FEF] transition-all group">
-    <span className="font-bold text-[#0f172a] group-hover:text-[#5D5FEF]">{count}</span>
-    <span className="text-slate-500 group-hover:text-slate-900">{label}</span>
+  return (
+    <div className="relative">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-2 px-4 py-2 border rounded-xl text-sm font-medium transition-all shadow-sm ${isOpen || (value && !value.includes("All") && value !== label) ? "bg-indigo-50 border-indigo-200 text-[#5D5FEF]" : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"}`}
+      >
+        {icon}
+        {value || label}
+        <svg className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+      </button>
+
+      {isOpen && (
+        <>
+          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+          <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-slate-100 rounded-2xl shadow-xl z-20 py-2 animate-in fade-in zoom-in-95 duration-200">
+            {options?.map(opt => (
+              <button
+                key={opt}
+                onClick={() => {
+                  onSelect?.(opt);
+                  setIsOpen(false);
+                }}
+                className={`w-full text-left px-4 py-2.5 text-sm font-bold transition-colors ${value === opt ? "text-[#5D5FEF] bg-indigo-50/50" : "text-slate-600 hover:bg-slate-50"}`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const StatusBadge = ({ label, count, active, onClick }: { label: string; count: number; active?: boolean; onClick?: () => void }) => (
+  <button 
+    onClick={onClick}
+    className={`px-6 py-2 rounded-full text-xs font-semibold flex items-center gap-2 border transition-all group ${
+      active 
+        ? "bg-indigo-50 border-[#5D5FEF] shadow-md shadow-indigo-100" 
+        : "bg-white border-slate-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:border-[#5D5FEF]"
+    }`}
+  >
+    <span className={`font-bold transition-colors ${active ? "text-[#5D5FEF]" : "text-[#0f172a] group-hover:text-[#5D5FEF]"}`}>{count}</span>
+    <span className={`transition-colors ${active ? "text-slate-900" : "text-slate-500 group-hover:text-slate-900"}`}>{label}</span>
   </button>
 );
 
@@ -123,11 +171,38 @@ export default function PeopleEmployeeDirectory() {
   const pathname = usePathname();
   
   const [search, setSearch] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [activeFilters, setActiveFilters] = useState({
+    dept: "All Departments",
+    role: "All Roles",
+    status: "All Status",
+    gender: "All Genders"
+  });
+
+
   const showAddEmployee = searchParams.get("view") === "add";
   const [showEditEmployee, setShowEditEmployee] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  const departments = ["All Departments", ...Array.from(new Set(employees.map(e => e.dept)))];
+  const roles = ["All Roles", ...Array.from(new Set(employees.map(e => e.role)))];
+  const statuses = ["All Status", "Active", "On Leave", "Onboarding"];
+
+  const filteredEmployees = employees.filter(emp => {
+    const matchesSearch = emp.name.toLowerCase().includes(search.toLowerCase()) || 
+                         emp.role.toLowerCase().includes(search.toLowerCase()) ||
+                         emp.dept.toLowerCase().includes(search.toLowerCase());
+    
+    const matchesDept = activeFilters.dept === "All Departments" || emp.dept === activeFilters.dept;
+    const matchesRole = activeFilters.role === "All Roles" || emp.role === activeFilters.role;
+    const matchesStatus = activeFilters.status === "All Status" || emp.status === activeFilters.status;
+    const matchesGender = activeFilters.gender === "All Genders" || (emp as any).gender === activeFilters.gender;
+
+    return matchesSearch && matchesDept && matchesRole && matchesStatus && matchesGender;
+  });
+
 
   useEffect(() => {
     if (searchParams.get("edit") === "true") {
@@ -213,9 +288,19 @@ export default function PeopleEmployeeDirectory() {
         <div className="max-w-[1000px] mx-auto">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-[13px] font-bold text-slate-400 mb-8">
-            <span>People</span>
+            <span 
+              onClick={() => router.push("/people")} 
+              className="cursor-pointer hover:text-[#5D5FEF] transition-colors"
+            >
+              People
+            </span>
             <span>/</span>
-            <span>Directory</span>
+            <span 
+              onClick={() => router.push("/people/directory")} 
+              className="cursor-pointer hover:text-[#5D5FEF] transition-colors"
+            >
+              Directory
+            </span>
             <span>/</span>
             <span className="text-slate-900">Add Employee</span>
           </div>
@@ -276,13 +361,30 @@ export default function PeopleEmployeeDirectory() {
                     </svg>
                     <label className="text-[14px] font-black text-slate-900 tracking-tight">Profile Photo</label>
                   </div>
-                  <div className="size-24 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#5D5FEF] hover:bg-indigo-50 transition-all group">
+                  <div 
+                    onClick={() => document.getElementById('profile-upload-input')?.click()}
+                    className="size-24 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#5D5FEF] hover:bg-indigo-50 transition-all group relative overflow-hidden"
+                  >
+                    <input 
+                      type="file" 
+                      id="profile-upload-input" 
+                      className="hidden" 
+                      accept="image/*" 
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          // Handle file upload preview if needed
+                          console.log("Selected file:", file.name);
+                        }
+                      }}
+                    />
                     <svg className="size-6 text-slate-300 group-hover:text-[#5D5FEF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest group-hover:text-[#5D5FEF]">Upload</span>
                   </div>
                 </div>
+
 
                 {/* Personal Details */}
                 <div className="mb-12">
@@ -312,13 +414,28 @@ export default function PeopleEmployeeDirectory() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Date of Birth</label>
-                      <input type="date" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all" />
+                      <div className="relative group">
+                        <input 
+                          type="date" 
+                          onClick={(e) => (e.target as any).showPicker?.()}
+                          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all cursor-pointer" 
+                        />
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none group-hover:text-[#5D5FEF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      </div>
                     </div>
+
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Gender</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Gender</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Gender</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Non-binary</option>
+                          <option>Prefer not to say</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -352,9 +469,17 @@ export default function PeopleEmployeeDirectory() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Country</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Country</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>India</option>
+                          <option>United States</option>
+                          <option>United Kingdom</option>
+                          <option>Canada</option>
+                          <option>Australia</option>
+                          <option>Other</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -374,9 +499,17 @@ export default function PeopleEmployeeDirectory() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Relationship</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Relationship</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Relationship</option>
+                          <option>Spouse</option>
+                          <option>Parent</option>
+                          <option>Sibling</option>
+                          <option>Friend</option>
+                          <option>Other</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -410,22 +543,44 @@ export default function PeopleEmployeeDirectory() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Department <span className="text-red-500">*</span></label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Department</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Department</option>
+                          <option>Engineering</option>
+                          <option>Design</option>
+                          <option>Operations</option>
+                          <option>Sales</option>
+                          <option>Marketing</option>
+                          <option>HR</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Reports To <span className="text-red-500">*</span></label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Manager</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Manager</option>
+                          <option>Ashwini Reddy (Senior Dev)</option>
+                          <option>Marcus Vane (Lead Design)</option>
+                          <option>Lisa Chen (Ops Manager)</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                       <p className="text-[10px] font-bold text-slate-400">This sets the reporting structure in Org Chart</p>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Employment Type</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Type</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Type</option>
+                          <option>Full-time</option>
+                          <option>Part-time</option>
+                          <option>Contract</option>
+                          <option>Intern</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -442,9 +597,16 @@ export default function PeopleEmployeeDirectory() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-8">
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">System Role <span className="text-red-500">*</span></label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Role</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Role</option>
+                          <option>Admin</option>
+                          <option>Manager</option>
+                          <option>Employee</option>
+                          <option>Viewer</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                       <p className="text-[10px] font-bold text-slate-400">Controls global access level. Detailed per-module access is configured in Step 3.</p>
                     </div>
                     <div className="space-y-2">
@@ -654,15 +816,27 @@ export default function PeopleEmployeeDirectory() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900 ml-1">Data Visibility</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Visibility</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Visibility</option>
+                          <option>Private</option>
+                          <option>Team</option>
+                          <option>Department</option>
+                          <option>Public</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900 ml-1">Export Permission</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Permission</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Permission</option>
+                          <option>Enabled</option>
+                          <option>Disabled</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -688,9 +862,16 @@ export default function PeopleEmployeeDirectory() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Template</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Template</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Template</option>
+                          <option>Engineering Template</option>
+                          <option>Design Template</option>
+                          <option>General Template</option>
+                          <option>Sales Template</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Start Date <span className="text-red-500">*</span></label>
@@ -698,15 +879,28 @@ export default function PeopleEmployeeDirectory() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Buddy / Mentor</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Mentor</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Mentor</option>
+                          <option>Ashwini Reddy</option>
+                          <option>Marcus Vane</option>
+                          <option>Lisa Chen</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Probation Period</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Period</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Period</option>
+                          <option>30 Days</option>
+                          <option>60 Days</option>
+                          <option>90 Days</option>
+                          <option>None</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -766,15 +960,27 @@ export default function PeopleEmployeeDirectory() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Default Project</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Project</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Project</option>
+                          <option>Project Alpha</option>
+                          <option>Project Beta</option>
+                          <option>Project Gamma</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[12px] font-black text-slate-900">Initial Task Board</label>
-                      <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                        <option>Select Board</option>
-                      </select>
+                      <div className="relative">
+                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-sm font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                          <option>Select Board</option>
+                          <option>Kanban Board</option>
+                          <option>Scrum Board</option>
+                          <option>List View</option>
+                        </select>
+                        <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -880,13 +1086,27 @@ export default function PeopleEmployeeDirectory() {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
           <div>
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-2 text-[13px] font-bold text-slate-400 mb-6">
+              <span 
+                onClick={() => router.push("/people")} 
+                className="cursor-pointer hover:text-[#5D5FEF] transition-colors"
+              >
+                People
+              </span>
+              <span>/</span>
+              <span className="text-slate-900">Directory</span>
+            </div>
             <h1 className="text-[40px] font-extrabold text-slate-900 tracking-tight mb-2">Employee Directory</h1>
             <p className="text-slate-400 font-medium">24 employees across 6 departments</p>
           </div>
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+            <button 
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-2 px-5 py-2.5 border rounded-xl text-sm font-bold transition-all shadow-sm ${showFilters ? "bg-[#5D5FEF] text-white border-[#5D5FEF]" : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"}`}
+            >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg>
-              Filters
+              {showFilters ? "Hide Filters" : "Filters"}
             </button>
             <button 
               onClick={() => router.push(pathname + "?view=add")}
@@ -901,18 +1121,48 @@ export default function PeopleEmployeeDirectory() {
         {/* Filter Bar */}
         <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
           <div className="flex flex-wrap items-center gap-3">
-            <FilterButton 
-              label="Department" 
-              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} 
-            />
-            <FilterButton 
-              label="Role" 
-              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} 
-            />
-            <FilterButton 
-              label="Status" 
-              icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} 
-            />
+            {showFilters && (
+              <div className="flex flex-wrap items-center gap-3 animate-in slide-in-from-left-4 fade-in duration-300">
+                <FilterButton 
+                  label="Department" 
+                  options={departments}
+                  value={activeFilters.dept}
+                  onSelect={(val) => setActiveFilters(prev => ({ ...prev, dept: val }))}
+                  icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1" /></svg>} 
+                />
+                <FilterButton 
+                  label="Role" 
+                  options={roles}
+                  value={activeFilters.role}
+                  onSelect={(val) => setActiveFilters(prev => ({ ...prev, role: val }))}
+                  icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} 
+                />
+                <FilterButton 
+                  label="Status" 
+                  options={statuses}
+                  value={activeFilters.status}
+                  onSelect={(val) => setActiveFilters(prev => ({ ...prev, status: val === "All Status" ? "All Status" : val }))}
+                  icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} 
+                />
+                <FilterButton 
+                  label="Gender" 
+                  options={["All Genders", "Male", "Female", "Non-binary"]}
+                  value={activeFilters.gender}
+                  onSelect={(val) => setActiveFilters(prev => ({ ...prev, gender: val }))}
+                  icon={<svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} 
+                />
+
+                {(activeFilters.dept !== "All Departments" || activeFilters.role !== "All Roles" || activeFilters.status !== "All Status" || activeFilters.gender !== "All Genders") && (
+                  <button 
+                    onClick={() => setActiveFilters({ dept: "All Departments", role: "All Roles", status: "All Status", gender: "All Genders" })}
+                    className="text-xs font-bold text-[#5D5FEF] hover:underline px-2"
+                  >
+
+                    Clear All
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="relative flex-1 max-w-md">
@@ -929,36 +1179,76 @@ export default function PeopleEmployeeDirectory() {
 
         {/* Status Counters */}
         <div className="flex flex-wrap items-center gap-2 mb-12">
-          <StatusBadge label="Total" count={24} />
-          <StatusBadge label="Active" count={20} />
-          <StatusBadge label="On Leave" count={2} />
-          <StatusBadge label="Onboarding" count={2} />
+          <StatusBadge 
+            label="Total" 
+            count={employees.length} 
+            active={activeFilters.status === "All Status"}
+            onClick={() => setActiveFilters(prev => ({ ...prev, status: "All Status" }))}
+          />
+          <StatusBadge 
+            label="Active" 
+            count={employees.filter(e => e.status === 'Active').length} 
+            active={activeFilters.status === "Active"}
+            onClick={() => setActiveFilters(prev => ({ ...prev, status: "Active" }))}
+          />
+          <StatusBadge 
+            label="On Leave" 
+            count={employees.filter(e => e.status === 'On Leave').length} 
+            active={activeFilters.status === "On Leave"}
+            onClick={() => setActiveFilters(prev => ({ ...prev, status: "On Leave" }))}
+          />
+          <StatusBadge 
+            label="Onboarding" 
+            count={employees.filter(e => e.status === 'Onboarding').length} 
+            active={activeFilters.status === "Onboarding"}
+            onClick={() => setActiveFilters(prev => ({ ...prev, status: "Onboarding" }))}
+          />
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
-          {employees.map((emp, i) => (
-            <EmployeeCard 
-              key={i} 
-              emp={emp} 
-              onEdit={() => {
-                setSelectedEmployee(emp);
-                setShowEditEmployee(true);
-              }}
-              onViewProfile={() => {
-                if (emp.name === "Ravi Kumar") {
-                  router.push("/profile");
-                }
-              }}
-            />
-          ))}
+          {filteredEmployees.length > 0 ? (
+            filteredEmployees.map((emp, i) => (
+              <EmployeeCard 
+                key={i} 
+                emp={emp} 
+                onEdit={() => {
+                  setSelectedEmployee(emp);
+                  setShowEditEmployee(true);
+                }}
+                onViewProfile={() => {
+                  if (emp.name === "Ravi Kumar") {
+                    router.push("/profile");
+                  }
+                }}
+              />
+            ))
+          ) : (
+            <div className="col-span-full py-20 text-center">
+              <div className="inline-flex items-center justify-center size-16 bg-slate-100 rounded-full mb-4">
+                <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-1">No employees found</h3>
+              <p className="text-slate-400 text-sm">Try adjusting your filters or search terms.</p>
+              <button 
+                onClick={() => {
+                  setSearch("");
+                  setActiveFilters({ dept: "All Departments", role: "All Roles", status: "All Status" });
+                }}
+                className="mt-6 text-[#5D5FEF] font-bold text-sm hover:underline"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Edit Modal */}
         {showEditEmployee && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-start md:pl-[320px] p-4">
             <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setShowEditEmployee(false)} />
-            <div className="relative bg-white rounded-[32px] w-full max-w-[640px] shadow-2xl shadow-slate-900/20 overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div className="relative bg-white rounded-[32px] w-full max-w-[640px] shadow-2xl shadow-slate-900/20 overflow-hidden animate-in fade-in slide-in-from-left-8 duration-300">
+
               <div className="p-10 md:p-12">
                 <div className="mb-10">
                   <h2 className="text-[24px] font-black text-slate-900 mb-1">Edit Employee — {selectedEmployee?.name}</h2>
@@ -970,10 +1260,30 @@ export default function PeopleEmployeeDirectory() {
                   <div>
                     <h3 className="text-[10px] font-black text-[#5D5FEF] uppercase tracking-widest mb-6">PERSONAL</h3>
                     <div className="grid grid-cols-2 gap-6">
+                      <div className="col-span-full">
+                        <label className="text-[12px] font-black text-slate-900 ml-1 mb-2 block">Profile Photo</label>
+                        <div 
+                          onClick={() => document.getElementById('edit-profile-upload')?.click()}
+                          className="size-20 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-1 cursor-pointer hover:border-[#5D5FEF] hover:bg-indigo-50 transition-all group relative overflow-hidden"
+                        >
+                          <input 
+                            type="file" 
+                            id="edit-profile-upload" 
+                            className="hidden" 
+                            accept="image/*" 
+                            onChange={(e) => console.log("Edit file selected:", e.target.files?.[0].name)}
+                          />
+                          <svg className="size-5 text-slate-300 group-hover:text-[#5D5FEF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                          </svg>
+                          <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest group-hover:text-[#5D5FEF]">Change</span>
+                        </div>
+                      </div>
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">First Name <span className="text-red-500">*</span></label>
                         <input defaultValue={selectedEmployee?.name.split(' ')[0]} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all" />
                       </div>
+
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">Last Name <span className="text-red-500">*</span></label>
                         <input defaultValue={selectedEmployee?.name.split(' ')[1]} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all" />
@@ -986,6 +1296,30 @@ export default function PeopleEmployeeDirectory() {
                         <label className="text-[12px] font-black text-slate-900 ml-1">Phone</label>
                         <input defaultValue="+91 98765 43210" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all" />
                       </div>
+                      <div className="space-y-2">
+                        <label className="text-[12px] font-black text-slate-900 ml-1">Gender</label>
+                        <div className="relative">
+                          <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Non-binary</option>
+                            <option>Prefer not to say</option>
+                          </select>
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[12px] font-black text-slate-900 ml-1">Date of Birth</label>
+                        <div className="relative group">
+                          <input 
+                            type="date" 
+                            onClick={(e) => (e.target as any).showPicker?.()}
+                            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all cursor-pointer" 
+                          />
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none group-hover:text-[#5D5FEF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
 
@@ -999,21 +1333,41 @@ export default function PeopleEmployeeDirectory() {
                       </div>
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">Department</label>
-                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                          <option>{selectedEmployee?.dept}</option>
-                        </select>
+                        <div className="relative">
+                          <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                            <option>{selectedEmployee?.dept}</option>
+                            <option>Engineering</option>
+                            <option>Design</option>
+                            <option>Operations</option>
+                            <option>Sales</option>
+                            <option>Marketing</option>
+                            <option>HR</option>
+                          </select>
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">Reports To</label>
-                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                          <option>Ashwini Reddy</option>
-                        </select>
+                        <div className="relative">
+                          <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                            <option>Ashwini Reddy</option>
+                            <option>Marcus Vane</option>
+                            <option>Lisa Chen</option>
+                          </select>
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">Employment Type</label>
-                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                          <option>Full-time</option>
-                        </select>
+                        <div className="relative">
+                          <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                            <option>Full-time</option>
+                            <option>Part-time</option>
+                            <option>Contract</option>
+                            <option>Intern</option>
+                          </select>
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1024,9 +1378,15 @@ export default function PeopleEmployeeDirectory() {
                     <div className="grid grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">System Role</label>
-                        <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none">
-                          <option>Employee</option>
-                        </select>
+                        <div className="relative">
+                          <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-[14px] font-bold text-slate-900 outline-none focus:border-[#5D5FEF] transition-all appearance-none cursor-pointer">
+                            <option>Employee</option>
+                            <option>Admin</option>
+                            <option>Manager</option>
+                            <option>Viewer</option>
+                          </select>
+                          <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <label className="text-[12px] font-black text-slate-900 ml-1">Capacity Limit</label>

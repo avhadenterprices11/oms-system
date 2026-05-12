@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import svgPaths from "./svg-7wotfssrj9";
 import imgProfilePic from "./8903f064e14b604493b2a186385c8300714f69a3.png";
 
@@ -733,9 +734,13 @@ function Container24() {
   );
 }
 
-function Button2() {
+function Button2({ onClick }: { onClick: () => void }) {
   return (
-    <div className="bg-white content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-gray-50 transition-colors" data-name="Button">
+    <div 
+      className="bg-white content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-gray-50 transition-colors" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <Container24 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-auto justify-center not-italic relative shrink-0 text-[#0f172a] text-[12px] text-center whitespace-nowrap px-1">
@@ -745,12 +750,12 @@ function Button2() {
   );
 }
 
-function Container22() {
+function Container22({ onAddTask, onToggleViews }: { onAddTask: () => void, onToggleViews: () => void }) {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0" data-name="Container">
       <Button1 />
-      <Button2 />
-      <Button3 />
+      <Button2 onClick={onToggleViews} />
+      <Button3 onClick={onAddTask} />
     </div>
   );
 }
@@ -767,22 +772,26 @@ function Container25() {
   );
 }
 
-function Button3() {
+function Button3({ onClick }: { onClick: () => void }) {
   return (
-    <div className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[16px] py-[7px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors shadow-[0px_4px_10px_rgba(80,72,229,0.25)]" data-name="Button">
+    <div 
+      className="bg-[#5048e5] content-stretch flex gap-[8px] items-center px-[16px] py-[7px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-[#4338ca] transition-colors shadow-[0px_4px_10px_rgba(80,72,229,0.25)]" 
+      data-name="Button"
+      onClick={onClick}
+    >
       <Container25 />
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-normal not-italic relative shrink-0 text-white text-[14px] whitespace-nowrap">
-        <p className="leading-[20px]">Add Delivery Record</p>
+        <p className="leading-[20px]">Add Task</p>
       </div>
     </div>
   );
 }
 
-function Container19() {
+function Container19({ onAddTask, onToggleViews }: { onAddTask: () => void, onToggleViews: () => void }) {
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-name="Container">
       <Container20 />
-      <Container22 />
+      <Container22 onAddTask={onAddTask} onToggleViews={onToggleViews} />
     </div>
   );
 }
@@ -811,270 +820,97 @@ function Svg() {
   );
 }
 
-function ImageFill() {
+function FilterDropdown({ label, value, options, isOpen, onToggle, onSelect }: { label: string, value: string, options: string[], isOpen: boolean, onToggle: () => void, onSelect: (val: string) => void }) {
   return (
-    <div className="absolute h-[20px] left-0 top-0 w-[103px]" data-name="image fill">
-      <Svg />
-    </div>
-  );
-}
-
-function Container28() {
-  return (
-    <div className="-translate-y-1/2 absolute content-stretch flex flex-col items-start left-0 top-1/2" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center not-italic relative shrink-0 text-[#0f172a] text-[12px] whitespace-nowrap">
-        <p className="leading-[20px]">All Assignees</p>
-      </div>
-    </div>
-  );
-}
-
-function Options() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-fit min-w-[103px]" data-name="Options">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <ImageFill />
-        <Container28 />
-      </div>
-    </div>
-  );
-}
-
-function BackgroundBorder() {
-  return (
-    <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0" data-name="Background+Border">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Container27 />
-      <Options />
-    </div>
-  );
-}
-
-function Container29() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center not-italic relative shrink-0 text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase whitespace-nowrap">
-          <p className="leading-[20px]">Project:</p>
+    <div className="relative">
+      <div 
+        className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0 cursor-pointer hover:bg-slate-50 transition-colors border border-[#e2e8f0]" 
+        onClick={onToggle}
+      >
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
+          <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center not-italic relative shrink-0 text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase whitespace-nowrap">
+            <p className="leading-[20px]">{label}:</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#0f172a] text-[12px] whitespace-nowrap">{value}</span>
+          <svg className={`size-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"/>
+          </svg>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Svg1() {
-  return (
-    <div className="absolute left-[69px] size-[18px] top-[-1px]" data-name="SVG">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
-        <g id="SVG">
-          <path d="M5.4 7.2L9 10.8L12.6 7.2" id="Vector" stroke="var(--stroke-0, #6B7280)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.35" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function ImageFill1() {
-  return (
-    <div className="absolute h-[20px] left-0 top-0 w-[95px]" data-name="image fill">
-      <Svg1 />
-    </div>
-  );
-}
-
-function Container30() {
-  return (
-    <div className="-translate-y-1/2 absolute content-stretch flex flex-col items-start left-0 pr-[5.45px] top-1/2" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center not-italic relative shrink-0 text-[#0f172a] text-[12px] whitespace-nowrap">
-        <p className="leading-[20px]">All Projects</p>
-      </div>
-    </div>
-  );
-}
-
-function Options1() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-fit min-w-[95px]" data-name="Options">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <ImageFill1 />
-        <Container30 />
-      </div>
-    </div>
-  );
-}
-
-function BackgroundBorder1() {
-  return (
-    <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0" data-name="Background+Border">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Container29 />
-      <Options1 />
-    </div>
-  );
-}
-
-function Container31() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center not-italic relative shrink-0 text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase whitespace-nowrap">
-          <p className="leading-[20px]">Status:</p>
+      
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 z-[60] bg-white border border-slate-200 rounded-xl shadow-2xl p-2 w-56 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="max-h-60 overflow-y-auto scrollbar-hide">
+            {options.map((opt) => (
+              <button 
+                key={opt} 
+                onClick={() => onSelect(opt)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${value === opt ? 'bg-[#5048e5]/10 text-[#5048e5]' : 'text-slate-700 hover:bg-slate-50'}`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
-function Svg2() {
-  return (
-    <div className="absolute left-[67px] size-[18px] top-[-1px]" data-name="SVG">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
-        <g id="SVG">
-          <path d="M5.4 7.2L9 10.8L12.6 7.2" id="Vector" stroke="var(--stroke-0, #6B7280)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.35" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function ImageFill2() {
-  return (
-    <div className="absolute h-[20px] left-0 top-0 w-[93px]" data-name="image fill">
-      <Svg2 />
-    </div>
-  );
-}
-
-function Container32() {
-  return (
-    <div className="-translate-y-1/2 absolute content-stretch flex flex-col items-start left-0 top-1/2" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center not-italic relative shrink-0 text-[#0f172a] text-[12px] whitespace-nowrap">
-        <p className="leading-[20px]">All Statuses</p>
-      </div>
-    </div>
-  );
-}
-
-function Options2() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-fit min-w-[93px]" data-name="Options">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <ImageFill2 />
-        <Container32 />
-      </div>
-    </div>
-  );
-}
-
-function BackgroundBorder2() {
-  return (
-    <div className="bg-[#f8fafc] content-stretch flex gap-[8px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0" data-name="Background+Border">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Container31 />
-      <Options2 />
-    </div>
-  );
-}
-
-function Container33() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[20px] justify-center not-italic relative shrink-0 text-[#94a3b8] text-[10px] tracking-[0.5px] uppercase whitespace-nowrap">
-          <p className="leading-[20px]">Priority:</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Svg3() {
-  return (
-    <div className="absolute left-[69px] size-[18px] top-[-1px]" data-name="SVG">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
-        <g id="SVG">
-          <path d="M5.4 7.2L9 10.8L12.6 7.2" id="Vector" stroke="var(--stroke-0, #6B7280)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.35" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function ImageFill3() {
-  return (
-    <div className="absolute h-[20px] left-0 top-0 w-[95px]" data-name="image fill">
-      <Svg3 />
-    </div>
-  );
-}
-
-function Container34() {
-  return (
-    <div className="-translate-y-1/2 absolute content-stretch flex flex-col items-start left-0 pr-[0.89px] top-1/2" data-name="Container">
-      <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold h-[20px] justify-center not-italic relative shrink-0 text-[#0f172a] text-[12px] whitespace-nowrap">
-        <p className="leading-[20px]">All Priorities</p>
-      </div>
-    </div>
-  );
-}
-
-function Options3() {
-  return (
-    <div className="h-[20px] relative shrink-0 w-fit min-w-[95px]" data-name="Options">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
-        <ImageFill3 />
-        <Container34 />
-      </div>
-    </div>
-  );
-}
-
-function BackgroundBorder3() {
-  return (
-    <div className="bg-[#f8fafc] content-stretch flex gap-[8.01px] items-center px-[13px] py-[7px] relative rounded-[8px] shrink-0" data-name="Background+Border">
-      <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[8px]" />
-      <Container33 />
-      <Options3 />
-    </div>
-  );
-}
-
-function Button4() {
-  return (
-    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0" data-name="Button">
-      <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center not-italic relative shrink-0 text-[#5048e5] text-[12px] text-center whitespace-nowrap">
-        <p className="leading-[20px]">Reset Filters</p>
-      </div>
-    </div>
-  );
-}
-
-function ButtonMargin() {
-  return (
-    <div className="content-stretch flex flex-col items-start pl-[8px] relative shrink-0" data-name="Button:margin">
-      <Button4 />
-    </div>
-  );
-}
-
-function Container26() {
+function Container26({ filters, activeDropdown, onToggle, onSelect, onReset }: { filters: any, activeDropdown: string | null, onToggle: (id: string) => void, onSelect: (type: string, val: string) => void, onReset: () => void }) {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" data-name="Container">
-      <BackgroundBorder />
-      <BackgroundBorder1 />
-      <BackgroundBorder2 />
-      <BackgroundBorder3 />
-      <ButtonMargin />
+      <FilterDropdown 
+        label="Assignee" 
+        value={filters.assignee} 
+        options={['All Assignees', 'Ashwini', 'Marcus Wright', 'Sarah Chen', 'Alex Rivera']} 
+        isOpen={activeDropdown === 'assignee'}
+        onToggle={() => onToggle('assignee')}
+        onSelect={(val) => onSelect('assignee', val)}
+      />
+      <FilterDropdown 
+        label="Project" 
+        value={filters.project} 
+        options={['All Projects', 'Core Engine', 'Cloud Migration', 'Mobile App', 'Security Audit']} 
+        isOpen={activeDropdown === 'project'}
+        onToggle={() => onToggle('project')}
+        onSelect={(val) => onSelect('project', val)}
+      />
+      <FilterDropdown 
+        label="Status" 
+        value={filters.status} 
+        options={['All Statuses', 'Active', 'Planning', 'On Hold', 'Completed']} 
+        isOpen={activeDropdown === 'status'}
+        onToggle={() => onToggle('status')}
+        onSelect={(val) => onSelect('status', val)}
+      />
+      <FilterDropdown 
+        label="Priority" 
+        value={filters.priority} 
+        options={['All Priorities', 'Low', 'Medium', 'High', 'Critical']} 
+        isOpen={activeDropdown === 'priority'}
+        onToggle={() => onToggle('priority')}
+        onSelect={(val) => onSelect('priority', val)}
+      />
+      <div className="content-stretch flex flex-col items-start pl-[8px] relative shrink-0" data-name="Button:margin">
+        <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 cursor-pointer" onClick={onReset}>
+          <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium h-[20px] justify-center not-italic relative shrink-0 text-[#5048e5] text-[12px] text-center whitespace-nowrap hover:underline">
+            <p className="leading-[20px]">Reset Filters</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-function ViewControlsFilters() {
+function ViewControlsFilters({ onAddTask, onToggleViews, filters, activeDropdown, onToggleFilter, onSelectFilter, onResetFilters }: { onAddTask: () => void, onToggleViews: () => void, filters: any, activeDropdown: string | null, onToggleFilter: (id: string) => void, onSelectFilter: (type: string, val: string) => void, onResetFilters: () => void }) {
   return (
     <div className="bg-white relative shrink-0 w-full" data-name="View Controls & Filters">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[16px] items-start px-[32px] py-[16px] relative size-full">
-        <Container19 />
-        <Container26 />
+        <Container19 onAddTask={onAddTask} onToggleViews={onToggleViews} />
+        <Container26 filters={filters} activeDropdown={activeDropdown} onToggle={onToggleFilter} onSelect={onSelectFilter} onReset={onResetFilters} />
       </div>
     </div>
   );
@@ -1101,12 +937,25 @@ function TabNavigation() {
   );
 }
 
-function EnhancedProjectHeaderSection() {
+function EnhancedProjectHeaderSection({ onAddTask, onToggleViews, filters, activeDropdown, onToggleFilter, onSelectFilter, onResetFilters, showViews }: { onAddTask: () => void, onToggleViews: () => void, filters: any, activeDropdown: string | null, onToggleFilter: (id: string) => void, onSelectFilter: (type: string, val: string) => void, onResetFilters: () => void, showViews: boolean }) {
   return (
     <div className="bg-white shrink-0 relative w-full border-b border-[#e2e8f0]" data-name="Enhanced Project Header Section">
       <div className="content-stretch flex flex-col gap-[32px] items-start pb-px pt-[32px] px-[32px] relative size-full">
-        <ViewControlsFilters />
-        <TabNavigation />
+        <ViewControlsFilters onAddTask={onAddTask} onToggleViews={onToggleViews} filters={filters} activeDropdown={activeDropdown} onToggleFilter={onToggleFilter} onSelectFilter={onSelectFilter} onResetFilters={onResetFilters} />
+        <div className="flex items-center border-b border-slate-100 w-full gap-8">
+          <button 
+            className={`pb-4 text-sm font-bold transition-all border-b-2 ${!showViews ? 'text-[#5048e5] border-[#5048e5]' : 'text-slate-400 border-transparent hover:text-slate-600'}`}
+            onClick={() => showViews && onToggleViews()}
+          >
+            List View
+          </button>
+          <button 
+            className={`pb-4 text-sm font-bold transition-all border-b-2 ${showViews ? 'text-[#5048e5] border-[#5048e5]' : 'text-slate-400 border-transparent hover:text-slate-600'}`}
+            onClick={() => !showViews && onToggleViews()}
+          >
+            Board View
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -1287,83 +1136,163 @@ function TaskRow({
 
 
 
-// Removed unused Row1, Row2, Row3 components
+const TASK_DATA = [
+  {
+    id: 1,
+    title: "Cloud Migration",
+    subtitle: "Infrastructure Upgrade",
+    assignee: "Marcus Wright",
+    project: "Core Engine",
+    status: "Active",
+    priority: "High",
+    startDate: "Oct 12, 2023",
+    deadline: "Dec 20, 2023",
+    progress: 65,
+    icon: <svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p2914db00} fill="#5048E5"/></svg>,
+    iconBg: "bg-[rgba(80,72,229,0.1)]"
+  },
+  {
+    id: 2,
+    title: "Q4 Marketing Campaign",
+    subtitle: "Digital Strategy",
+    assignee: "Sarah Chen",
+    project: "Core Engine",
+    status: "Planning",
+    priority: "Medium",
+    startDate: "Nov 01, 2023",
+    deadline: "Dec 15, 2023",
+    progress: 40,
+    icon: <svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p12092b00} fill="#D97706"/></svg>,
+    iconBg: "bg-[#fef3c7]"
+  },
+  {
+    id: 3,
+    title: "Security Audit",
+    subtitle: "Compliance Review",
+    assignee: "Alex Rivera",
+    project: "Security Audit",
+    status: "On Hold",
+    priority: "Critical",
+    startDate: "Sep 15, 2023",
+    deadline: "Jan 30, 2024",
+    progress: 25,
+    icon: <svg className="size-5" viewBox="0 0 16 20" fill="none"><path d={svgPaths.p2bdb86e0} fill="#E11D48"/></svg>,
+    iconBg: "bg-[#ffe4e6]"
+  },
+  {
+    id: 4,
+    title: "Mobile App Redesign",
+    subtitle: "UX/UI Optimization",
+    assignee: "Ashwini",
+    project: "Mobile App",
+    status: "Completed",
+    priority: "Low",
+    startDate: "Aug 20, 2023",
+    deadline: "Oct 30, 2023",
+    progress: 100,
+    icon: <svg className="size-5" viewBox="0 0 22 21" fill="none"><path d={svgPaths.p13774060} fill="#059669"/></svg>,
+    iconBg: "bg-[#d1fae5]"
+  }
+];
 
-function Body1() {
+function Body1({ filters }: { filters: any }) {
+  const filteredTasks = TASK_DATA.filter(task => {
+    const matchAssignee = filters.assignee === 'All Assignees' || task.assignee === filters.assignee;
+    const matchProject = filters.project === 'All Projects' || task.project === filters.project;
+    const matchStatus = filters.status === 'All Statuses' || task.status === filters.status;
+    const matchPriority = filters.priority === 'All Priorities' || task.priority === filters.priority;
+    return matchAssignee && matchProject && matchStatus && matchPriority;
+  });
+
   return (
     <div className="flex flex-col w-full" data-name="Table Body">
-      <TaskRow 
-        title="Cloud Migration"
-        subtitle="Infrastructure Upgrade"
-        assignee="xyz"
-        project="Core Engine"
-        status="Active"
-        priority="High"
-        startDate="Oct 12, 2023"
-        deadline="Dec 20, 2023"
-        progress={65}
-        icon={<svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p2914db00} fill="#5048E5"/></svg>}
-        iconBg="bg-[rgba(80,72,229,0.1)]"
-      />
-      <TaskRow 
-        title="Q4 Marketing Campaign"
-        subtitle="Digital Strategy"
-        assignee="xyz"
-        project="Core Engine"
-        status="Planning"
-        priority="Medium"
-        startDate="Nov 01, 2023"
-        deadline="Dec 15, 2023"
-        progress={40}
-        icon={<svg className="size-5" viewBox="0 0 20 16" fill="none"><path d={svgPaths.p12092b00} fill="#D97706"/></svg>}
-        iconBg="bg-[#fef3c7]"
-      />
-      <TaskRow 
-        title="Security Audit"
-        subtitle="Compliance Review"
-        assignee="xyz"
-        project="Core Engine"
-        status="On Hold"
-        priority="Critical"
-        startDate="Sep 15, 2023"
-        deadline="Jan 30, 2024"
-        progress={25}
-        icon={<svg className="size-5" viewBox="0 0 16 20" fill="none"><path d={svgPaths.p2bdb86e0} fill="#E11D48"/></svg>}
-        iconBg="bg-[#ffe4e6]"
-      />
-      <TaskRow 
-        title="Mobile App Redesign"
-        subtitle="UX/UI Optimization"
-        assignee="xyz"
-        project="Core Engine"
-        status="Completed"
-        priority="Low"
-        startDate="Aug 20, 2023"
-        deadline="Oct 30, 2023"
-        progress={100}
-        icon={<svg className="size-5" viewBox="0 0 22 21" fill="none"><path d={svgPaths.p13774060} fill="#059669"/></svg>}
-        iconBg="bg-[#d1fae5]"
-      />
+      {filteredTasks.length > 0 ? (
+        filteredTasks.map(task => (
+          <TaskRow 
+            key={task.id}
+            {...task}
+          />
+        ))
+      ) : (
+        <div className="py-20 flex flex-col items-center justify-center text-slate-400 bg-white">
+          <svg className="size-12 mb-4 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+          </svg>
+          <p className="font-bold text-lg text-slate-500">No tasks found</p>
+          <p className="text-sm">Try adjusting your filters</p>
+        </div>
+      )}
     </div>
   );
 }
 
-function Table() {
+function BoardView({ filters }: { filters: any }) {
+  const statuses = ['Planning', 'Active', 'On Hold', 'Completed'];
+  
+  return (
+    <div className="flex gap-6 p-8 overflow-x-auto min-h-full bg-[#f6f6f8]">
+      {statuses.map(status => (
+        <div key={status} className="flex-1 min-w-[320px] flex flex-col gap-4">
+          <div className="flex items-center justify-between px-2">
+            <div className="flex items-center gap-3">
+              <h3 className="font-bold text-slate-700">{status}</h3>
+              <span className="bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                {TASK_DATA.filter(t => t.status === status).length}
+              </span>
+            </div>
+            <button className="p-1 hover:bg-slate-200 rounded transition-colors">
+              <svg className="size-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/></svg>
+            </button>
+          </div>
+          
+          <div className="flex flex-col gap-3">
+            {TASK_DATA.filter(t => t.status === status).map(task => (
+              <div key={task.id} className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-[#5048e5] transition-all cursor-pointer group">
+                <div className="flex justify-between items-start mb-3">
+                  <div className={`${task.iconBg} size-8 rounded-lg flex items-center justify-center shrink-0`}>
+                    {task.icon}
+                  </div>
+                  <PriorityBadge priority={task.priority} />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-1">{task.title}</h4>
+                <p className="text-xs text-slate-500 font-medium mb-4">{task.project}</p>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex -space-x-2">
+                    <div className="size-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                      <img src={imgProfilePic.src} alt="" className="size-full object-cover" />
+                    </div>
+                  </div>
+                  <div className="text-[10px] font-bold text-slate-400 flex items-center gap-1">
+                    <svg className="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002-2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/></svg>
+                    {task.deadline}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Table({ filters }: { filters: any }) {
   return (
     <div className="relative shrink-0 w-full" data-name="Table">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-px relative size-full">
         <HeaderRow />
-        <Body1 />
+        <Body1 filters={filters} />
       </div>
     </div>
   );
 }
 
-function BackgroundBorderShadow() {
+function BackgroundBorderShadow({ filters }: { filters: any }) {
   return (
     <div className="bg-white relative rounded-[24px] shrink-0 w-full overflow-hidden" data-name="Background+Border+Shadow">
       <div className="content-stretch flex flex-col items-start p-px relative size-full">
-        <Table />
+        <Table filters={filters} />
       </div>
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" />
     </div>
@@ -1430,58 +1359,149 @@ function FooterPagination() {
   );
 }
 
-function TaskListContainer() {
+function TaskListContainer({ filters }: { filters: any }) {
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col gap-[32px] items-start min-h-px relative w-full" data-name="Task List Container">
-      <BackgroundBorderShadow />
+      <BackgroundBorderShadow filters={filters} />
       <FooterPagination />
     </div>
   );
 }
 
-function OverviewTabContent() {
+function OverviewTabContent({ filters, showViews }: { filters: any, showViews: boolean }) {
   return (
     <div className="bg-[#f6f6f8] relative w-full" data-name="Overview Tab Content">
-      <div className="content-stretch flex flex-col items-start p-[32px] relative size-full min-h-screen">
-        <TaskListContainer />
-      </div>
+      {showViews ? (
+        <BoardView filters={filters} />
+      ) : (
+        <div className="content-stretch flex flex-col items-start p-[32px] relative size-full min-h-screen">
+          <TaskListContainer filters={filters} />
+        </div>
+      )}
     </div>
   );
 }
 
-function WorkspaceContent() {
+function WorkspaceContent({ onAddTask, onToggleViews, filters, activeDropdown, onToggleFilter, onSelectFilter, onResetFilters, showViews }: { onAddTask: () => void, onToggleViews: () => void, filters: any, activeDropdown: string | null, onToggleFilter: (id: string) => void, onSelectFilter: (type: string, val: string) => void, onResetFilters: () => void, showViews: boolean }) {
   return (
     <div className="bg-white flex-1 flex flex-col relative w-full" data-name="Workspace Content">
-      <EnhancedProjectHeaderSection />
+      <EnhancedProjectHeaderSection onAddTask={onAddTask} onToggleViews={onToggleViews} filters={filters} activeDropdown={activeDropdown} onToggleFilter={onToggleFilter} onSelectFilter={onSelectFilter} onResetFilters={onResetFilters} showViews={showViews} />
       <div className="flex-1 w-full bg-[#f6f6f8]">
-        <OverviewTabContent />
+        <OverviewTabContent filters={filters} showViews={showViews} />
       </div>
     </div>
   );
 }
 
-function MainContentArea() {
+function MainContentArea({ onAddTask, onToggleViews, filters, activeDropdown, onToggleFilter, onSelectFilter, onResetFilters, showViews }: { onAddTask: () => void, onToggleViews: () => void, filters: any, activeDropdown: string | null, onToggleFilter: (id: string) => void, onSelectFilter: (type: string, val: string) => void, onResetFilters: () => void, showViews: boolean }) {
   return (
     <div className="content-stretch flex flex-1 flex-col h-full items-start min-w-px overflow-hidden relative" data-name="Main Content Area">
       <HeaderTopNavigation />
-      <WorkspaceContent />
+      <WorkspaceContent onAddTask={onAddTask} onToggleViews={onToggleViews} filters={filters} activeDropdown={activeDropdown} onToggleFilter={onToggleFilter} onSelectFilter={onSelectFilter} onResetFilters={onResetFilters} showViews={showViews} />
     </div>
   );
 }
 
-function Body() {
+function Body({ onAddTask, onToggleViews, filters, activeDropdown, onToggleFilter, onSelectFilter, onResetFilters, showViews }: { onAddTask: () => void, onToggleViews: () => void, filters: any, activeDropdown: string | null, onToggleFilter: (id: string) => void, onSelectFilter: (type: string, val: string) => void, onResetFilters: () => void, showViews: boolean }) {
   return (
     <div className="flex-1 flex h-full overflow-hidden relative w-full" data-name="Body">
       <AsideSidebarNavigation />
-      <MainContentArea />
+      <MainContentArea onAddTask={onAddTask} onToggleViews={onToggleViews} filters={filters} activeDropdown={activeDropdown} onToggleFilter={onToggleFilter} onSelectFilter={onSelectFilter} onResetFilters={onResetFilters} showViews={showViews} />
+    </div>
+  );
+}
+
+function AddTaskModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div className="px-8 py-6 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-slate-900">Create New Task</h2>
+            <p className="text-sm text-slate-500 font-medium">Add a new task to the global board</p>
+          </div>
+          <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+            <svg className="size-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/></svg>
+          </button>
+        </div>
+        <div className="p-8 space-y-6">
+          <div className="space-y-2">
+            <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Task Title *</label>
+            <input type="text" placeholder="e.g. Implement login API endpoint" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all" />
+          </div>
+          <div className="space-y-2">
+            <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Description</label>
+            <textarea placeholder="Describe what needs to be done..." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all h-32 resize-none" />
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Priority</label>
+              <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] bg-white transition-all appearance-none">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Critical</option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label className="text-[13px] font-bold text-slate-700 uppercase tracking-wider">Deadline</label>
+              <input type="date" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#5048e5]/20 focus:border-[#5048e5] transition-all" />
+            </div>
+          </div>
+        </div>
+        <div className="px-8 py-6 bg-slate-50 border-t border-slate-100 flex justify-end gap-3">
+          <button onClick={onClose} className="px-6 py-2.5 rounded-xl font-bold text-slate-600 hover:bg-slate-100 transition-all">Cancel</button>
+          <button className="px-8 py-2.5 rounded-xl bg-[#5048e5] text-white font-bold hover:bg-[#4338ca] shadow-lg shadow-indigo-100 transition-all">Create Task</button>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function TaskListView() {
+  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+  const [showViews, setShowViews] = useState(false);
+  const [activeFilterDropdown, setActiveFilterDropdown] = useState<string | null>(null);
+  const [filters, setFilters] = useState({
+    assignee: 'All Assignees',
+    project: 'All Projects',
+    status: 'All Statuses',
+    priority: 'All Priorities'
+  });
+
+  const handleToggleFilter = (id: string) => {
+    setActiveFilterDropdown(activeFilterDropdown === id ? null : id);
+  };
+
+  const handleSelectFilter = (type: string, val: string) => {
+    setFilters(prev => ({ ...prev, [type]: val }));
+    setActiveFilterDropdown(null);
+  };
+
+  const handleResetFilters = () => {
+    setFilters({
+      assignee: 'All Assignees',
+      project: 'All Projects',
+      status: 'All Statuses',
+      priority: 'All Priorities'
+    });
+  };
+
   return (
     <div className="bg-[#f6f6f8] flex h-screen w-full overflow-hidden" data-name="Task list view">
-      <Body />
+      <Body 
+        onAddTask={() => setIsAddTaskOpen(true)} 
+        onToggleViews={() => setShowViews(!showViews)}
+        filters={filters}
+        activeDropdown={activeFilterDropdown}
+        onToggleFilter={handleToggleFilter}
+        onSelectFilter={handleSelectFilter}
+        onResetFilters={handleResetFilters}
+        showViews={showViews}
+      />
+      <AddTaskModal isOpen={isAddTaskOpen} onClose={() => setIsAddTaskOpen(false)} />
     </div>
   );
 }

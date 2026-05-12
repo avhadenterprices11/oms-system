@@ -27,7 +27,14 @@ export function EmployeeProfileLayout({ onNavigateBack }: EmployeeProfileLayoutP
 
   const handleTabChange = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    const text = target.textContent?.toLowerCase() || "";
+    
+    // Only handle clicks on actual interactive elements or their immediate text children
+    const button = target.closest("button") || target.closest("[data-name='Button']") || target.closest("[data-name='Link']");
+    const clickableText = target.textContent?.trim().toLowerCase() || "";
+    
+    if (!button && target.tagName !== "P" && target.tagName !== "SPAN") return;
+
+    const text = button ? button.textContent?.toLowerCase() || "" : clickableText;
 
     // Modal triggers
     if (text.includes("edit") && !text.includes("edit structure")) {
@@ -38,7 +45,7 @@ export function EmployeeProfileLayout({ onNavigateBack }: EmployeeProfileLayoutP
       setModalView("message");
       return;
     }
-    if (text.includes("reassign")) {
+    if (text.includes("reassign") || text.includes("assign task")) {
       setModalView("reassign");
       return;
     }
@@ -191,10 +198,10 @@ export function EmployeeProfileLayout({ onNavigateBack }: EmployeeProfileLayoutP
 
       {/* Modals */}
       {modalView && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={(e) => {
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-start md:pl-[320px] z-50 p-4" onClick={(e) => {
           if (e.target === e.currentTarget) setModalView(null);
         }}>
-          <div className="bg-white rounded-[16px] shadow-2xl max-w-[700px] w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-[32px] shadow-2xl shadow-slate-900/20 max-w-[640px] w-full max-h-[90vh] overflow-auto animate-in fade-in slide-in-from-left-8 duration-300 custom-scrollbar" onClick={(e) => e.stopPropagation()}>
             {modalView === "edit" && <EditEmployee />}
             {modalView === "message" && <MessageEmployee />}
             {modalView === "reassign" && <ReassignTasks />}
@@ -202,6 +209,7 @@ export function EmployeeProfileLayout({ onNavigateBack }: EmployeeProfileLayoutP
           </div>
         </div>
       )}
+
     </div>
   );
 }

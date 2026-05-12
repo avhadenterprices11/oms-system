@@ -19,7 +19,14 @@ export default function PeopleLayout({ children }: { children: React.ReactNode }
 
   const handleGlobalClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    const text = target.textContent?.toLowerCase() || "";
+    
+    // Only handle clicks on actual interactive elements or their immediate text children
+    const button = target.closest("button");
+    const clickableText = target.textContent?.trim().toLowerCase() || "";
+    
+    if (!button && target.tagName !== "P" && target.tagName !== "SPAN") return;
+
+    const text = button ? button.textContent?.toLowerCase() || "" : clickableText;
 
     // Modal triggers
     if (text.includes("add employee") && !pathname.includes("/directory")) {

@@ -737,11 +737,39 @@ function Container25() {
 
 function Container26() {
   return (
-    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[101.09px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[201.09px] w-[576.007px]" data-name="Container">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#5048e5] text-[13px] tracking-[0.5px] uppercase whitespace-nowrap">Personal</p>
     </div>
   );
 }
+
+function ProfilePhotoSection() {
+  return (
+    <div className="absolute left-[32px] top-[95px] flex items-center gap-6" data-name="Profile Photo Section">
+      <div 
+        onClick={() => document.getElementById('edit-profile-input')?.click()}
+        className="size-20 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-1 cursor-pointer hover:border-[#5048e5] hover:bg-indigo-50 transition-all group relative overflow-hidden"
+      >
+        <input 
+          type="file" 
+          id="edit-profile-input" 
+          className="hidden" 
+          accept="image/*" 
+          onChange={(e) => console.log("File:", e.target.files?.[0].name)}
+        />
+        <svg className="size-5 text-slate-300 group-hover:text-[#5048e5]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest group-hover:text-[#5048e5]">Change</span>
+      </div>
+      <div>
+        <h4 className="text-[14px] font-black text-slate-900">Profile Photo</h4>
+        <p className="text-[12px] text-slate-400 font-medium">Update your employee's avatar</p>
+      </div>
+    </div>
+  );
+}
+
 
 function Label() {
   return (
@@ -811,12 +839,34 @@ function Container29() {
 
 function Container27() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[129.2px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[229.2px] w-[576.007px]" data-name="Container">
       <Container28 />
       <Container29 />
     </div>
   );
 }
+
+function DateOfBirthField() {
+  return (
+    <div className="absolute content-stretch flex flex-col gap-[5px] h-[58.889px] items-start left-[32px] top-[304.09px] w-[280px]" data-name="DOB Container">
+      <div className="h-[16.111px] relative shrink-0 w-[280px]" data-name="Label">
+        <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[#334155] text-[13px]">Date of Birth</p>
+      </div>
+      <div className="bg-white flex-[1_0_0] min-h-[37px] relative rounded-[8px] w-full" data-name="Date Input">
+        <input 
+          type="date" 
+          onClick={(e) => (e.target as any).showPicker?.()}
+          className="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10"
+        />
+        <div className="flex items-center justify-between px-[14px] h-full border border-[#e2e8f0] rounded-[8px]">
+          <span className="text-[14px] text-slate-400">Select Date</span>
+          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function Label2() {
   return (
@@ -887,20 +937,22 @@ function Container32() {
 
 function Container30() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[204.09px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[379.09px] w-[576.007px]" data-name="Container">
       <Container31 />
       <Container32 />
     </div>
   );
 }
 
+
 function Container33() {
   return (
-    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[299.53px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[474.53px] w-[576.007px]" data-name="Container">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#5048e5] text-[13px] tracking-[0.5px] uppercase whitespace-nowrap">Work</p>
     </div>
   );
 }
+
 
 function Label4() {
   return (
@@ -996,12 +1048,13 @@ function Container36() {
 
 function Container34() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[327.64px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[502.64px] w-[576.007px]" data-name="Container">
       <Container35 />
       <Container36 />
     </div>
   );
 }
+
 
 function Label6() {
   return (
@@ -1110,20 +1163,22 @@ function Container39() {
 
 function Container37() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[402.53px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[577.53px] w-[576.007px]" data-name="Container">
       <Container38 />
       <Container39 />
     </div>
   );
 }
 
+
 function Container40() {
   return (
-    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[497.97px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex h-[16.111px] items-center left-[32px] top-[672.97px] w-[576.007px]" data-name="Container">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#5048e5] text-[13px] tracking-[0.5px] uppercase whitespace-nowrap">System</p>
     </div>
   );
 }
+
 
 function Label8() {
   return (
@@ -1212,12 +1267,13 @@ function Container43() {
 
 function Container41() {
   return (
-    <div className="absolute h-[58.889px] left-[32px] top-[526.08px] w-[576.007px]" data-name="Container">
+    <div className="absolute h-[58.889px] left-[32px] top-[701.08px] w-[576.007px]" data-name="Container">
       <Container42 />
       <Container43 />
     </div>
   );
 }
+
 
 function Button1() {
   return (
@@ -1242,7 +1298,7 @@ function Button2() {
 
 function Container44() {
   return (
-    <div className="absolute content-stretch flex gap-[10px] h-[58.333px] items-start justify-end left-[32px] pt-[20.556px] top-[608.96px] w-[576.007px]" data-name="Container">
+    <div className="absolute content-stretch flex gap-[10px] h-[58.333px] items-start justify-end left-[32px] pt-[20.556px] top-[783.96px] w-[576.007px]" data-name="Container">
       <div aria-hidden="true" className="absolute border-[#f1f5f9] border-solid border-t-[0.556px] inset-0 pointer-events-none" />
       <Button1 />
       <Button2 />
@@ -1250,14 +1306,17 @@ function Container44() {
   );
 }
 
+
 function Container23() {
   return (
-    <div className="bg-white h-[699.288px] relative rounded-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] shrink-0 w-[640px]" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid overflow-clip relative rounded-[inherit] size-full">
+    <div className="bg-white h-[880.288px] relative rounded-[32px] shadow-2xl shrink-0 w-[640px] overflow-hidden" data-name="Container">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid overflow-y-auto relative rounded-[inherit] size-full custom-scrollbar">
         <Container24 />
         <Container25 />
+        <ProfilePhotoSection />
         <Container26 />
         <Container27 />
+        <DateOfBirthField />
         <Container30 />
         <Container33 />
         <Container34 />
@@ -1270,13 +1329,15 @@ function Container23() {
   );
 }
 
+
 function Container22() {
   return (
-    <div className="absolute bg-[rgba(0,0,0,0.5)] content-stretch flex h-[924.444px] items-center justify-center left-0 px-[496.667px] top-0 w-[1633.333px]" data-name="Container">
+    <div className="absolute bg-slate-900/40 backdrop-blur-sm content-stretch flex h-full items-center justify-start md:pl-[320px] left-0 top-0 w-full z-50" data-name="Container">
       <Container23 />
     </div>
   );
 }
+
 
 export default function EditEmployee() {
   return (
